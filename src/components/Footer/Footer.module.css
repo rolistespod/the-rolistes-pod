@@ -1,0 +1,43 @@
+.navUp, .navDown {
+	height: 45px;
+	width: 100%;
+	text-align: center;
+    background-color: #000000;
+    padding-top: 7px;
+    position: fixed;
+	bottom: -45px;
+	transition: bottom 0.2s ease-in-out;
+}
+
+.navUp {
+    bottom: 0;
+}
+
+.navDown {
+	bottom: -45px;
+}
+
+.topLink {
+    transition: background-color 0.4s ease;
+    box-sizing: border-box;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 3px 5px;
+	border-radius: 5px;
+    color: var(--secondary-color);
+    font-size: 1.6em;    
+    
+}
+
+.topLink a{
+    margin-top:50px;
+}
+
+.topLink:hover {
+    background-color: var(--secondary-color);
+    color:var(--main-color);
+}
+
+.footer{
+	padding-bottom: 45px;
+}

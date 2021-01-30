@@ -1,0 +1,44 @@
+.Support_Img{
+    filter:grayscale(0);
+    width: 75%;
+    opacity: 1;
+    margin-bottom: 8px;
+}
+
+.Support_Img_Patreon{
+    transition: filter 0.4s ease-out;	
+}
+
+.Support_Img_Patreon:hover{
+    filter:grayscale(80%);
+    transition: filter 0.5s ease-out;	
+}
+
+.Support_Img_Paypal{
+    transition: opacity 0.4s ease-out;	
+}
+
+.Support_Img_Paypal:hover{
+    opacity: 0.65;
+    transition: opacity 0.5s ease-out;	
+}
+
+@media screen and (max-width: 992px){
+
+    .Support_Img{
+        width: 45%;
+    }
+
+    .Support_Img_Paypal{
+        margin-left: 15px;
+        max-height: 84px;
+    }
+}
+
+@media screen and (max-width: 768px){
+
+    .Support_Img_Paypal{
+        max-height: 62px;
+    }
+}
+   

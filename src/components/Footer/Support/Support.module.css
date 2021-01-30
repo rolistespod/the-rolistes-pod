@@ -1,0 +1,30 @@
+.supportLink, .supportLink:hover{
+	transition: filter 0.4s ease;
+}
+
+.supportLink img{
+    border-radius: 15px;
+    max-width: 310px;
+    margin-bottom: 1.5rem;
+}
+
+/* .SupportLink>span{
+	padding-top: 2px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 7px 0;
+    font-size: 1.6em;
+} */
+
+.supportLink{
+	color:#000000;
+}
+
+.supportLink:hover{
+	/* background-color: var(--secondary-color);
+    color:var(--main-color); */
+    filter: invert(97%) sepia(0%) saturate(0%) hue-rotate(133deg) brightness(103%) contrast(108%); 
+    -webkit-filter: invert(97%) sepia(0%) saturate(0%) hue-rotate(133deg) brightness(103%) contrast(108%);
+}

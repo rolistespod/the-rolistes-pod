@@ -8,6 +8,7 @@ import LatestNews from '../../components/Latest/LatestNews/LatestNews';
 import LatestPodcast from '../../components/Latest/LatestPodcast/LatestPodcast';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import RecommendedPosts from '../../components/side/Recommended/RecommendedPosts';
+import Ads from '../../components/UI/Ads/Ads';
 import RecentPosts from '../../components/side/Recent/RecentPosts';
 import * as actions from '../../store/actions/index';
 import { connect } from 'react-redux';
@@ -281,6 +282,7 @@ const Posts = props => {
                     <Banner/>
                     <LatestPodcast 
                     podcast={latestPodcast} /> 
+                    <Ads/>
                     <LatestNews 
                     news={latestNews}/> 
                 </Aux>                                                          

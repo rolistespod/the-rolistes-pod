@@ -1,0 +1,10 @@
+.ads {
+    display:block;
+    margin: 0 auto;
+    height:120px;
+    width:auto;
+}
+
+.adsContainer{
+    background-color: #000000;
+}

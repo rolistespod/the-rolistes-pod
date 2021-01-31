@@ -2,11 +2,18 @@
     padding-bottom: 15px;
 }
 
-.fullPost img{
-    max-width: 80% !important;    
+.fullPost img{   
     height: auto !important;
     display:block;
     margin: 0 auto 15px;
+}
+
+.fullPostPodcast img{
+    max-width: 60% !important;    
+}
+
+.fullPostNotPodcast img{
+    max-width: 85% !important;    
 }
 
 audio{
@@ -15,13 +22,13 @@ audio{
 }
 
 @media screen and (max-width: 992px){
-	.fullPost img{
-        max-width: 70% !important;
+	.fullPostPodcast img{
+        max-width: 65% !important;
     }
 }
 
 @media screen and (max-width: 768px){
-	.fullPost img{
-        max-width: 100% !important;
+	.fullPostPodcast img{
+        max-width: 70% !important;
     }
 }

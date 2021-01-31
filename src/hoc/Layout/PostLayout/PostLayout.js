@@ -3,6 +3,7 @@ import Aux from '../../Auxiliary/Auxiliary';
 import Posts from '../../../containers/Posts/Posts';
 import classes from './PostLayout.module.css';
 import { Col, Container, Row } from 'react-bootstrap';
+import Ads from '../../../components/UI/Ads/Ads';
 import Follow from '../../../components/side/Follow/Follow';
 import Support from '../../../components/side/Support/Support';
 import PaginationList from '../../../components/UI/PaginationList/PaginationList';
@@ -22,6 +23,7 @@ const PostLayout = (props) => {
         <Aux>
             
             <Container>
+                <Ads/>
                 <Row>
                     <Col lg={8} xs={12} className={[globalClasses.no_padding_right,globalClasses.no_padding_smallscreen].join(' ')}>
                         <Posts type={props.type} pageTitle={pageId}/>                    

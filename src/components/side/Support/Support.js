@@ -1,25 +1,39 @@
 import React from 'react';
+import { faPatreon, faPaypal, faItchIo } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Row, Col } from 'react-bootstrap';
 import Aux from '../../../hoc/Auxiliary/Auxiliary';
-import paypalButton from '../../../assets/images/paypal-button.png';
-import patreonButton from '../../../assets/images/patreon-button.png';
 import classes from './Support.module.css';
 import globalClasses from '../../../App.module.css';
 
 const Support = (props) => {
     return (
         <Aux>
-            <Row>
-                <Col xs={12}>
+            <div className={[globalClasses.item_box_right,globalClasses.item_box_hide_mobile].join(' ')}>
+                <Row>
+                    <Col xs={12}>                    
+                        <h2 className={globalClasses.section_title}>Support Us</h2>                          
+                    </Col>
+                    <Row className={classes.side_icons}>
+                            
+                        <Col xs={3}>
+                            <a href="https://www.patreon.com/RolistesPod" className={classes.SideLink}><span><FontAwesomeIcon icon={faPatreon} aria-hidden="true"/></span></a>
+                        </Col>
 
-                    <div className={[globalClasses.item_box_right,globalClasses.item_box_hide_mobile].join(' ')}>
-                        <h2 className={globalClasses.section_title}>Support Us</h2>
-                        <a href="https://www.patreon.com/RolistesPod"><img src={patreonButton} className={[classes.Support_Img, classes.Support_Img_Patreon].join(' ')} alt="Support me on Patreon" aria-hidden="true"/></a>
-                              
-                        <a href="https://www.paypal.com/paypalme/rolistespod/"><img src={paypalButton} className={[classes.Support_Img, classes.Support_Img_Paypal].join(' ')} alt="Donate with Paypal" aria-hidden="true"/></a>                       
-                    </div>
-                </Col>               
-            </Row>    
+                        <Col xs={3}>
+                            <a href="https://www.paypal.com/paypalme/rolistespod/" className={classes.SideLink}><span><FontAwesomeIcon icon={faPaypal} aria-hidden="true"/></span></a>
+                        </Col>
+
+                        <Col xs={3}>
+                            <a href="https://www.drivethrurpg.com/index.php?affiliate_id=1289000" className={classes.SideLink}><span><FontAwesomeIcon icon={faItchIo} aria-hidden="true"/></span></a>
+                        </Col>
+
+                        <Col xs={3}>
+                            <a href="https://itch.io/physical-games?ac=6hKcoR9Jch" className={classes.SideLink}><span><FontAwesomeIcon icon={faItchIo} aria-hidden="true"/></span></a>
+                        </Col>
+                    </Row>               
+                </Row> 
+            </div>   
         </Aux>
     )
 }

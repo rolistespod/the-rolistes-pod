@@ -5,6 +5,7 @@ import classes from './GondoLayout.module.css';
 import PaginationList from '../../../components/UI/PaginationList/PaginationList';
 import { Col, Container, Row } from 'react-bootstrap';
 import Follow from '../../../components/side/Follow/Follow';
+import Ads from '../../../components/UI/Ads/Ads';
 import Support from '../../../components/side/Support/Support';
 import Footer from '../../../components/Footer/Footer';
 import * as actions from '../../../store/actions/index';
@@ -28,6 +29,7 @@ const NewsLayout = (props) =>
     return (
         <Aux>
             <Container>
+                <Ads/>
                 <Row>                                           
                     <Col lg={8} xs={12} className={[globalClasses.no_padding_right,globalClasses.no_padding_smallscreen].join(' ')} >                    
                         

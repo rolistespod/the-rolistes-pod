@@ -4,6 +4,7 @@ import Button from '../../../components/UI/Button/Button';
 import classes from './PodcastLayout.module.css';
 import { Col, Container, Row } from 'react-bootstrap';
 import Posts from '../../../containers/Posts/Posts';
+import Ads from '../../../components/UI/Ads/Ads';
 import Footer from '../../../components/Footer/Footer';
 import PaginationList from '../../../components/UI/PaginationList/PaginationList';
 import * as actions from '../../../store/actions/index';
@@ -102,7 +103,8 @@ const PodcastLayout = (props) => {
  
     return (
         <Aux>
-            <Container className={globalClasses.no_padding_smallscreen} >
+            <Container className={globalClasses.no_padding_smallscreen} >                
+                <Ads/>
                 <div className={globalClasses.item_box}>
                     <h1 className={[globalClasses.section_title, globalClasses.section_title_podcast].join(' ')}>Podcast</h1>
                     <div className={classes.filters}>

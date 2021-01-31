@@ -29,7 +29,7 @@ const RecommendedPosts = (props) => {
     return (
         <Aux>
             <div className={globalClasses.item_box_right}>
-                <h2 className={globalClasses.section_title}>Recommended Podcasts</h2>
+                <h2 className={globalClasses.section_title}>Recommended</h2>
                 <Row>
                     {recommendedPosts}
                 </Row>         

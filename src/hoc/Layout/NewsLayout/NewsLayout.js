@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Aux from '../../Auxiliary/Auxiliary';
 import Posts from '../../../containers/Posts/Posts';
 import classes from './NewsLayout.module.css';
+import Ads from '../../../components/UI/Ads/Ads';
 import PaginationList from '../../../components/UI/PaginationList/PaginationList';
 import { Col, Container, Row } from 'react-bootstrap';
 import Follow from '../../../components/side/Follow/Follow';
@@ -28,7 +29,8 @@ const NewsLayout = (props) =>
     return (
         <Aux>
             <Container>
-                <Row>                                           
+                <Ads/>
+                <Row>                                         
                     <Col lg={8} xs={12} className={[globalClasses.no_padding_right,globalClasses.no_padding_smallscreen].join(' ')} >                    
                         <div className={globalClasses.item_box_left}>
                             <h1 className={globalClasses.section_title}>News</h1>

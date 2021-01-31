@@ -213,7 +213,8 @@ const Posts = props => {
                         author= {news[key]["dc:creator"][0]}
                         title= {news[key]["title"]}
                         content= {news[key]["content:encoded"][0]}
-                        date= {news[key]["pubDate"][0]}/>;
+                        date= {news[key]["pubDate"][0]}
+                        type="NEWS"/>;
                 break;
 
             case "INTROGONDO":
@@ -225,7 +226,8 @@ const Posts = props => {
                         author= {introGondo[0]["dc:creator"][0]}
                         title= {introGondo[0]["title"]}
                         content= {introGondo[0]["content:encoded"][0]}
-                        date= {introGondo[0]["pubDate"][0]}/>;
+                        date= {introGondo[0]["pubDate"][0]}
+                        type="GONDO"/>;
                 break;
 
             case "ABOUT":
@@ -263,7 +265,8 @@ const Posts = props => {
                     author= {podcast[key]["dc:creator"][0]}
                     date= {podcast[key]["pubDate"][0]}
                     title= {podcast[key]["title"]}
-                    content= {podcast[key]["content:encoded"][0]}/>;                                 
+                    content= {podcast[key]["content:encoded"][0]}
+                    type="PODCAST"/>;                                 
                 break;
 
             case "LATEST":

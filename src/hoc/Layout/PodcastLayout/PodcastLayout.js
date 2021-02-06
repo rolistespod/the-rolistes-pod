@@ -11,6 +11,7 @@ import * as actions from '../../../store/actions/index';
 import { connect } from 'react-redux';
 import globalClasses from '../../../App.module.css';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 const PodcastLayout = (props) => {
 
@@ -103,6 +104,10 @@ const PodcastLayout = (props) => {
  
     return (
         <Aux>
+            <Helmet>
+                <title>The Rolistes Podcast - Podcasts</title>
+                <meta name="description" content=""/>
+            </Helmet>
             <Container className={globalClasses.no_padding_smallscreen} >                
                 <Ads/>
                 <div className={globalClasses.item_box}>

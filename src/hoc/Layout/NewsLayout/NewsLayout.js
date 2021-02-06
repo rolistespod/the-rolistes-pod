@@ -11,6 +11,7 @@ import Footer from '../../../components/Footer/Footer';
 import * as actions from '../../../store/actions/index';
 import { connect } from 'react-redux';
 import globalClasses from '../../../App.module.css';
+import { Helmet } from 'react-helmet';
 
 
 
@@ -27,7 +28,11 @@ const NewsLayout = (props) =>
     const paginate = (pageNumber) => props.onSetCurrentPageNews(pageNumber);
 
     return (
-        <Aux>
+        <Aux>            
+            <Helmet>
+                <title>The Rolistes Podcast - News</title>
+                <meta name="description" content=""/>
+            </Helmet>
             <Container>
                 <Ads/>
                 <Row>                                         

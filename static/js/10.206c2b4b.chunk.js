@@ -1,2 +1,0 @@
-(this["webpackJsonpthe-rolistes-pod"]=this["webpackJsonpthe-rolistes-pod"]||[]).push([[10],{200:function(e,t,a){"use strict";a.r(t);var n=a(0),l=a.n(n),s=a(24),r=a(168),c=a(161),u=a(167);t.default=function(e){return l.a.createElement(s.a,null,l.a.createElement(c.a,null,l.a.createElement(u.a,Object.assign({},e,{type:"LATEST"}))),l.a.createElement(r.a,null))}}}]);
-//# sourceMappingURL=10.206c2b4b.chunk.js.map

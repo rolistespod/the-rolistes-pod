@@ -1,47 +1,47 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b8dd7ec7be3560d43b540ce40da86f2e",
+    "revision": "fa98168933bcf6cc8cc5a4712f09fcaf",
     "url": "/the-rolistes-pod/index.html"
   },
   {
-    "revision": "2f95e128591b3af64471",
-    "url": "/the-rolistes-pod/static/css/0.d5f569d3.chunk.css"
+    "revision": "c444843a90e3eb6764ac",
+    "url": "/the-rolistes-pod/static/css/0.b2cbb25c.chunk.css"
   },
   {
-    "revision": "6c6d78d3ae7d32623986",
-    "url": "/the-rolistes-pod/static/css/5.008c0c88.chunk.css"
+    "revision": "e84e8d7b01fa80e9f89f",
+    "url": "/the-rolistes-pod/static/css/5.cd92e3d6.chunk.css"
   },
   {
-    "revision": "ab6444216f5b82117471",
-    "url": "/the-rolistes-pod/static/css/6.ed8996e1.chunk.css"
+    "revision": "ddbcb59aac8bfa3880d2",
+    "url": "/the-rolistes-pod/static/css/6.8fbf4586.chunk.css"
   },
   {
-    "revision": "29b064b0df0bca45e8f8",
-    "url": "/the-rolistes-pod/static/css/7.8ee5f1ba.chunk.css"
+    "revision": "db9a2abacc0b62f2aa43",
+    "url": "/the-rolistes-pod/static/css/7.9fa4a349.chunk.css"
   },
   {
-    "revision": "1ef5e36929dc87e537ec",
-    "url": "/the-rolistes-pod/static/css/8.01d6557b.chunk.css"
+    "revision": "9c499f8da74ef38c0773",
+    "url": "/the-rolistes-pod/static/css/8.94d74375.chunk.css"
   },
   {
-    "revision": "c9c1ad53a8d90271d92a",
+    "revision": "26a1bbc9a008445016e6",
     "url": "/the-rolistes-pod/static/css/main.de99a055.chunk.css"
   },
   {
-    "revision": "2f95e128591b3af64471",
-    "url": "/the-rolistes-pod/static/js/0.1b87faeb.chunk.js"
+    "revision": "c444843a90e3eb6764ac",
+    "url": "/the-rolistes-pod/static/js/0.8da6347d.chunk.js"
   },
   {
-    "revision": "fbccce7dc11c72afed2a",
-    "url": "/the-rolistes-pod/static/js/1.90afe5f9.chunk.js"
+    "revision": "17916e262a76de01c694",
+    "url": "/the-rolistes-pod/static/js/1.ff508ad2.chunk.js"
   },
   {
     "revision": "5b6a3f1ca6e193597e4d49c7a42851aa",
-    "url": "/the-rolistes-pod/static/js/1.90afe5f9.chunk.js.LICENSE.txt"
+    "url": "/the-rolistes-pod/static/js/1.ff508ad2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4112e22e92d794430b9b",
-    "url": "/the-rolistes-pod/static/js/10.206c2b4b.chunk.js"
+    "revision": "8f5eebcd593f85812fd3",
+    "url": "/the-rolistes-pod/static/js/10.4e6dccb4.chunk.js"
   },
   {
     "revision": "ca687e55f486f61b3795",
@@ -52,32 +52,32 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/the-rolistes-pod/static/js/4.d4f72cbd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "6c6d78d3ae7d32623986",
-    "url": "/the-rolistes-pod/static/js/5.b0c7ece5.chunk.js"
+    "revision": "e84e8d7b01fa80e9f89f",
+    "url": "/the-rolistes-pod/static/js/5.81758ed6.chunk.js"
   },
   {
-    "revision": "ab6444216f5b82117471",
-    "url": "/the-rolistes-pod/static/js/6.0ee6825d.chunk.js"
+    "revision": "ddbcb59aac8bfa3880d2",
+    "url": "/the-rolistes-pod/static/js/6.f2c9ec0f.chunk.js"
   },
   {
-    "revision": "29b064b0df0bca45e8f8",
-    "url": "/the-rolistes-pod/static/js/7.7414767a.chunk.js"
+    "revision": "db9a2abacc0b62f2aa43",
+    "url": "/the-rolistes-pod/static/js/7.d0a2c864.chunk.js"
   },
   {
-    "revision": "1ef5e36929dc87e537ec",
-    "url": "/the-rolistes-pod/static/js/8.6db022f8.chunk.js"
+    "revision": "9c499f8da74ef38c0773",
+    "url": "/the-rolistes-pod/static/js/8.6724ffd5.chunk.js"
   },
   {
-    "revision": "a612e0c6db961b373c63",
-    "url": "/the-rolistes-pod/static/js/9.9fad9627.chunk.js"
+    "revision": "2864ad54883257ac7bd9",
+    "url": "/the-rolistes-pod/static/js/9.6131f43d.chunk.js"
   },
   {
-    "revision": "c9c1ad53a8d90271d92a",
-    "url": "/the-rolistes-pod/static/js/main.d4637fae.chunk.js"
+    "revision": "26a1bbc9a008445016e6",
+    "url": "/the-rolistes-pod/static/js/main.7c548608.chunk.js"
   },
   {
-    "revision": "85ce05599e7bba756b9c",
-    "url": "/the-rolistes-pod/static/js/runtime-main.56a46cb8.js"
+    "revision": "f056e02a0344a86f0faa",
+    "url": "/the-rolistes-pod/static/js/runtime-main.e5ca885b.js"
   },
   {
     "revision": "ad45030b1073fe50974b0c6d34f2a6ad",

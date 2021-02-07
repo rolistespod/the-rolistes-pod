@@ -1,4 +1,4 @@
-MKDIR C:\Exemple1
+npm install
 
 
 

@@ -16,7 +16,7 @@
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
 
-<!-- generator="WordPress.com" created="2021-02-12 12:43"-->
+<!-- generator="WordPress.com" created="2021-02-13 12:55"-->
 <rss version="2.0"
 	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -29,7 +29,7 @@
 	<title>The Rolistes Podcast</title>
 	<link>http://rolistespod.com</link>
 	<description>Your proudly London-based tabletop RPG podcasts !</description>
-	<pubDate>Fri, 12 Feb 2021 12:43:20 +0000</pubDate>
+	<pubDate>Sat, 13 Feb 2021 12:55:54 +0000</pubDate>
 	<language></language>
 	<wp:wxr_version>1.2</wp:wxr_version>
 	<wp:base_site_url>http://wordpress.com/</wp:base_site_url>
@@ -11676,6 +11676,7 @@ audio/mpeg
 		<category domain="post_tag" nicename="persephelia"><![CDATA[Persephelia]]></category>
 		<category domain="post_tag" nicename="podcast"><![CDATA[Podcast]]></category>
 		<category domain="post_tag" nicename="rpg"><![CDATA[RPG]]></category>
+		<category domain="post_tag" nicename="so-frenchy"><![CDATA[So Frenchy]]></category>
 		<category domain="post_tag" nicename="supaero"><![CDATA[Supaero]]></category>
 		<category domain="post_tag" nicename="tabletop-rpg"><![CDATA[Tabletop RPG]]></category>
 		<category domain="category" nicename="the-rolistes-podcast"><![CDATA[The Rolistes Podcast]]></category>
@@ -13643,6 +13644,7 @@ audio/mpeg
 		<category domain="post_tag" nicename="roleplay"><![CDATA[Roleplay]]></category>
 		<category domain="post_tag" nicename="rpg"><![CDATA[RPG]]></category>
 		<category domain="post_tag" nicename="siroz-team"><![CDATA[Siroz Team]]></category>
+		<category domain="post_tag" nicename="so-frenchy"><![CDATA[So Frenchy]]></category>
 		<category domain="post_tag" nicename="tabletop-rpg"><![CDATA[Tabletop RPG]]></category>
 		<category domain="category" nicename="the-rolistes-podcast"><![CDATA[The Rolistes Podcast]]></category>
 		<wp:postmeta>
@@ -14748,6 +14750,7 @@ audio/mpeg
 		<category domain="post_tag" nicename="robotics"><![CDATA[Robotics]]></category>
 		<category domain="post_tag" nicename="robots"><![CDATA[Robots]]></category>
 		<category domain="post_tag" nicename="rpg"><![CDATA[RPG]]></category>
+		<category domain="post_tag" nicename="so-frenchy"><![CDATA[So Frenchy]]></category>
 		<category domain="category" nicename="the-rolistes-podcast"><![CDATA[The Rolistes Podcast]]></category>
 		<category domain="post_tag" nicename="xany"><![CDATA[Xany]]></category>
 		<wp:postmeta>

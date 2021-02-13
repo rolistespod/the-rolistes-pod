@@ -16,7 +16,7 @@
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
 
-<!-- generator="WordPress.com" created="2021-02-13 12:55"-->
+<!-- generator="WordPress.com" created="2021-02-13 15:44"-->
 <rss version="2.0"
 	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -29,7 +29,7 @@
 	<title>The Rolistes Podcast</title>
 	<link>http://rolistespod.com</link>
 	<description>Your proudly London-based tabletop RPG podcasts !</description>
-	<pubDate>Sat, 13 Feb 2021 12:55:54 +0000</pubDate>
+	<pubDate>Sat, 13 Feb 2021 15:44:01 +0000</pubDate>
 	<language></language>
 	<wp:wxr_version>1.2</wp:wxr_version>
 	<wp:base_site_url>http://wordpress.com/</wp:base_site_url>

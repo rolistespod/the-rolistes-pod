@@ -1,6 +1,8 @@
 import React from 'react';
 import { faPatreon, faPaypal, faItchIo } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import driveThruRPGButton from '../../../assets/images/Icon_Drivethru.png';
+import kofiButton from '../../../assets/images/Icon_Kofi.png';
 import { Row, Col } from 'react-bootstrap';
 import Aux from '../../../hoc/Auxiliary/Auxiliary';
 import classes from './Support.module.css';
@@ -25,12 +27,16 @@ const Support = (props) => {
                         </Col>
 
                         <Col xs={3}>
-                            <a href="https://www.drivethrurpg.com/index.php?affiliate_id=1289000" className={classes.SideLink}><span><FontAwesomeIcon icon={faItchIo} aria-hidden="true"/></span></a>
+                            <a href="https://www.drivethrurpg.com/index.php?affiliate_id=1289000" className={classes.sideLinkIcon}><img src={driveThruRPGButton}  alt="Donate with Paypal" aria-hidden="true"/></a>
                         </Col>
 
                         <Col xs={3}>
                             <a href="https://itch.io/physical-games?ac=6hKcoR9Jch" className={classes.SideLink}><span><FontAwesomeIcon icon={faItchIo} aria-hidden="true"/></span></a>
                         </Col>
+
+                        {/* <Col xs={2}>
+                            <a href="https://www.drivethrurpg.com/index.php?affiliate_id=1289000" className={classes.SideLink}><img src={kofiButton}  alt="Donate with Paypal" aria-hidden="true"/></a>
+                        </Col> */}
                     </Row>               
                 </Row> 
             </div>   

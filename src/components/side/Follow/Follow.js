@@ -3,6 +3,7 @@ import { faPodcast, faEnvelope, faRss } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import classes from './Follow.module.css'
+import podchaserButton from '../../../assets/images/Icon_Podchaser.png';
 import { Row, Col } from 'react-bootstrap';
 import Aux from '../../../hoc/Auxiliary/Auxiliary';
 import globalClasses from '../../../App.module.css';
@@ -33,7 +34,7 @@ const Follow = (props) => {
                         </Col>
 
                         <Col xs={3}>
-                            <a href="https://www.podchaser.com/podcasts/the-rolistes-podcast-425798" className={classes.SideLink}><span><FontAwesomeIcon icon={faPodcast} aria-hidden="true"/></span></a>
+                            <a href="https://www.podchaser.com/podcasts/the-rolistes-podcast-425798" className={classes.sideLinkIcon}><img src={podchaserButton}  alt="Donate with Paypal" aria-hidden="true"/></a>
                         </Col>
 
                         <Col xs={3}>

@@ -37,3 +37,23 @@
 	background-color: #000000;
     color:#FFFFFF;
 }
+
+.sideLinkIcon, .sideLinkIcon:hover{
+	transition: filter 0.4s ease;
+}
+
+.sideLinkIcon img{
+    width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 5px;	
+	margin-bottom: 1.5rem;
+}
+
+.sideLinkIcon{
+	color:#FFFFFF;
+}
+
+.sideLinkIcon:hover{
+    filter: invert(97%) sepia(0%) saturate(0%) hue-rotate(133deg) brightness(103%) contrast(108%); 
+    -webkit-filter: invert(97%) sepia(0%) saturate(0%) hue-rotate(133deg) brightness(103%) contrast(108%);
+}

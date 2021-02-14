@@ -8,7 +8,7 @@ import Aux from '../../../hoc/Auxiliary/Auxiliary';
 import globalClasses from '../../../App.module.css';
 
 
-const Follow = (props) => {
+const Contact = (props) => {
 
     
 
@@ -17,22 +17,17 @@ const Follow = (props) => {
             <div className={globalClasses.item_box_footer}>                
                 <Row>            
                     <Col xs={12}>
-                        <h2 className={globalClasses.section_title_footer}>Follow</h2>                     
+                        <h2 className={globalClasses.section_title_footer}>Contact Us</h2>                     
                     </Col>
                 </Row>
                 <Row>
-                   
                     <Col xs={4}>
-                        <a href="https://www.facebook.com/Rolistespod/" className={classes.FooterLink}><span><FontAwesomeIcon icon={faFacebookF} aria-hidden="true"/></span></a>
-                    </Col>
-
-                    <Col xs={4}>
-                        <a href="https://twitter.com/rolistespod" className={classes.FooterLink}><span><FontAwesomeIcon icon={faTwitter} aria-hidden="true"/></span></a>
-                    </Col>                    
-                </Row>      
+                        <a href="mailto:rolistespod@gmail.com" className={classes.FooterLink}><span><FontAwesomeIcon icon={faEnvelope} aria-hidden="true"/></span></a>
+                    </Col>                          
+                </Row>           
             </div>                    
         </Aux>
     )
 }
 
-export default Follow;
+export default Contact;

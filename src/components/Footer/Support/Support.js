@@ -5,7 +5,7 @@ import paypalButton from '../../../assets/images/Buttons_PayPal_BnW.png';
 import patreonButton from '../../../assets/images/Buttons_Patreon_BnW.png';
 import DriveThruRPGButton from '../../../assets/images/Buttons_DriveThruRPG_BnW.png';
 import itchIOButton from '../../../assets/images/Buttons_Itch.io_BnW.png';
-import classes from './Support.module.css';
+import classes from '../Footer.module.css';
 import globalClasses from '../../../App.module.css';
 
 const Support = (props) => {
@@ -13,7 +13,6 @@ const Support = (props) => {
         <Aux>
             <Row>
                 <Col xs={12}>
-
                     <div className={globalClasses.item_box_footer}>
                         <h2 className={globalClasses.section_title_footer}>Support Us</h2>
                         <Row>                        

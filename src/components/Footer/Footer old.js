@@ -5,9 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Aux from '../../hoc/Auxiliary/Auxiliary';
 import classes from './Footer.module.css';
 import Follow from './Follow/Follow';
-import Watch from './Watch/Watch';
-import Listen from './Listen/Listen';
-import Contact from './Contact/Contact';
 import Support from './Support/Support';
 
 const Footer = (props) => {
@@ -33,29 +30,11 @@ const Footer = (props) => {
             <footer>
                 <Container className={classes.footer}>
                     <Row>
-                        <Col xs={12} lg={7}>                            
-                            <Row>
-                                <Col xs={12}>
-                                    <Listen/>
-                                </Col>                             
-                                <Col  xs={12}>
-                                    <Support/>
-                                </Col>
-                            </Row>
-                             
-                        </Col>
-                        <Col xs={12} lg={true}>
-                            <Row>
-                                <Col xs={6} lg={12}>
-                                    <Watch/>
-                                </Col>                             
-                                <Col  xs={6} lg={12}>
-                                    <Contact/>
-                                </Col>
-                            </Row>  
-                        </Col>                             
-                        <Col >
+                        <Col xs={12}>
                             <Follow/>
+                        </Col>                             
+                        <Col  xs={12}>
+                            <Support/>
                         </Col>
                     </Row>                    
                 </Container>

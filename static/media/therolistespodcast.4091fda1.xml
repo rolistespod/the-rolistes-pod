@@ -16,7 +16,7 @@
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
 
-<!-- generator="WordPress.com" created="2021-02-15 22:13"-->
+<!-- generator="WordPress.com" created="2021-02-18 08:57"-->
 <rss version="2.0"
 	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -29,7 +29,7 @@
 	<title>The Rolistes Podcast</title>
 	<link>http://rolistespod.com</link>
 	<description>Your proudly London-based tabletop RPG podcasts !</description>
-	<pubDate>Mon, 15 Feb 2021 22:13:45 +0000</pubDate>
+	<pubDate>Thu, 18 Feb 2021 08:57:44 +0000</pubDate>
 	<language></language>
 	<wp:wxr_version>1.2</wp:wxr_version>
 	<wp:base_site_url>http://wordpress.com/</wp:base_site_url>
@@ -25026,6 +25026,44 @@ audio/mpeg
 			<wp:meta_key>_last_editor_used_jetpack</wp:meta_key>
 			<wp:meta_value><![CDATA[block-editor]]></wp:meta_value>
 		</wp:postmeta>
+		<wp:comment>
+			<wp:comment_id>18377</wp:comment_id>
+			<wp:comment_author><![CDATA[Film Studies – Black Cat, White Cat (Ida &#038; Zare vs the Gangsters) &#8211; The Rpg Academy]]></wp:comment_author>
+			<wp:comment_author_email></wp:comment_author_email>
+			<wp:comment_author_url>https://therpgacademy.com/film-studies-the-others-we-promise-we-wont-spoil-bly-manor-2/</wp:comment_author_url>
+			<wp:comment_author_IP>192.254.250.165</wp:comment_author_IP>
+			<wp:comment_date>2021-02-16 06:00:26</wp:comment_date>
+			<wp:comment_date_gmt>2021-02-16 06:00:26</wp:comment_date_gmt>
+			<wp:comment_content><![CDATA[[&#8230;] with an episode of Film Studies this month, but also two of our favourite guests from our &#8220;Delicatessen (Butchers &amp; Feelings)&#8221; episode are [&#8230;]]]></wp:comment_content>
+			<wp:comment_approved>1</wp:comment_approved>
+			<wp:comment_type>pingback</wp:comment_type>
+			<wp:comment_parent>0</wp:comment_parent>
+			<wp:comment_user_id>0</wp:comment_user_id>
+			<wp:commentmeta>
+				<wp:meta_key>akismet_history</wp:meta_key>
+				<wp:meta_value><![CDATA[a:3:{s:4:"time";d:1613459901.075197;s:5:"event";s:15:"status-approved";s:4:"user";s:8:"kalum666";}]]></wp:meta_value>
+			</wp:commentmeta>
+			<wp:commentmeta>
+				<wp:meta_key>jabber_published</wp:meta_key>
+				<wp:meta_value><![CDATA[1613459901]]></wp:meta_value>
+			</wp:commentmeta>
+			<wp:commentmeta>
+				<wp:meta_key>akismet_history</wp:meta_key>
+				<wp:meta_value><![CDATA[a:2:{s:4:"time";d:1613459438.640383;s:5:"event";s:9:"check-ham";}]]></wp:meta_value>
+			</wp:commentmeta>
+			<wp:commentmeta>
+				<wp:meta_key>akismet_result</wp:meta_key>
+				<wp:meta_value><![CDATA[false]]></wp:meta_value>
+			</wp:commentmeta>
+			<wp:commentmeta>
+				<wp:meta_key>akismet_history</wp:meta_key>
+				<wp:meta_value><![CDATA[a:2:{s:4:"time";d:1613455227.531399;s:5:"event";s:9:"check-ham";}]]></wp:meta_value>
+			</wp:commentmeta>
+			<wp:commentmeta>
+				<wp:meta_key>akismet_as_submitted</wp:meta_key>
+				<wp:meta_value><![CDATA[a:13:{s:14:"comment_author";s:96:"Film Studies – Black Cat, White Cat (Ida &#038; Zare vs the Gangsters) &#8211; The Rpg Academy";s:18:"comment_author_url";s:87:"https://therpgacademy.com/film-studies-the-others-we-promise-we-wont-spoil-bly-manor-2/";s:20:"comment_author_email";s:0:"";s:15:"comment_content";s:174:"[&#8230;] with an episode of Film Studies this month, but also two of our favourite guests from our &#8220;Delicatessen (Butchers &amp; Feelings)&#8221; episode are [&#8230;]";s:12:"comment_type";s:8:"pingback";s:17:"comment_author_IP";s:15:"192.254.250.165";s:13:"comment_agent";s:50:"The Incutio XML-RPC PHP Library -- WordPress/5.3.6";s:7:"user_ip";s:15:"192.254.250.165";s:10:"user_agent";s:50:"The Incutio XML-RPC PHP Library -- WordPress/5.3.6";s:4:"blog";s:23:"https://rolistespod.com";s:9:"blog_lang";s:2:"en";s:12:"blog_charset";s:5:"UTF-8";s:9:"permalink";s:88:"http://rolistespod.com/2018/08/23/film-studies-episode-4-delicatessen-butchers-feelings/";}]]></wp:meta_value>
+			</wp:commentmeta>
+		</wp:comment>
 	</item>
 	<item>
 		<title>UK Games Expo 2018 (Part Three), featuring UFO Press, Strangely Games &#038; Holy Hot God Dave</title>
@@ -33714,10 +33752,6 @@ audio/mpeg
 			<wp:commentmeta>
 				<wp:meta_key>akismet_history</wp:meta_key>
 				<wp:meta_value><![CDATA[a:2:{s:4:"time";d:1612281859.020849;s:5:"event";s:9:"check-ham";}]]></wp:meta_value>
-			</wp:commentmeta>
-			<wp:commentmeta>
-				<wp:meta_key>akismet_as_submitted</wp:meta_key>
-				<wp:meta_value><![CDATA[a:13:{s:14:"comment_author";s:52:"On the Shores of Kantas &#8211; London RPG Community";s:18:"comment_author_url";s:58:"https://london-rpg.com/2020/04/30/on-the-shores-of-kantas/";s:20:"comment_author_email";s:0:"";s:15:"comment_content";s:48:"[&#8230;] On The Shores of Kantas Pt 3 [&#8230;]";s:12:"comment_type";s:8:"pingback";s:17:"comment_author_IP";s:14:"136.243.248.50";s:13:"comment_agent";s:48:"The Incutio XML-RPC PHP Library -- WordPress/5.6";s:7:"user_ip";s:14:"136.243.248.50";s:10:"user_agent";s:48:"The Incutio XML-RPC PHP Library -- WordPress/5.6";s:4:"blog";s:23:"https://rolistespod.com";s:9:"blog_lang";s:2:"en";s:12:"blog_charset";s:5:"UTF-8";s:9:"permalink";s:125:"http://rolistespod.com/2020/02/21/on-the-shores-of-kantas-with-london-rpg-community-featuring-a-dd-5e-actual-play-part-three/";}]]></wp:meta_value>
 			</wp:commentmeta>
 			<wp:commentmeta>
 				<wp:meta_key>jabber_published</wp:meta_key>
@@ -58092,6 +58126,432 @@ https://youtu.be/4q1XsaHT384
 		<wp:postmeta>
 			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
 			<wp:meta_value><![CDATA[a:6:{s:5:"width";i:800;s:6:"height";i:800;s:4:"file";s:110:"/home/wpcom/public_html/wp-content/blogs.dir/222/93652782/files/2021/02/the-rolistes-podcast_episode-46_ld.jpg";s:5:"sizes";a:0:{}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"1";s:8:"keywords";a:0:{}}s:8:"filesize";i:440936;}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>Café Rolistes 145 - Steve Dee from Tin Star Games &#038; &quot;Relics&quot;</title>
+		<link>http://rolistespod.com/?p=5549</link>
+		<pubDate></pubDate>
+		<dc:creator>kalum666</dc:creator>
+		<guid isPermaLink="false">http://rolistespod.com/?p=5549</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:paragraph -->
+<p>[audio src="xx"] Listen, subscribe &amp; review on <strong><a href="https://itunes.apple.com/gb/podcast/...t/id1043891191">Apple Podcasts</a></strong>,&nbsp;<strong><a href="https://open.spotify.com/show/6WC5wywaLMEhnO7JWIuxom">Spotify</a></strong>,&nbsp;<strong><a href="https://t.co/GGyHVo3NvT">Google Podcasts</a></strong>.<br>You can also <strong><a href="http://xx">download this episode</a></strong>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Don't forget to join our <strong><a rel="noreferrer noopener" href="http://eepurl.com/gJCUVX" target="_blank">newsletter</a> </strong>if you don't want to miss any of our content.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Please also subscribe to&nbsp;<strong><a href="https://www.youtube.com/playlist?list=PL2fGTs_dddRzqemJDagJOe_j_bLk2-ZlL">The Rolistes Youtube Channel</a></strong>, click the "Like" button and write comments.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:embed {"url":"https:\/\/youtu.be\/eq7KDfszVlM","type":"rich","providerNameSlug":"youtube","responsive":true,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
+<figure class="wp-block-embed is-type-rich is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+https://youtu.be/eq7KDfszVlM
+</div></figure>
+<!-- /wp:embed -->
+
+<!-- wp:paragraph -->
+<p>Follow us on&nbsp;<strong><a href="https://www.twitch.tv/rolistespod">Twitch</a></strong>&nbsp;and contribute LIVE with your questions via the chat.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>You can find Steve Dee at:</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>https://twitter.com/tinstargames</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":5} -->
+<h5>Tin Star Games:</h5>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>https://www.tinstargames.com/<br>https://www.drivethrurpg.com/browse/pub/11933/Tin-Star-Games&amp;affiliate_id=1289000<br>https://www.facebook.com/tinstargames<br>https://www.instagram.com/tinstargames/</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":5} -->
+<h5>Relics:</h5>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>https://www.drivethrurpg.com/product/305834/Relics-A-Game-of-Angels&amp;affiliate_id=1289000</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":5} -->
+<h5>In Nomine:</h5>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>https://www.drivethrurpg.com/browse.php?keywords=in+nomine&amp;x=0&amp;y=0&amp;author=&amp;artist=&amp;pfrom=&amp;pto=&amp;affiliate_id=1289000</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":5} -->
+<h5>Nephilim:</h5>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>https://www.drivethrurpg.com/product/25585/Nephilim&amp;affiliate_id=1289000<br>https://rolistespod.com/2017/04/02/episode-20-part-1-nephilim-with-mira-willem-rob/</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":5} -->
+<h5>Nibiru: </h5>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>https://www.drivethrurpg.com/browse/pub/17290/Araukana-Media&amp;affiliate_id=1289000 </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":5} -->
+<h5>Xanadu (Nibiru Expansion): </h5>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>https://www.kickstarter.com/projects/xanadunibiru/xanadu-a-nibiru-roleplaying-game-expansion</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":5} -->
+<h5>Spy Master:</h5>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>https://www.drivethrurpg.com/product/256917/Spy-Master&amp;affiliate_id=1289000</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":3} -->
+<h3>Support The Rolistes</h3>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":5} -->
+<h5>Find out about my own game "Paris Gondo - The Life-Saving Magic of Inventorying" at:</h5>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><a href="https://www.youtube.com/redirect?q=https%3A%2F%2Frolistespod.com%2F2020%2F05%2F15%2Fannouncing-paris-gondo-the-life-saving-magic-of-inventorying%2F&amp;redir_token=tAxz9JvQs_tAihUX2PJJBfQ9EOZ8MTU5MTkwNzU0OEAxNTkxODIxMTQ4&amp;event=video_description&amp;v=CHZUBwI4vtc">https://rolistespod.com/2020/05/15/an...</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Don't forget to sign up for our <a href="http://eepurl.com/gJCUVX"><strong>newsletter</strong></a>!</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":5} -->
+<h5>Find and support our many shows</h5>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Listen, rate or review the show on&nbsp;<strong><a href="https://www.podchaser.com/podcasts/the-rolistes-podcast-425798">Podchaser</a></strong>,&nbsp;<strong><a href="https://itunes.apple.com/gb/podcast/...t/id1043891191">Apple Podcasts</a></strong>,&nbsp;<strong><a href="https://open.spotify.com/show/6WC5wywaLMEhnO7JWIuxom">Spotify</a></strong>,&nbsp;<strong><a href="https://t.co/GGyHVo3NvT">Google Podcasts</a></strong>&nbsp;or&nbsp;<a href="http://www.stitcher.com/podcast/the-rolistes-podcast"><strong>Stitcher</strong></a><a href="https://itunes.apple.com/gb/podcast/...t/id1043891191">.</a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Please consider contributing to my&nbsp;<strong><a href="https://www.patreon.com/RolistesPod">Patreon</a></strong>, making a modest donation via <a href="https://ko-fi.com/rolistespod"><strong>Ko-Fi</strong></a> or&nbsp;<a href="https://www.paypal.me/rolistespod/"><strong>Paypal</strong></a>&nbsp;or even support your show at no extra cost via your purchases on&nbsp;<a href="http://www.drivethrurpg.com/browse.php?affiliate_id=1289000"><strong>DriveThru RPG</strong></a> or <a href="https://itch.io/physical-games?ac=6hKcoR9Jch"><strong>Itch.io</strong></a>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Newsletter: Subscribe&nbsp;<strong><a href="http://eepurl.com/gJCUVX">here</a></strong><br>Email: Rolistespod@gmail.com<br><strong><a href="https://twitter.com/rolistespod">Twitter</a></strong> / <strong><a href="https://www.instagram.com/rolistespod">Instagram</a></strong> / <a href="https://www.youtube.com/channel/UCpguBUBlPRHN4BGTbKPFxrg"><strong>YouTube</strong></a> / <a href="https://www.twitch.tv/rolistespod"><strong>Twitch</strong></a> / <strong><a href="http://tiktok.com/@rolistespod">Tik Tok</a></strong> / <strong><a href="https://www.facebook.com/Rolistespod">Facebook</a></strong> /&nbsp;<strong><a href="https://rolistespod.wordpress.com/">Website</a></strong></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The Rolistes Podcast by Kalum is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":5} -->
+<h5><strong>Logo</strong></h5>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The Rolistes Podcast brand new logo by Rollin Kunz. Please check his excellent work at&nbsp;<strong><a href="https://www.rollinkunz.com/">https://www.rollinkunz.com</a></strong>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong><a href="https://www.teepublic.com/user/rolistespod">Merchandising, including t-shirts</a></strong>, with the logo and more cool “The Rolistes Podcast” art by Rolin Kunz is available via our&nbsp;<strong><a href="https://www.teepublic.com/user/rolistespod">TeePublic store</a></strong>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":5} -->
+<h5><strong>Music</strong></h5>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Theme song: "Playtime" by Jahzzar<br>Available for free download at&nbsp;<a href="http://freemusicarchive.org/">http://freemusicarchive.org/</a></p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>5549</wp:post_id>
+		<wp:post_date>2021-02-18 08:56:14</wp:post_date>
+		<wp:post_date_gmt>0000-00-00 00:00:00</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name></wp:post_name>
+		<wp:status>draft</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="post_tag" nicename="asztali-szerepjatek"><![CDATA[Asztali Szerepjáték]]></category>
+		<category domain="post_tag" nicename="%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab%e3%83%88%e3%83%bc%e3%82%afrpg"><![CDATA[テーブルトークRPG]]></category>
+		<category domain="post_tag" nicename="bordrollespil"><![CDATA[Bordrollespil]]></category>
+		<category domain="post_tag" nicename="british"><![CDATA[British]]></category>
+		<category domain="category" nicename="cafe-rolistes"><![CDATA[Café Rolistes]]></category>
+		<category domain="post_tag" nicename="expats"><![CDATA[Expats]]></category>
+		<category domain="post_tag" nicename="fandoms"><![CDATA[Fandoms]]></category>
+		<category domain="post_tag" nicename="friki"><![CDATA[Friki]]></category>
+		<category domain="post_tag" nicename="geek"><![CDATA[Geek]]></category>
+		<category domain="post_tag" nicename="gioco-di-ruolo"><![CDATA[Gioco di Ruolo]]></category>
+		<category domain="post_tag" nicename="gry-fabularne"><![CDATA[Gry Fabularne]]></category>
+		<category domain="post_tag" nicename="immigrants"><![CDATA[Immigrants]]></category>
+		<category domain="post_tag" nicename="%ed%85%8c%ec%9d%b4%eb%b8%94%ed%83%91-%eb%a1%a4%ed%94%8c%eb%a0%88%ec%9e%89-%ea%b2%8c%ec%9e%84"><![CDATA[테이블탑 롤플레잉 게임]]></category>
+		<category domain="post_tag" nicename="jeu-de-role"><![CDATA[Jeu de rôle]]></category>
+		<category domain="post_tag" nicename="joc-de-rol"><![CDATA[Joc de Rol]]></category>
+		<category domain="post_tag" nicename="jogo-de-interpretacao"><![CDATA[Jogo de Interpretação]]></category>
+		<category domain="post_tag" nicename="juego-de-rol"><![CDATA[Juego de rol]]></category>
+		<category domain="post_tag" nicename="jugador-de-rol"><![CDATA[Jugador de rol]]></category>
+		<category domain="post_tag" nicename="london"><![CDATA[London]]></category>
+		<category domain="post_tag" nicename="pen-and-paper"><![CDATA[Pen and Paper]]></category>
+		<category domain="post_tag" nicename="pnp"><![CDATA[PnP]]></category>
+		<category domain="category" nicename="podcast"><![CDATA[Podcast]]></category>
+		<category domain="post_tag" nicename="rollenspel"><![CDATA[Rollenspel]]></category>
+		<category domain="post_tag" nicename="rollenspiel"><![CDATA[Rollenspiel]]></category>
+		<category domain="post_tag" nicename="rollspel"><![CDATA[Rollspel]]></category>
+		<category domain="post_tag" nicename="roolipelaaja"><![CDATA[Roolipelaaja]]></category>
+		<category domain="post_tag" nicename="roolipeli"><![CDATA[Roolipeli]]></category>
+		<category domain="post_tag" nicename="ropettaja"><![CDATA[Ropettaja]]></category>
+		<category domain="post_tag" nicename="rpg-de-mesa"><![CDATA[RPG de Mesa]]></category>
+		<category domain="post_tag" nicename="stolna-igra-uloga"><![CDATA[Stolna Igra Uloga]]></category>
+		<category domain="post_tag" nicename="tabletop-rpg"><![CDATA[Tabletop RPG]]></category>
+		<category domain="post_tag" nicename="united-kingdom"><![CDATA[United Kingdom]]></category>
+		<category domain="post_tag" nicename="%e6%a1%8c%e4%b8%8a%e8%a7%92%e8%89%b2%e6%89%ae%e6%bc%94%e9%81%8a%e6%88%b2"><![CDATA[桌上角色扮演遊戲]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[0]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_last_editor_used_jetpack</wp:meta_key>
+			<wp:meta_value><![CDATA[block-editor]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_oembed_c723528d9e9bbe823000a4ed55236ac5</wp:meta_key>
+			<wp:meta_value><![CDATA[<div class="embed-twitter"><a class="twitter-timeline" data-width="500" data-height="750" data-dnt="true" href="https://twitter.com/tinstargames?ref_src=twsrc%5Etfw">Tweets by tinstargames</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_oembed_time_c723528d9e9bbe823000a4ed55236ac5</wp:meta_key>
+			<wp:meta_value><![CDATA[1613579859]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_oembed_6d4bd1a789f230e133834d487b433f21</wp:meta_key>
+			<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_oembed_80bbada359bf12df8a64342fba4f2275</wp:meta_key>
+			<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_oembed_7d4d6ca44bad8e4a1ea129cfc24723f0</wp:meta_key>
+			<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_oembed_9d74fc0bf62aed902988c52c4c3b4e9b</wp:meta_key>
+			<wp:meta_value><![CDATA[{{unknown}}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_oembed_f61fbceb83158cf7e8a52ac5ad57220b</wp:meta_key>
+			<wp:meta_value><![CDATA[<div class="embed-kickstarter"><iframe title="Xanadu - A Nibiru Roleplaying Game Expansion" src="https://www.kickstarter.com/projects/xanadunibiru/xanadu-a-nibiru-roleplaying-game-expansion/widget/video.html" height="281.25" width="500" frameborder="0" scrolling="no"></iframe></div>]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_oembed_time_f61fbceb83158cf7e8a52ac5ad57220b</wp:meta_key>
+			<wp:meta_value><![CDATA[1613638576]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>Patreon Goal Reached - New Website On Its Way!</title>
+		<link>http://rolistespod.com/2021/02/17/patreon-goal-reached-new-website-on-its-way/</link>
+		<pubDate>Wed, 17 Feb 2021 21:10:46 +0000</pubDate>
+		<dc:creator>kalum666</dc:creator>
+		<guid isPermaLink="false">http://rolistespod.com/?p=5552</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:image {"id":5554,"sizeSlug":"large","linkDestination":"media"} -->
+<figure class="wp-block-image size-large"><a href="https://rolistespod.files.wordpress.com/2021/02/website-goal-reached_v1_cropped.jpg"><img src="https://rolistespod.files.wordpress.com/2021/02/website-goal-reached_v1_cropped.jpg?w=1024" alt="" class="wp-image-5554" /></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>You did it!</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Thanks to the generosity of a handful of dedicated fans, we have reached a new goal on The Rolistes Patreon!</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>This financial support will help me cover the last expenses for a new The Rolistes website.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>We made a LOT of progress working on it behind the curtain and I cannot wait to share some previews with you all.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>This website should make your experience much more pleasant AND will make our content old or new much easier to navigate.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Stay tuned for more information very soon.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Again, thanks to everyone listening to the show, fans who leave reviews and my patrons.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Cheers</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Kalum</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":5} -->
+<h5>Subscribe to The Rolistes video channels</h5>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":5} -->
+<h5><a href="https://www.youtube.com/channel/UCpguBUBlPRHN4BGTbKPFxrg"><strong>YouTube</strong></a> / <a href="https://www.twitch.tv/rolistespod"><strong>Twitch</strong></a></h5>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":5} -->
+<h5>Stay connected</h5>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Subscribe to <a href="http://eepurl.com/gJCUVX"><strong>The Rolistes Newsletter</strong></a> <br><a href="https://twitter.com/rolistespod"><strong>Twitter</strong></a> / <a href="https://www.instagram.com/rolistespod"><strong>Instagram</strong></a> / <a href="https://www.tiktok.com/@rolistespod?lang=en"><strong>Tik Tok</strong></a> / <a href="https://www.facebook.com/Rolistespod"><strong>Facebook</strong></a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":5} -->
+<h5 id="block-053288a5-423e-4765-99d1-d665bd826320">Contact me<br><a href="mailto:Rolistespod@gmail.com">Email</a></h5>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>The Rolistes Podcast by Kalum is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong>Logo<br></strong>The Rolistes Podcast brand new logo by Rollin Kunz. Please check his excellent work at&nbsp;<strong><a href="https://www.rollinkunz.com/">https://www.rollinkunz.com</a></strong>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong><a href="https://www.teepublic.com/user/rolistespod">Merchandising, including t-shirts</a></strong>, and&nbsp;<strong><a href="https://www.teepublic.com/en-gb/mask/4797521-the-rolistes-podcast-logo-b-and-w">EVEN FACEMASKS</a></strong>&nbsp;with the logo and more cool “The Rolistes Podcast” art by Rolin Kunz is available via our&nbsp;<strong><a href="https://www.teepublic.com/user/rolistespod">TeePublic store</a></strong>.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>5552</wp:post_id>
+		<wp:post_date>2021-02-17 21:10:46</wp:post_date>
+		<wp:post_date_gmt>2021-02-17 21:10:46</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>patreon-goal-reached-new-website-on-its-way</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="news"><![CDATA[News]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[5553]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_last_editor_used_jetpack</wp:meta_key>
+			<wp:meta_value><![CDATA[block-editor]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_publicize_job_id</wp:meta_key>
+			<wp:meta_value><![CDATA[54924628488]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>timeline_notification</wp:meta_key>
+			<wp:meta_value><![CDATA[1613596247]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_publicize_done_external</wp:meta_key>
+			<wp:meta_value><![CDATA[a:1:{s:7:"twitter";a:1:{i:11622706;s:58:"https://twitter.com/rolistespod/status/1362147504720994304";}}]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_publicize_done_11560013</wp:meta_key>
+			<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wpas_done_11622706</wp:meta_key>
+			<wp:meta_value><![CDATA[1]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>publicize_twitter_user</wp:meta_key>
+			<wp:meta_value><![CDATA[rolistespod]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>Website Goal Reached_V1</title>
+		<link>http://rolistespod.com/website-goal-reached_v1/</link>
+		<pubDate>Wed, 17 Feb 2021 17:08:07 +0000</pubDate>
+		<dc:creator>kalum666</dc:creator>
+		<guid isPermaLink="false">http://rolistespod.files.wordpress.com/2021/02/website-goal-reached_v1.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>5553</wp:post_id>
+		<wp:post_date>2021-02-17 17:08:07</wp:post_date>
+		<wp:post_date_gmt>2021-02-17 17:08:07</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>website-goal-reached_v1</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>https://rolistespod.files.wordpress.com/2021/02/website-goal-reached_v1.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[/home/wpcom/public_html/wp-content/blogs.dir/222/93652782/files/2021/02/website-goal-reached_v1.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:6:{s:5:"width";i:1312;s:6:"height";i:600;s:4:"file";s:99:"/home/wpcom/public_html/wp-content/blogs.dir/222/93652782/files/2021/02/website-goal-reached_v1.jpg";s:5:"sizes";a:0:{}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"1";s:8:"keywords";a:0:{}}s:8:"filesize";i:158675;}]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>website-goal-reached_v1_cropped</title>
+		<link>http://rolistespod.com/website-goal-reached_v1_cropped/</link>
+		<pubDate>Wed, 17 Feb 2021 17:14:24 +0000</pubDate>
+		<dc:creator>kalum666</dc:creator>
+		<guid isPermaLink="false">http://rolistespod.files.wordpress.com/2021/02/website-goal-reached_v1_cropped.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>5554</wp:post_id>
+		<wp:post_date>2021-02-17 17:14:24</wp:post_date>
+		<wp:post_date_gmt>2021-02-17 17:14:24</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>website-goal-reached_v1_cropped</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>https://rolistespod.files.wordpress.com/2021/02/website-goal-reached_v1_cropped.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[/home/wpcom/public_html/wp-content/blogs.dir/222/93652782/files/2021/02/website-goal-reached_v1_cropped.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:6:{s:5:"width";i:1312;s:6:"height";i:300;s:4:"file";s:107:"/home/wpcom/public_html/wp-content/blogs.dir/222/93652782/files/2021/02/website-goal-reached_v1_cropped.jpg";s:5:"sizes";a:0:{}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"1";s:8:"keywords";a:0:{}}s:8:"filesize";i:84440;}]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 </channel>

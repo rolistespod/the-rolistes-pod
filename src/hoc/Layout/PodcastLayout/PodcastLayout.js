@@ -108,9 +108,9 @@ const PodcastLayout = (props) => {
                 <title>The Rolistes Podcast - Podcasts</title>
                 <meta name="description" content=""/>
             </Helmet>
-            <Container className={globalClasses.no_padding_smallscreen} >                
+            <Container>
                 <Ads/>
-                <div className={globalClasses.item_box}>
+                <div className={[globalClasses.item_box, globalClasses.no_padding_smallscreen].join(' ')}>
                     <h1 className={[globalClasses.section_title, globalClasses.section_title_podcast].join(' ')}>Podcast</h1>
                     <div className={classes.filters}>
                         <Button btnType={btnType} disabled={btnState.allIsDisabled} clicked ={filterAll}>ALL</Button>

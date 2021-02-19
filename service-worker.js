@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/the-rolistes-pod/precache-manifest.df86bc102bf790761bd6485a18f30640.js"
+  "/the-rolistes-pod/precache-manifest.2eda9c294b79d6be9e0caded065720ec.js"
 );
 
 self.addEventListener('message', (event) => {

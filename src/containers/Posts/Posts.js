@@ -228,7 +228,7 @@ const Posts = props => {
                         title= {introGondo[0]["title"]}
                         content= {introGondo[0]["content:encoded"][0]}
                         date= {introGondo[0]["pubDate"][0]}
-                        type="GONDO"/>;
+                        type="INTROGONDO"/>;
                 break;
 
             case "ABOUT":

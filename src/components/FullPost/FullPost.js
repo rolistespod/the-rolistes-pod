@@ -69,7 +69,7 @@ const FullPost = (props) => {
             <div className={globalClasses.item_box_left} >               
                 <h1 className={[globalClasses.section_title, globalClasses.section_title_article].join(' ')}>{props.title}</h1>                    
 
-                <div className={globalClasses.date_article}><FontAwesomeIcon icon={faCalendarAlt} aria-hidden="true"/> {props.date}</div>
+                {props.type==="INTROGONDO" ? <p/> : <div className={globalClasses.date_article}><FontAwesomeIcon icon={faCalendarAlt} aria-hidden="true"/> {props.date}</div>}
                 <div dangerouslySetInnerHTML={{ __html: htmlContent }} className={classIMG}/>     
             </div>                                   
         </Aux>

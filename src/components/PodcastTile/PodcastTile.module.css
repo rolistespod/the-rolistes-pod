@@ -79,12 +79,12 @@ img {
 
 @media screen and (max-width: 500px){
 	.overlay {
-  		height: 25%;
+  		height: 30%;
   		transition: none;
     }
     
     a:hover>.overlay {
-        height: 25%;
+        height: 30%;
   }
 
 	.overlayText>h2 {

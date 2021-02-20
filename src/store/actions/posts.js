@@ -109,11 +109,11 @@ const replaceOldURL = (post) => {
     let str= post;
     let newStr= str.replace(/\[audio/,'<audio controls');
     newStr= newStr.replace(/mp3\"\]/,'mp3"></audio><br>');    
-    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/film-studies/', '<a href="' + baseURL + '/podcast#film-studies');
-    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/the-rolistes-present/', '<a href="' + baseURL + '/podcast#the-rolistes-present');
-    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/cafe-rolistes/', '<a href="' + baseURL + '/podcast#cafe-rolistes');
-    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/the-rolistes-podcast/', '<a href="' + baseURL + '/podcast#the-rolistes-podcast');
-    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/podcast/', '<a href="' + baseURL + '/podcast#all');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/film-studies/', '<a href="' + baseURL + '/podcast?cat=film-studies');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/the-rolistes-present/', '<a href="' + baseURL + '/podcast?cat=the-rolistes-present');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/cafe-rolistes/', '<a href="' + baseURL + '/podcast?cat=cafe-rolistes');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/the-rolistes-podcast/', '<a href="' + baseURL + '/podcast?cat=the-rolistes-podcast');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/podcast/', '<a href="' + baseURL + '/podcas?cat=all');
     newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/news/', '<a href="' + baseURL + '/news');
     newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/paris_gondo/', '<a href="' + baseURL + '/paris_gondo');
     newStr = newStr.replaceAll('<a href="https://rolistespod.com', '<a href="' + baseURL);

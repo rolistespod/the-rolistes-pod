@@ -38,6 +38,7 @@ const App = props => {
   const { onFetchPosts, onSetShowPopup } = props;
 
   const showPopup = props.showPopup;
+  // const showPopup = true;
 
     useEffect(()=> {
       onFetchPosts(); 

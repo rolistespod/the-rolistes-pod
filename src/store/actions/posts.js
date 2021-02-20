@@ -102,6 +102,25 @@ const getURL = (post, category) => {
      return "";
 }
 
+const replaceOldURL = (post) => {
+    
+    const baseURL='https://rolistespod.github.io/the-rolistes-pod';
+
+    let str= post;
+    let newStr= str.replace(/\[audio/,'<audio controls');
+    newStr= newStr.replace(/mp3\"\]/,'mp3"></audio><br>');    
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/film-studies/', '<a href="' + baseURL + '/podcast#film-studies');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/the-rolistes-present/', '<a href="' + baseURL + '/podcast#the-rolistes-present');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/cafe-rolistes/', '<a href="' + baseURL + '/podcast#cafe-rolistes');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/the-rolistes-podcast/', '<a href="' + baseURL + '/podcast#the-rolistes-podcast');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/podcast/', '<a href="' + baseURL + '/podcast#all');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/news/', '<a href="' + baseURL + '/news');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/paris_gondo/', '<a href="' + baseURL + '/paris_gondo');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com', '<a href="' + baseURL);
+
+    return newStr;                        
+}
+
 const getExcerpt = (content, wordLimit) => {
      
     let filter = content.replace( /(<([^>]+)>)/ig, '');
@@ -173,11 +192,8 @@ export const fetchPosts = () => {
                         const publishDate = new Date(fetchedPosts[key]["pubDate"][0]);                       
 
                         fetchedPosts[key]["pubDate"][0] = publishDate.toDateString();;
-
-                        let str= fetchedPosts[key]["content:encoded"][0];
-                        let newStr= str.replace(/\[audio/,'<audio controls');
-                        newStr= newStr.replace(/mp3\"\]/,'mp3"></audio><br>');
-                        
+                       
+                        const newStr = replaceOldURL(fetchedPosts[key]["content:encoded"][0]);
                         fetchedPosts[key]["content:encoded"][0] = newStr;                        
                         
                         if(fetchedPosts[key]["category"] && (
@@ -187,8 +203,7 @@ export const fetchPosts = () => {
                             )
                         ){           
 
-                            const attachmentURL= getAttachmentURL(fetchedAttachment , fetchedPosts[key]);
-                            
+                            const attachmentURL= getAttachmentURL(fetchedAttachment , fetchedPosts[key]);                            
                             
                             for (let i=0; i < fetchedPosts[key]["category"].length; i++) {
                                 

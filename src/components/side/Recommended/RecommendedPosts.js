@@ -21,7 +21,7 @@ const RecommendedPosts = (props) => {
                 </div>  
             </Link>
             <Link to={post.url}>
-                <h3 className={[globalClasses.section_title, globalClasses.section_title_side, , globalClasses.section_title_Reco].join(' ')}>{post["title"]}</h3>    
+                <h3 className={[globalClasses.section_title, globalClasses.section_title_side, globalClasses.section_title_Reco].join(' ')}>{post["title"]}</h3>    
             </Link>
         </Col>;   
     });    

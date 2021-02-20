@@ -20,7 +20,6 @@ const PodcastLayout = (props) => {
     const search = props.location.search;
     const params = new URLSearchParams(search);
     const categoryId = params.get("cat");
-    console.log(categoryId);
 
     const postPerPage = 24;
     const indexOfLastPost = props.currentPagePodcast * postPerPage;

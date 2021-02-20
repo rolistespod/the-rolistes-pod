@@ -79,7 +79,6 @@ const getAttachmentURL = (attachments, postMeta) => {
         }
     }
 
-    // return "https://static8.depositphotos.com/1051435/932/i/950/depositphotos_9327706-stock-photo-happy-clown.jpg";
     return "";
 }
 
@@ -288,10 +287,6 @@ export const fetchPosts = () => {
                         }                            
                     }
                 
-                    console.log(fetchedIntroGondo);
-                    console.log(fetchedAbout);
-                    console.log(fetchedTheTeam);
-
                     fetchedPodcast.sort((a,b)=>{
                         return new Date(b["pubDate"][0]) - new Date(a["pubDate"][0]) 
                     });

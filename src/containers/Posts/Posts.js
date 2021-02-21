@@ -204,19 +204,19 @@ const Posts = props => {
                     ));
                 break;
             
-            case "FULLNEWS":
-                key = searchPost(props.news, props.pageTitle);
-                const news= props.news;
-                posts =                          
-                    <FullPost 
-                        key= {news[key].id}
-                        cover={news[key].cover}
-                        author= {news[key]["dc:creator"][0]}
-                        title= {news[key]["title"]}
-                        content= {news[key]["content:encoded"][0]}
-                        date= {news[key]["pubDate"][0]}
-                        type="NEWS"/>;
-                break;
+            // case "FULLNEWS":
+            //     key = searchPost(props.news, props.pageTitle);
+            //     const news= props.news;
+            //     posts =                          
+            //         <FullPost 
+            //             key= {news[key].id}
+            //             cover={news[key].cover}
+            //             author= {news[key]["dc:creator"][0]}
+            //             title= {news[key]["title"]}
+            //             content= {news[key]["content:encoded"][0]}
+            //             date= {news[key]["pubDate"][0]}
+            //             type="NEWS"/>;
+            //     break;
 
             case "INTROGONDO":
                 const introGondo= props.introGondo;
@@ -256,18 +256,33 @@ const Posts = props => {
                     ));    
                 break;
 
-            case "FULLPODCAST":
+            case "FULLPOST":
+                
                 key = searchPost(props.podcast, props.pageTitle);
-                const podcast= props.podcast;                               
-                posts =                          
-                <FullPost 
-                    key= {podcast[key].id}
-                    cover={podcast[key].cover}
-                    author= {podcast[key]["dc:creator"][0]}
-                    date= {podcast[key]["pubDate"][0]}
-                    title= {podcast[key]["title"]}
-                    content= {podcast[key]["content:encoded"][0]}
-                    type="PODCAST"/>;                                 
+                if(key >=0){
+                    const podcast= props.podcast;                               
+                    posts =                          
+                    <FullPost 
+                        key= {podcast[key].id}
+                        cover={podcast[key].cover}
+                        author= {podcast[key]["dc:creator"][0]}
+                        date= {podcast[key]["pubDate"][0]}
+                        title= {podcast[key]["title"]}
+                        content= {podcast[key]["content:encoded"][0]}
+                        type="PODCAST"/>;  
+                }else{
+                    key = searchPost(props.news, props.pageTitle);
+                    const news= props.news;
+                    posts =                          
+                        <FullPost 
+                            key= {news[key].id}
+                            cover={news[key].cover}
+                            author= {news[key]["dc:creator"][0]}
+                            title= {news[key]["title"]}
+                            content= {news[key]["content:encoded"][0]}
+                            date= {news[key]["pubDate"][0]}
+                            type="NEWS"/>;
+                }                                                                   
                 break;
 
             case "LATEST":
@@ -298,14 +313,17 @@ const Posts = props => {
 
             case "RECOMMENDED":
                 
-                if(props.postType==="FULLPODCAST") {
-                    key = searchPost(props.podcast, props.pageTitle);                
+                let recommendedPosts= [];
+                key = searchPost(props.podcast, props.pageTitle);  
+
+                if(key>=0) {
+                    recommendedPosts= searchRecommendedPosts(props.podcast[key],props.podcast).slice(0, 2);                             
                 } 
                 else {
                     key = searchPost(props.news, props.pageTitle);
+                    recommendedPosts= searchRecommendedPosts(props.news[key],props.podcast).slice(0, 2);                           
                 }         
                 
-                const recommendedPosts= searchRecommendedPosts(props.podcast[key],props.podcast).slice(0, 2);
                 posts = <RecommendedPosts
                     recommendedPosts={recommendedPosts}
                     url = {recommendedPosts.url}/>;                

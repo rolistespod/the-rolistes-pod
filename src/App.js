@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.module.css';
 import Popup from './components/UI/Popup/Popup';
+import Spinner from './components/UI/Spinner/Spinner';
 
 
 const Home = React.lazy(()=>{
@@ -46,11 +47,11 @@ const App = props => {
 
   let routes = (
     <Switch>
-      <Route path="/news/:pageId" render={(props) =>  <Post {...props} type="FULLNEWS"/>}/> 
+      <Route path="/news/:pageId" render={(props) =>  <Post {...props} type="FULLPOST"/>}/> 
       <Route path="/news" render={(props) =>  <News {...props}/>} />
-      <Route path="/:year/:month/:day/:pageId" render={(props) =>  <Post {...props} type="FULLPODCAST"/>}/>          
+      <Route path="/:year/:month/:day/:pageId" render={(props) =>  <Post {...props} type="FULLPOST"/>}/>          
       <Route path="/podcast" exact render={(props) =>  <Podcast {...props}/>}/>          
-      <Route path="/paris_gondo/:pageId" render={(props) =>  <Post {...props } type="FULLNEWS"/>} />     
+      <Route path="/paris_gondo/:pageId" render={(props) =>  <Post {...props } type="FULLPOST"/>} />     
       <Route path="/paris_gondo" render={(props) =>  <Gondo {...props }/>} />
       <Route path="/about_us" render={(props) =>  <AboutUs {...props}/>}/>
       <Route path="/" render={(props) =>  <Home {...props}/>}/>            
@@ -60,7 +61,7 @@ const App = props => {
   return (
       <Layout>
         {showPopup ? <Popup/>: null}
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<Spinner/>}>
           {routes}          
         </Suspense>        
       </Layout>

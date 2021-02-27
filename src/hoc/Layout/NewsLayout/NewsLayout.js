@@ -62,9 +62,9 @@ const NewsLayout = (props) =>
                             <Col xs={12} className={globalClasses.no_padding_smallscreen}>
                                 <Support />
                             </Col>    
-                            <Col xs={12} className={globalClasses.no_padding_smallscreen}>
+                            {/* <Col xs={12} className={globalClasses.no_padding_smallscreen}>
                                 <Subscribe />
-                            </Col>                                        
+                            </Col>                                         */}
                         </Row>    
                     </Col>
                 </Row>

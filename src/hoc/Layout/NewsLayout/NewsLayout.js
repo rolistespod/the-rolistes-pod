@@ -12,6 +12,7 @@ import * as actions from '../../../store/actions/index';
 import { connect } from 'react-redux';
 import globalClasses from '../../../App.module.css';
 import { Helmet } from 'react-helmet';
+import Subscribe from '../../../components/side/Subscribe/Subscribe';
 
 
 
@@ -60,7 +61,10 @@ const NewsLayout = (props) =>
                             </Col>                  
                             <Col xs={12} className={globalClasses.no_padding_smallscreen}>
                                 <Support />
-                            </Col>                                         
+                            </Col>    
+                            <Col xs={12} className={globalClasses.no_padding_smallscreen}>
+                                <Subscribe />
+                            </Col>                                        
                         </Row>    
                     </Col>
                 </Row>

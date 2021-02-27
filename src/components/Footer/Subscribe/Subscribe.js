@@ -17,14 +17,12 @@ const Subscribe = (props) => {
             <div className={globalClasses.item_box_footer}>                
                 <Row>            
                     <Col xs={12}>
-                        <h2 className={globalClasses.section_title_footer}>Contact Us</h2>                     
+                        <h2 className={globalClasses.section_title_footer}>Newsletter</h2>                     
                     </Col>
                 </Row>
-                <Row>
-                    <Col xs={4}>
-                        <a href="mailto:rolistespod@gmail.com" className={classes.FooterLink}><span><FontAwesomeIcon icon={faEnvelope} aria-hidden="true"/></span></a>
-                    </Col>                          
-                </Row>           
+               
+                <a href="http://eepurl.com/gJCUVX" className={classes.FooterLinkText}><span>Subscribe</span></a>
+                   
             </div>                    
         </Aux>
     )

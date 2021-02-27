@@ -31,12 +31,9 @@ const Support = (props) => {
                         </Col>
 
                         <Col xs={3}>
-                            <a href="https://itch.io/physical-games?ac=6hKcoR9Jch" className={classes.SideLink}><span><FontAwesomeIcon icon={faItchIo} aria-hidden="true"/></span></a>
+                            <a href="https://itch.io/?ac=6hKcoR9Jch" className={classes.SideLink}><span><FontAwesomeIcon icon={faItchIo} aria-hidden="true"/></span></a>
                         </Col>
 
-                        {/* <Col xs={2}>
-                            <a href="https://www.drivethrurpg.com/index.php?affiliate_id=1289000" className={classes.SideLink}><img src={kofiButton}  alt="Donate with Paypal" aria-hidden="true"/></a>
-                        </Col> */}
                     </Row>               
                 </Row> 
             </div>   

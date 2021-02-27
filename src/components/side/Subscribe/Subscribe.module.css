@@ -33,11 +33,6 @@
 	color:#000000;
 }
 
-.SideLink:hover{
-	background-color: #000000;
-    color:#FFFFFF;
-}
-
 .SideLinkText{ 
     display:inline-block;
 	box-sizing: border-box;   
@@ -58,6 +53,11 @@
 .SideLinkText:hover{	
     background-color: var(--secondary-color);
 	color:var(--main-color);
+}
+
+.SideLink:hover{
+	background-color: #000000;
+    color:#FFFFFF;
 }
 
 .sideLinkIcon, .sideLinkIcon:hover{

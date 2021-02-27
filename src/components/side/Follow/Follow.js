@@ -92,6 +92,16 @@ const Follow = (props) => {
                         </Col>                                   
                     </Row>
                 </Row>
+                <Row>
+                    <Col xs={12}>
+                        <h3 className={classes.side_title}>Newsletter</h3>
+                    </Col>
+                    <Row className={classes.side_icons}>
+                        <Col xs={12}>
+                            <a href="http://eepurl.com/gJCUVX" className={classes.SideLinkText}><span>Subscribe</span></a>
+                        </Col>
+                    </Row>
+                </Row>
             </div>                    
         </Aux>
     )

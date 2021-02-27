@@ -22,7 +22,7 @@ const Support = (props) => {
                             </Col>
 
                             <Col xs={6} md={3} lg={3}>
-                                <a href="https://itch.io/physical-games?ac=6hKcoR9Jch/" className={classes.supportLink}><img src={itchIOButton}  alt="Support on ItchIo" aria-hidden="true"/></a>
+                                <a href="https://itch.io/?ac=6hKcoR9Jch" className={classes.supportLink}><img src={itchIOButton}  alt="Support on ItchIo" aria-hidden="true"/></a>
                             </Col>
 
                             <Col xs={6} md={3} lg={3}>

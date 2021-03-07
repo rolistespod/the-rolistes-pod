@@ -84,6 +84,54 @@ const Posts = props => {
         return postsFromCategory
     }
 
+    const getValueCategory = (relatedCategory) => {
+
+        let valueCategory = 1;
+
+        for(let i=0;i<props.catValue0.length;i++){
+
+            if(props.catValue0[i]===relatedCategory){
+                valueCategory = 0;
+                return valueCategory;                
+            }
+        }
+        
+        for(let i=0;i<props.catValue2.length;i++){
+
+            if(props.catValue2[i]===relatedCategory){
+                valueCategory = 2;
+                return valueCategory;                
+            }
+        } 
+
+        for(let i=0;i<props.catValue3.length;i++){
+
+            if(props.catValue3[i]===relatedCategory){
+                valueCategory = 3;
+                console.log(props.catValue3[i]);
+                return valueCategory;                
+            }
+        } 
+
+        for(let i=0;i<props.catValue4.length;i++){
+
+            if(props.catValue4[i]===relatedCategory){
+                valueCategory = 4;            
+                return valueCategory;                
+            }
+        } 
+
+        for(let i=0;i<props.catValue5.length;i++){
+
+            if(props.catValue5[i]===relatedCategory){
+                valueCategory = 5;
+                return valueCategory;                
+            }
+        } 
+
+        return valueCategory;
+    }
+
     const searchRecommendedPosts = (postToRead, posts) => {
 
         const RecommendedPodcast = [];
@@ -97,7 +145,8 @@ const Posts = props => {
                     for (let k=0; k < posts[i]["category"].length; k++) {
                         
                         if(postToRead["category"][j]["$"]["nicename"]===posts[i]["category"][k]["$"]["nicename"]){                      
-                            amountMatchCategories += 1;                    
+                            const valueCategory = getValueCategory(posts[i]["category"][k]["$"]["nicename"]);      
+                            amountMatchCategories += valueCategory;                    
                         }
                     }
                 }
@@ -349,7 +398,12 @@ const mapStateToProps = state => {
         theTeam: state.posts.theTeam,
         loading: state.posts.loading,
         loaded: state.posts.loaded,
-        currentCategoryPodcast: state.posts.currentCategoryPodcast
+        currentCategoryPodcast: state.posts.currentCategoryPodcast,
+        catValue0: state.global.catValue0,
+        catValue2: state.global.catValue2,
+        catValue3: state.global.catValue3,
+        catValue4: state.global.catValue4,
+        catValue5: state.global.catValue5
     };
 };
 

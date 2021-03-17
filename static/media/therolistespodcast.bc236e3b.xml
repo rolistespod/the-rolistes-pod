@@ -16,7 +16,7 @@
 <!-- 7. WordPress will then import each of the posts, pages, comments, categories, etc. -->
 <!--    contained in this file into your site. -->
 
-<!-- generator="WordPress.com" created="2021-03-17 11:28"-->
+<!-- generator="WordPress.com" created="2021-03-17 21:56"-->
 <rss version="2.0"
 	xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/"
 	xmlns:content="http://purl.org/rss/1.0/modules/content/"
@@ -29,7 +29,7 @@
 	<title>The Rolistes Podcast</title>
 	<link>http://rolistespod.com</link>
 	<description>Your proudly London-based tabletop RPG podcasts !</description>
-	<pubDate>Wed, 17 Mar 2021 11:28:20 +0000</pubDate>
+	<pubDate>Wed, 17 Mar 2021 21:56:52 +0000</pubDate>
 	<language></language>
 	<wp:wxr_version>1.2</wp:wxr_version>
 	<wp:base_site_url>http://wordpress.com/</wp:base_site_url>
@@ -59891,14 +59891,6 @@ https://youtu.be/4q1XsaHT384
 		<wp:is_sticky>0</wp:is_sticky>
 		<category domain="category" nicename="coming-soon"><![CDATA[Coming Soon]]></category>
 		<wp:postmeta>
-			<wp:meta_key>_pingme</wp:meta_key>
-			<wp:meta_value><![CDATA[1]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
-			<wp:meta_key>_encloseme</wp:meta_key>
-			<wp:meta_value><![CDATA[1]]></wp:meta_value>
-		</wp:postmeta>
-		<wp:postmeta>
 			<wp:meta_key>_thumbnail_id</wp:meta_key>
 			<wp:meta_value><![CDATA[0]]></wp:meta_value>
 		</wp:postmeta>
@@ -59929,6 +59921,156 @@ https://youtu.be/4q1XsaHT384
 		<wp:postmeta>
 			<wp:meta_key>publicize_twitter_user</wp:meta_key>
 			<wp:meta_value><![CDATA[rolistespod]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>Patreon Goal Update – New Website Sneak Peek!</title>
+		<link>http://rolistespod.com/2021/03/17/patreon-goal-update-new-website-sneak-peek/</link>
+		<pubDate>Wed, 17 Mar 2021 21:56:15 +0000</pubDate>
+		<dc:creator>kalum666</dc:creator>
+		<guid isPermaLink="false">https://rolistespod.com/?p=5638</guid>
+		<description></description>
+		<content:encoded><![CDATA[<!-- wp:image {"id":5639,"sizeSlug":"large","linkDestination":"media"} -->
+<figure class="wp-block-image size-large"><a href="https://rolistespod.files.wordpress.com/2021/03/website-sneak-peek_v1.jpg"><img src="https://rolistespod.files.wordpress.com/2021/03/website-sneak-peek_v1.jpg?w=1024" alt="" class="wp-image-5639" /></a></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph -->
+<p>Thanks to my brother's hard work, The Rolistes brand new website is almost ready to be made public!</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>I thought I should build up the excitement with this sneak peek.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>My apologies for the low quality of the video.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Something has gone wrong with my OBS settings and my broken throat would not allow me to record a second one. </p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>:(</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:embed {"url":"https:\/\/youtu.be\/ZRFoAxlxitM","type":"rich","providerNameSlug":"youtube","responsive":true,"className":"wp-embed-aspect-16-9 wp-has-aspect-ratio"} -->
+<figure class="wp-block-embed is-type-rich is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+https://youtu.be/ZRFoAxlxitM
+</div></figure>
+<!-- /wp:embed -->
+
+<!-- wp:paragraph -->
+<p>This website should be fully operational at the beginning of April.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Keep an eye over here to catch it as soon as it goes live.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Cheers</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Kalum</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":5} -->
+<h5>Subscribe to The Rolistes video channels</h5>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":5} -->
+<h5><a href="https://www.youtube.com/channel/UCpguBUBlPRHN4BGTbKPFxrg"><strong>YouTube</strong></a> / <a href="https://www.twitch.tv/rolistespod"><strong>Twitch</strong></a></h5>
+<!-- /wp:heading -->
+
+<!-- wp:heading {"level":5} -->
+<h5>Stay connected</h5>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Subscribe to <a href="http://eepurl.com/gJCUVX"><strong>The Rolistes Newsletter</strong></a> <br><a href="https://twitter.com/rolistespod"><strong>Twitter</strong></a> / <a href="https://www.instagram.com/rolistespod"><strong>Instagram</strong></a> / <a href="https://www.tiktok.com/@rolistespod?lang=en"><strong>Tik Tok</strong></a> / <a href="https://www.facebook.com/Rolistespod"><strong>Facebook</strong></a></p>
+<!-- /wp:paragraph -->
+
+<!-- wp:heading {"level":5} -->
+<h5 id="block-053288a5-423e-4765-99d1-d665bd826320">Contact me<br><a href="mailto:Rolistespod@gmail.com">Email</a></h5>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p><strong>Logo<br></strong>The Rolistes Podcast brand new logo by Rollin Kunz. Please check his excellent work at&nbsp;<strong><a href="https://www.rollinkunz.com/">https://www.rollinkunz.com</a></strong>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p><strong><a href="https://www.teepublic.com/user/rolistespod">Merchandising, including t-shirts</a></strong>, and&nbsp;<strong><a href="https://www.teepublic.com/en-gb/mask/4797521-the-rolistes-podcast-logo-b-and-w">EVEN FACEMASKS</a></strong>&nbsp;with the logo and more cool “The Rolistes Podcast” art by Rolin Kunz is available via our&nbsp;<strong><a href="https://www.teepublic.com/user/rolistespod">TeePublic store</a></strong>.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>The Rolistes Podcast by Kalum is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</p>
+<!-- /wp:paragraph -->]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>5638</wp:post_id>
+		<wp:post_date>2021-03-17 21:56:15</wp:post_date>
+		<wp:post_date_gmt>2021-03-17 21:56:15</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>open</wp:ping_status>
+		<wp:post_name>patreon-goal-update-new-website-sneak-peek</wp:post_name>
+		<wp:status>publish</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>post</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<category domain="category" nicename="news"><![CDATA[News]]></category>
+		<wp:postmeta>
+			<wp:meta_key>_thumbnail_id</wp:meta_key>
+			<wp:meta_value><![CDATA[5639]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_last_editor_used_jetpack</wp:meta_key>
+			<wp:meta_value><![CDATA[block-editor]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_publicize_job_id</wp:meta_key>
+			<wp:meta_value><![CDATA[56064548375]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>timeline_notification</wp:meta_key>
+			<wp:meta_value><![CDATA[1616018175]]></wp:meta_value>
+		</wp:postmeta>
+	</item>
+	<item>
+		<title>Website Sneak Peek_V1</title>
+		<link>http://rolistespod.com/website-sneak-peek_v1/</link>
+		<pubDate>Wed, 17 Mar 2021 21:44:57 +0000</pubDate>
+		<dc:creator>kalum666</dc:creator>
+		<guid isPermaLink="false">http://rolistespod.files.wordpress.com/2021/03/website-sneak-peek_v1.jpg</guid>
+		<description></description>
+		<content:encoded><![CDATA[]]></content:encoded>
+		<excerpt:encoded><![CDATA[]]></excerpt:encoded>
+		<wp:post_id>5639</wp:post_id>
+		<wp:post_date>2021-03-17 21:44:57</wp:post_date>
+		<wp:post_date_gmt>2021-03-17 21:44:57</wp:post_date_gmt>
+		<wp:comment_status>open</wp:comment_status>
+		<wp:ping_status>closed</wp:ping_status>
+		<wp:post_name>website-sneak-peek_v1</wp:post_name>
+		<wp:status>inherit</wp:status>
+		<wp:post_parent>0</wp:post_parent>
+		<wp:menu_order>0</wp:menu_order>
+		<wp:post_type>attachment</wp:post_type>
+		<wp:post_password></wp:post_password>
+		<wp:is_sticky>0</wp:is_sticky>
+		<wp:attachment_url>https://rolistespod.files.wordpress.com/2021/03/website-sneak-peek_v1.jpg</wp:attachment_url>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attached_file</wp:meta_key>
+			<wp:meta_value><![CDATA[/home/wpcom/public_html/wp-content/blogs.dir/222/93652782/files/2021/03/website-sneak-peek_v1.jpg]]></wp:meta_value>
+		</wp:postmeta>
+		<wp:postmeta>
+			<wp:meta_key>_wp_attachment_metadata</wp:meta_key>
+			<wp:meta_value><![CDATA[a:6:{s:5:"width";i:1312;s:6:"height";i:600;s:4:"file";s:97:"/home/wpcom/public_html/wp-content/blogs.dir/222/93652782/files/2021/03/website-sneak-peek_v1.jpg";s:5:"sizes";a:0:{}s:10:"image_meta";a:12:{s:8:"aperture";s:1:"0";s:6:"credit";s:0:"";s:6:"camera";s:0:"";s:7:"caption";s:0:"";s:17:"created_timestamp";s:1:"0";s:9:"copyright";s:0:"";s:12:"focal_length";s:1:"0";s:3:"iso";s:1:"0";s:13:"shutter_speed";s:1:"0";s:5:"title";s:0:"";s:11:"orientation";s:1:"1";s:8:"keywords";a:0:{}}s:8:"filesize";i:197907;}]]></wp:meta_value>
 		</wp:postmeta>
 	</item>
 </channel>

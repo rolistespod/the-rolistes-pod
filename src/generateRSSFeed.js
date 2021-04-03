@@ -66,8 +66,8 @@ const toRssXML = (posts) => {
     
         <channel>
             <title>The Rolistes Podcast</title>
-            <atom:link href="https://rolistespod.github.io/the-rolistes-pod/" rel="self" type="application/rss+xml" />
-            <link>https://rolistespod.github.io/the-rolistes-pod/</link>
+            <atom:link href="https://rolistespod.com/" rel="self" type="application/rss+xml" />
+            <link>https://rolistespod.com/</link>
             <description>Welcome among The Rolistes…
 
 We are the proudly London-based producers of Tabletop RPG podcasts showcasing fans across the Channel, the Pond and beyond.
@@ -233,7 +233,7 @@ const getPosts = () => {
                                     const year = tempDate.getFullYear();
                                     const month = tempDate.getMonth()+1;
                                     const day = tempDate.getDate()
-                                    const link = 'https://rolistespod.github.io/the-rolistes-pod/' + year + '/' + month + '/' + day + '/'  + fetchedPost["wp:post_name"][0];
+                                    const link = 'https://rolistespod.com/' + year + '/' + month + '/' + day + '/'  + fetchedPost["wp:post_name"][0];
                                     const pubDate = fetchedPost["pubDate"][0];
                                     const categories = fetchedPost["category"];
                                     const guid = link;

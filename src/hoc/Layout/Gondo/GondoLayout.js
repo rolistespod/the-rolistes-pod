@@ -37,10 +37,12 @@ const NewsLayout = (props) =>
                 <Ads/>
                 <Row>                                           
                     <Col lg={8} xs={12} className={[globalClasses.no_padding_right,globalClasses.no_padding_smallscreen].join(' ')} >                    
-                        
                         <Posts 
                             {...props} 
-                            type="INTROGONDO"/>  
+                            type="INTROGONDO"/>
+                        <div className={classes.item_box_left_gondo}>
+                            <iframe className={classes.gondo_ads} frameborder="0" src="https://itch.io/embed/975772?border_width=0&amp;border_color=ffffff" width="206" height="165"><a href="https://rolistespod.itch.io/paris-gondo-text-only%22%3EParis Gondo - The Life-Saving Magic of Inventorying (Text-Only Edition) by Kalum from The Rolistes Podcast"></a></iframe>                       
+                        </div>                          
                         
                         <div className={globalClasses.item_box_left}>
                             <h2 className={globalClasses.section_title}>Latest Paris Gondo News</h2>

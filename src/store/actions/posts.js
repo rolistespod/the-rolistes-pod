@@ -115,7 +115,7 @@ const replaceOldURL = (post) => {
     newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/podcast/', '<a href="/podcas?cat=all');
     newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/news/', '<a href="/news');
     newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/paris_gondo/', '<a href="/paris_gondo');
-    newStr = newStr.replaceAll('<a href="https://rolistespod.com', '<a href=""');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com', '<a href="/"');
 
     return newStr;                        
 }

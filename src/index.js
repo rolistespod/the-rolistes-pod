@@ -9,7 +9,7 @@ import './assets/fonts/Johnston100-Medium.ttf';
 import './assets/fonts/Johnston100-Regular.ttf';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, HashRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
@@ -33,9 +33,11 @@ const store =  createStore(rootReducer, composeEnhancers(
 const app = (
   <React.StrictMode>
     <Provider store={store}> 
-      <BrowserRouter>
+      <HashRouter>
+      {/* <BrowserRouter> */}
         <App />
-      </BrowserRouter>
+      {/* </BrowserRouter> */}
+      </HashRouter>
     </Provider>
   </React.StrictMode>
 

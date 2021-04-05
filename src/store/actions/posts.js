@@ -103,19 +103,19 @@ const getURL = (post, category) => {
 
 const replaceOldURL = (post) => {
     
-    const baseURL='';
+    const baseURL='href="https://rolistespod.com/#';
 
     let str= post;
     let newStr= str.replace(/\[audio/,'<audio controls');
     newStr= newStr.replace(/mp3\"\]/,'mp3"></audio><br>');    
-    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/film-studies/', '<a href="/podcast?cat=film-studies');
-    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/the-rolistes-present/', '<a href="/podcast?cat=the-rolistes-present');
-    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/cafe-rolistes/', '<a href="/podcast?cat=cafe-rolistes');
-    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/the-rolistes-podcast/', '<a href="/podcast?cat=the-rolistes-podcast');
-    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/podcast/', '<a href="/podcas?cat=all');
-    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/news/', '<a href="/news');
-    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/paris_gondo/', '<a href="/paris_gondo');
-    newStr = newStr.replaceAll('<a href="https://rolistespod.com', '<a href="/"');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com', '<a '+ baseURL);
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/film-studies/', '<a '+ baseURL + '/podcast?cat=film-studies"');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/the-rolistes-present/', '<a '+ baseURL + '/podcast?cat=the-rolistes-present"');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/cafe-rolistes/', '<a '+ baseURL + '/podcast?cat=cafe-rolistes');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/the-rolistes-podcast/', '<a '+ baseURL + '/podcast?cat=the-rolistes-podcast"');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/podcast/', '<a '+ baseURL + '/podcas?cat=all"');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/news/', '<a '+ baseURL + '/news"');
+    newStr = newStr.replaceAll('<a href="https://rolistespod.com/category/paris_gondo/', '<a '+ baseURL + '/paris_gondo"');
 
     return newStr;                        
 }

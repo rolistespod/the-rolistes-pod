@@ -8,7 +8,7 @@ const Sitemap = require("react-router-sitemap").default;
 function generateSitemap() {
     return (
       new Sitemap(router)
-          .build("https://rolistespod.github.io/the-rolistes-pod/")
+          .build("https://rolistespod.com/")
           .save("./public/sitemap.xml")
     );
 }

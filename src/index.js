@@ -33,7 +33,7 @@ const store =  createStore(rootReducer, composeEnhancers(
 const app = (
   <React.StrictMode>
     <Provider store={store}> 
-      <BrowserRouter basename="/the-rolistes-pod">
+      <BrowserRouter basename="">
         <App />
       </BrowserRouter>
     </Provider>

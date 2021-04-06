@@ -6,8 +6,8 @@
     "static/js/1.7d4777b5.chunk.js": "/static/js/1.7d4777b5.chunk.js",
     "static/js/1.7d4777b5.chunk.js.map": "/static/js/1.7d4777b5.chunk.js.map",
     "main.css": "/static/css/main.500b861e.chunk.css",
-    "main.js": "/static/js/main.bbdac730.chunk.js",
-    "main.js.map": "/static/js/main.bbdac730.chunk.js.map",
+    "main.js": "/static/js/main.c71528cf.chunk.js",
+    "main.js.map": "/static/js/main.c71528cf.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.bc4640b9.js",
     "runtime-main.js.map": "/static/js/runtime-main.bc4640b9.js.map",
     "static/js/4.b9aebe17.chunk.js": "/static/js/4.b9aebe17.chunk.js",
@@ -55,12 +55,12 @@
     "static/media/Logo_Nav_Side.c621751a.jpg": "/static/media/Logo_Nav_Side.c621751a.jpg",
     "static/media/RollinKunz_Astro.5e7c9b52.png": "/static/media/RollinKunz_Astro.5e7c9b52.png",
     "static/media/become_a_patron_button_BnW - Black.2c73b420.png": "/static/media/become_a_patron_button_BnW - Black.2c73b420.png",
-    "static/media/therolistespodcast.354d7cb4.xml": "/static/media/therolistespodcast.354d7cb4.xml"
+    "static/media/therolistespodcast.6ea9c8c1.xml": "/static/media/therolistespodcast.6ea9c8c1.xml"
   },
   "entrypoints": [
     "static/js/runtime-main.bc4640b9.js",
     "static/js/4.b9aebe17.chunk.js",
     "static/css/main.500b861e.chunk.css",
-    "static/js/main.bbdac730.chunk.js"
+    "static/js/main.c71528cf.chunk.js"
   ]
 }

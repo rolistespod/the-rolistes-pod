@@ -7,6 +7,11 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.module.css';
 import Popup from './components/UI/Popup/Popup';
 import Spinner from './components/UI/Spinner/Spinner';
+import ReactGA from 'react-ga';
+import RouteChangeTracker from './tracking/RouteChangeTracker';
+
+const TRACKING_ID = "UA-80048837-1"; // YOUR_OWN_TRACKING_ID
+ReactGA.initialize(TRACKING_ID);
 
 
 const Home = React.lazy(()=>{
@@ -60,6 +65,7 @@ const App = props => {
 
   return (
       <Layout>
+        <RouteChangeTracker/>
         {showPopup ? <Popup/>: null}
         <Suspense fallback={<Spinner/>}>
           {routes}          

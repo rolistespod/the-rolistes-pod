@@ -1,0 +1,2 @@
+(this["webpackJsonpthe-rolistes-pod"]=this["webpackJsonpthe-rolistes-pod"]||[]).push([[10],{190:function(e,t,a){"use strict";a.r(t);var n=a(0),l=a.n(n),s=a(25),c=a(161),r=a(154),o=a(162),i=a(160);t.default=function(e){return l.a.createElement(s.a,null,l.a.createElement(i.a,null,l.a.createElement("title",null,"The Rolistes Podcast - Home"),l.a.createElement("meta",{name:"description",content:""})),l.a.createElement(r.a,null,l.a.createElement(o.a,Object.assign({},e,{type:"LATEST"}))),l.a.createElement(c.a,null))}}}]);
+//# sourceMappingURL=10.f4066b99.chunk.js.map

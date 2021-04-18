@@ -33,11 +33,11 @@ const store =  createStore(rootReducer, composeEnhancers(
 const app = (
   <React.StrictMode>
     <Provider store={store}> 
-      <HashRouter>
-      {/* <BrowserRouter> */}
+      {/* <HashRouter> */}
+      <BrowserRouter>
         <App />
-      {/* </BrowserRouter> */}
-      </HashRouter>
+      </BrowserRouter>
+      {/* </HashRouter> */}
     </Provider>
   </React.StrictMode>
 

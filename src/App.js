@@ -54,7 +54,7 @@ const App = props => {
       <Route path="/paris_gondo/:pageId" render={(props) =>  <Post {...props } type="FULLPOST"/>} />     
       <Route path="/paris_gondo" render={(props) =>  <Gondo {...props }/>} />
       <Route path="/about_us" render={(props) =>  <AboutUs {...props}/>}/>
-      <Route path="/" render={(props) =>  <Home {...props}/>}/>            
+      <Route path="/*" render={(props) =>  <Home {...props}/>}/>            
     </Switch>
   );
 

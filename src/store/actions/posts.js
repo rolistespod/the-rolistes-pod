@@ -103,7 +103,7 @@ const getURL = (post, category) => {
 
 const replaceOldURL = (post) => {
     
-    const baseURL='href="https://rolistespod.com/#';
+    const baseURL='href="';
 
     let str= post;
     let newStr= str.replace(/\[audio/,'<audio controls');

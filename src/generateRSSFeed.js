@@ -233,7 +233,7 @@ const getPosts = () => {
                                     const year = tempDate.getFullYear();
                                     const month = tempDate.getMonth()+1;
                                     const day = tempDate.getDate()
-                                    const link = 'https://rolistespod.com/#/' + year + '/' + month + '/' + day + '/'  + fetchedPost["wp:post_name"][0];
+                                    const link = 'https://rolistespod.com/' + year + '/' + month + '/' + day + '/'  + fetchedPost["wp:post_name"][0];
                                     const pubDate = fetchedPost["pubDate"][0];
                                     const categories = fetchedPost["category"];
                                     const guid = link;

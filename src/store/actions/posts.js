@@ -73,17 +73,15 @@ const getAttachmentURL = (attachments, postMeta) => {
 
         if(postMeta["wp:postmeta"][metaKey]["wp:meta_key"][0]==="_thumbnail_id"){
             attachmentId = postMeta["wp:postmeta"][metaKey]["wp:meta_value"][0];
-            console.log(attachmentId);
+
         }
     }   
     
     for(let key in attachments){
 
         if(attachments[key]["wp:post_id"][0] == attachmentId){    
-            console.log('found attachment');                    
-            if(attachments[key]["guid"][0]["_"]){                                                  
-                console.log(attachments[key]);   
-                console.log(attachments[key]["guid"][0]["_"]);
+               
+            if(attachments[key]["guid"][0]["_"]){                                                                  
                 return attachments[key]["guid"][0]["_"];  
             }
                       

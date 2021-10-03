@@ -1,6 +1,7 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
 import xmlData from '../../assets/therolistespodcast.xml';
+import missingIMG from'../../assets/images/Logo_Nav_Missing.jpg';
 
 
 export const fetchPostsStart = () => {
@@ -63,23 +64,73 @@ export const setCurrentCategorySize = (size) => {
 const getAttachmentURL = (attachments, postMeta) => {
     
     let attachmentId = 0;
+    let imgLink = "";
+    let startIndex = 0;
+    let endIndexJPG = 0;
+    let endIndexPNG = 0;
     
-    for (let metaKey in postMeta["wp:postmeta"]){
+    // for (let metaKey in postMeta["wp:postmeta"]){
 
-        if(postMeta["wp:postmeta"][metaKey]["wp:meta_key"][0]==="_thumbnail_id"){
-            attachmentId = postMeta["wp:postmeta"][metaKey]["wp:meta_value"][0];
-        }
-    }
+    //     if(postMeta["wp:postmeta"][metaKey]["wp:meta_key"][0]==="_thumbnail_id"){
+    //         attachmentId = postMeta["wp:postmeta"][metaKey]["wp:meta_value"][0];
+    //     }
+    // }
+    
+       // for(let key in attachments){
 
-    for(let key in attachments){
+    //     if(attachments[key]["wp:post_id"][0] == attachmentId){  
+    //         console.log("missing attachments"+ attachments[key]);     
+                                       
+    //         if(attachments[key]["wp:attachment_url"][0]){
+    //             return attachments[key]["wp:attachment_url"][0];
+    //         }else{
+    //             console.log("missing attachments"+ attachments[key]);
+    //         }
+            
+    //     }
+    // }
 
-        if(attachments[key]["wp:post_id"][0] == attachmentId){       
+    console.log(postMeta);
+    // console.log(postMeta);    
+    // console.log(attachments);
+    // console.log(postMeta["content:encoded"][0]);
 
-            return attachments[key]["wp:attachment_url"][0];
-        }
-    }
 
-    return "";
+    imgLink = postMeta["content:encoded"][0];
+
+    if(imgLink.indexOf('</figure>')>0){
+        imgLink = imgLink.substring(0,imgLink.indexOf('</figure>'));
+    
+        startIndex = imgLink.indexOf("<a href=")+ 9;
+        endIndexJPG = imgLink.indexOf(".jpg") + 4;
+        endIndexPNG = imgLink.indexOf(".png") + 4;
+        console.log (imgLink);
+        
+        console.log(startIndex);
+
+        if (endIndexJPG > 4){
+            imgLink = imgLink.substring(
+                startIndex, 
+                endIndexJPG
+            );
+
+            console.log( endIndexJPG );
+
+            return imgLink;
+        }else{
+            if( endIndexPNG > 4){
+                imgLink = imgLink.substring(
+                    startIndex, 
+                    endIndexPNG
+                );
+                console.log( endIndexPNG );
+
+                return imgLink;
+            }       
+        }        
+    } 
+ 
+    return missingIMG;    
 }
 
 const getURL = (post, category) => {
@@ -201,8 +252,7 @@ export const fetchPosts = () => {
                                 )
                             )
                         ){           
-
-                            const attachmentURL= getAttachmentURL(fetchedAttachment , fetchedPosts[key]);                            
+                            const attachmentURL= getAttachmentURL(fetchedAttachment , fetchedPosts[key]);
                             
                             for (let i=0; i < fetchedPosts[key]["category"].length; i++) {
                                 

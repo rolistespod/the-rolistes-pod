@@ -245,8 +245,8 @@ const getPosts = () => {
                                     // const itunesImage = 'test';
                                     // const itunesSummary = 'test';   
                                     // const itunesSubtitle = 'test';
-                                    const mediaThumbnail = attachment["wp:attachment_url"][0];;   
-                                    const mediaThumbnailContent = attachment["wp:attachment_url"][0];
+                                    const mediaThumbnail = attachment["guid"][0]["_"];   
+                                    const mediaThumbnailContent = attachment["guid"][0]["_"];
                                     const mediaThumbnailTitle = attachment["wp:post_name"][0];
                                     const mediaAuthorContent = "https://2.gravatar.com/avatar/e25822b2ed220131f32139e2f1797c71?s=96&#38;d=identicon&#38;r=G";
                                     const mediaAuthorTitle = fetchedPost["dc:creator"];

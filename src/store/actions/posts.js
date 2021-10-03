@@ -69,66 +69,65 @@ const getAttachmentURL = (attachments, postMeta) => {
     let endIndexJPG = 0;
     let endIndexPNG = 0;
     
-    // for (let metaKey in postMeta["wp:postmeta"]){
+    for (let metaKey in postMeta["wp:postmeta"]){
 
-    //     if(postMeta["wp:postmeta"][metaKey]["wp:meta_key"][0]==="_thumbnail_id"){
-    //         attachmentId = postMeta["wp:postmeta"][metaKey]["wp:meta_value"][0];
-    //     }
-    // }
+        if(postMeta["wp:postmeta"][metaKey]["wp:meta_key"][0]==="_thumbnail_id"){
+            attachmentId = postMeta["wp:postmeta"][metaKey]["wp:meta_value"][0];
+            console.log(attachmentId);
+        }
+    }   
     
-       // for(let key in attachments){
+    for(let key in attachments){
 
-    //     if(attachments[key]["wp:post_id"][0] == attachmentId){  
-    //         console.log("missing attachments"+ attachments[key]);     
-                                       
-    //         if(attachments[key]["wp:attachment_url"][0]){
-    //             return attachments[key]["wp:attachment_url"][0];
-    //         }else{
-    //             console.log("missing attachments"+ attachments[key]);
-    //         }
-            
-    //     }
-    // }
+        if(attachments[key]["wp:post_id"][0] == attachmentId){    
+            console.log('found attachment');                    
+            if(attachments[key]["guid"][0]["_"]){                                                  
+                console.log(attachments[key]);   
+                console.log(attachments[key]["guid"][0]["_"]);
+                return attachments[key]["guid"][0]["_"];  
+            }
+                      
+        }
+    }
 
-    console.log(postMeta);
+    // console.log(postMeta);
     // console.log(postMeta);    
     // console.log(attachments);
     // console.log(postMeta["content:encoded"][0]);
 
 
-    imgLink = postMeta["content:encoded"][0];
+    // imgLink = postMeta["content:encoded"][0];
 
-    if(imgLink.indexOf('</figure>')>0){
-        imgLink = imgLink.substring(0,imgLink.indexOf('</figure>'));
+    // if(imgLink.indexOf('</figure>')>0){
+    //     imgLink = imgLink.substring(0,imgLink.indexOf('</figure>'));
     
-        startIndex = imgLink.indexOf("<a href=")+ 9;
-        endIndexJPG = imgLink.indexOf(".jpg") + 4;
-        endIndexPNG = imgLink.indexOf(".png") + 4;
-        console.log (imgLink);
+    //     startIndex = imgLink.indexOf("<a href=")+ 9;
+    //     endIndexJPG = imgLink.indexOf(".jpg") + 4;
+    //     endIndexPNG = imgLink.indexOf(".png") + 4;
+    //     // console.log (imgLink);
         
-        console.log(startIndex);
+    //     // console.log(startIndex);
 
-        if (endIndexJPG > 4){
-            imgLink = imgLink.substring(
-                startIndex, 
-                endIndexJPG
-            );
+    //     if (endIndexJPG > 4){
+    //         imgLink = imgLink.substring(
+    //             startIndex, 
+    //             endIndexJPG
+    //         );
 
-            console.log( endIndexJPG );
+    //         // console.log( endIndexJPG );
 
-            return imgLink;
-        }else{
-            if( endIndexPNG > 4){
-                imgLink = imgLink.substring(
-                    startIndex, 
-                    endIndexPNG
-                );
-                console.log( endIndexPNG );
-
-                return imgLink;
-            }       
-        }        
-    } 
+    //         return imgLink;
+    //     }else{
+    //         if( endIndexPNG > 4){
+    //             imgLink = imgLink.substring(
+    //                 startIndex, 
+    //                 endIndexPNG
+    //             );
+    //             // console.log( endIndexPNG );
+    //             return imgLink;
+    //         }       
+    //     }        
+    // } 
  
     return missingIMG;    
 }

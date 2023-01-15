@@ -1,4 +1,4 @@
-import { faItunesNote, faFacebookF, faInstagram, faSpotify, faTiktok, faTwitter, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faItunesNote, faFacebookF, faInstagram, faSpotify, faTiktok, faTwitter, faYoutube, faMastodon } from '@fortawesome/free-brands-svg-icons';
 import { faPodcast, faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
@@ -28,7 +28,12 @@ const Follow = (props) => {
 
                     <Col xs={4}>
                         <a href="https://twitter.com/rolistespod" className={classes.FooterLink}><span><FontAwesomeIcon icon={faTwitter} aria-hidden="true"/></span></a>
-                    </Col>                    
+                    </Col>  
+
+                    <Col xs={4}>
+                        <a href="https://dice.camp/@Rolistespod" className={classes.FooterLink}><span><FontAwesomeIcon icon={faMastodon} aria-hidden="true"/></span></a>
+                    </Col> 
+
                 </Row>      
             </div>                    
         </Aux>

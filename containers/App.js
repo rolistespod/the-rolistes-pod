@@ -1,4 +1,4 @@
-import Layout from "../Layout/layout";
+import Layout from "../layoutprout/layout";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Fragment, useEffect } from "react";
 import * as actions from "../store/actions/index";

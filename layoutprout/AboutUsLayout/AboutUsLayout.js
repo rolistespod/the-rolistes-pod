@@ -5,6 +5,7 @@ import Footer from '../../components/Footer/Footer';
 import Head from 'next/head';
 import globalClasses from '../../styles/App.module.css';
 
+
 const AboutUsLayout = (props) => (
     <Fragment>
         <Head>

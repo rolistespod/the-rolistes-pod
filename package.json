@@ -9,7 +9,7 @@
     "lint": "next lint",
     "deploy": "git commit -m 'Updated RSS & site'",
     "rss": "node generateRSSFeed.js",
-    "rss-deploy": "node generateRSSFeed.js && git commit -a"
+    "rss-deploy": "node generateRSSFeed.js && git commit -a && git push origin main"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",

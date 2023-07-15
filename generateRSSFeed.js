@@ -188,7 +188,7 @@ const getPosts = () => {
     
     const fetchedPodcast = [];
     
-    fs.readFile('./src/assets/therolistespodcast.xml', function(err, data){
+    fs.readFile('./therolistespodcast.xml', function(err, data){
         let xml2js = require('xml2js');
         let parser = new xml2js.Parser();            
 

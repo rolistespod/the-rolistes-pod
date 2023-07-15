@@ -1,13 +1,9 @@
-import Layout from "../LayoutFolder/layout";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Fragment, useEffect } from "react";
 import * as actions from "../store/actions/index";
 import { withRouter } from "next/router";
-import RouteChangeTracker from "../tracking/RouteChangeTracker";
-import { Provider, connect } from "react-redux";
-import { createStore, applyMiddleware, compose, combineReducers } from "redux";
-import { configureStore } from "@reduxjs/toolkit";
-import thunk from "redux-thunk";
+import { connect } from "react-redux";
 
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

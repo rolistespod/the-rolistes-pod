@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import HomeLayout from "../Layout/HomeLayout/HomeLayout";
+import HomeLayout from "../LayoutFolder/HomeLayoutFolder/HomeLayout";
 import {
   searchLatest,
   searchLatestPodcast,

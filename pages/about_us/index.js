@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import AboutUsLayout from "../../Layout/AboutUsLayout/AboutUsLayout";
+import AboutUsLayout from "../../LayoutFolder/AboutUsLayoutFolder/AboutUsLayout";
 
 import {
   fetchPostsHelper,

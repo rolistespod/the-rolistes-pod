@@ -41,29 +41,29 @@ const Popup = (props) => {
             <div className={classes.popup}>
                 <div className={classes.popup_inner}>
                     <div id="mc_embed_signup">
-                        <form action="https://rolistespod.us5.list-manage.com/subscribe/post?u=f61d61144f062b5906ef5548d&amp;id=1a93afb7bd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <form action="https://rolistespod.us5.list-manage.com/subscribe/post?u=f61d61144f062b5906ef5548d&amp;id=1a93afb7bd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
                             <div id="mc_embed_signup_scroll">
                             <h2>Subscribe to The Rolistes Newsletter</h2>
-                        <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
-                        <div class="mc-field-group">
-                            <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+                        <div className="indicates-required"><span className="asterisk">*</span> indicates required</div>
+                        <div className="mc-field-group">
+                            <label htmlFor="mce-EMAIL">Email Address  <span className="asterisk">*</span>
                         </label>
-                            <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL"/>
+                            <input type="email" value="" name="EMAIL" className="required email" id="mce-EMAIL"/>
                         </div>
-                        <div class="mc-field-group">
-                            <label for="mce-FNAME">First Name </label>
-                            <input type="text" value="" name="FNAME" class="" id="mce-FNAME"/>
+                        <div className="mc-field-group">
+                            <label htmlFor="mce-FNAME">First Name </label>
+                            <input type="text" value="" name="FNAME" className="" id="mce-FNAME"/>
                         </div>
-                        <div class="mc-field-group">
-                            <label for="mce-LNAME">Last Name </label>
-                            <input type="text" value="" name="LNAME" class="" id="mce-LNAME"/>
+                        <div className="mc-field-group">
+                            <label htmlFor="mce-LNAME">Last Name </label>
+                            <input type="text" value="" name="LNAME" className="" id="mce-LNAME"/>
                         </div>
-                        <div id="mergeRow-gdpr" class="mergeRow gdpr-mergeRow content__gdprBlock mc-field-group">
-                            <div class="content__gdpr">
+                        <div id="mergeRow-gdpr" className="mergeRow gdpr-mergeRow content__gdprBlock mc-field-group">
+                            <div className="content__gdpr">
                                 <label>Marketing Permissions</label>
                                 <p>Please confirm you would like to hear from Rolistes Podcast by email.</p>
-                                <fieldset class="mc_fieldset gdprRequired mc-field-group" name="interestgroup_field">
-                                <label class="checkbox subfield" for="gdpr_16673"><input type="checkbox" id="gdpr_16673" name="gdpr[16673]" value="Y" class="av-checkbox gdpr"/><span>Yes, please email me!</span> </label>
+                                <fieldset className="mc_fieldset gdprRequired mc-field-group" name="interestgroup_field">
+                                <label className="checkbox subfield" htmlFor="gdpr_16673"><input type="checkbox" id="gdpr_16673" name="gdpr[16673]" value="Y" className="av-checkbox gdpr"/><span>Yes, please email me!</span> </label>
                                 </fieldset>
                                 <p>You can unsubscribe at any time by clicking the link in the footer of our emails. For information about our privacy practices, please visit our website.</p>
                             </div>
@@ -71,15 +71,15 @@ const Popup = (props) => {
                                 <p>We use Mailchimp as our marketing platform. By clicking below to subscribe, you acknowledge that your information will be transferred to Mailchimp for processing. <a href="https://mailchimp.com/legal/" target="_blank">Learn more about Mailchimp's privacy practices here.</a></p>
                             </div> */}
                         </div>
-                            <div id="mce-responses" class="clear">
+                            <div id="mce-responses" className="clear">
                             {/* style="display:none" */}
-                                <div class="response" id="mce-error-response" ></div>
+                                <div className="response" id="mce-error-response" ></div>
                             {/* style="display:none" */}
-                                <div class="response" id="mce-success-response"></div> 
+                                <div className="response" id="mce-success-response"></div> 
                             </div>   
                             {/* style="position: absolute; left: -5000px;" */}
                                 {/* <div  aria-hidden="true"><input type="text" name="b_f61d61144f062b5906ef5548d_1a93afb7bd" tabindex="-1" value=""/></div> */}
-                                <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"/></div>
+                                <div className="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" className="button"/></div>
                             </div>
                         </form>
                     </div>

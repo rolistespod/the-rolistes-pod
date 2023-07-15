@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import PostLayout from "../LayoutFolder/PostLayoutFolder/PostLayout";
+import PostLayout from "../Layout/PostLayout/PostLayout";
 import Spinner from "../components/UI/Spinner/Spinner";
 import { useRouter } from "next/router";
 

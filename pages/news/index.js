@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import NewsLayout from "../../LayoutFolder/NewsLayoutFolder/NewsLayout";
+import NewsLayout from "../../Layout/NewsLayout/NewsLayout";
 
 import {
   fetchPostsHelper,

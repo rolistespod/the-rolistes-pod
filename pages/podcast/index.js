@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import PodcastLayout from "../../LayoutFolder/PodcastLayoutFolder/PodcastLayout";
+import PodcastLayout from "../../Layout/PodcastLayout/PodcastLayout";
 
 import { fetchPostsHelper,searchPostsBasedOnCategory } from "../../helpers/api-util.js";
 

@@ -1,4 +1,4 @@
-import Layout from "../LayoutFolder/layout";
+import Layout from "../Layout/Layout";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/globals.css";
 import RouteChangeTracker from "../tracking/RouteChangeTracker";

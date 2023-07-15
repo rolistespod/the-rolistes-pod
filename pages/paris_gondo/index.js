@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import GondoLayout from "../../LayoutFolder/GondoLayoutFolder/GondoLayout";
+import GondoLayout from "../../Layout/GondoLayout/GondoLayout";
 
 import {
   searchLatest,

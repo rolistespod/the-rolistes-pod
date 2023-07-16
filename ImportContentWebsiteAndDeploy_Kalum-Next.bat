@@ -5,7 +5,7 @@ ren rolistespodExport\therolistespodcast*.xml therolistespodcast.xml
 move rolistespodExport\therolistespodcast.xml assets
 del /Q therolistespodcastExport.zip
 rmdir rolistespodExport
-npm run rss-deploy
+npm run rss
 
 
 

@@ -188,7 +188,7 @@ const PodcastLayout = (props) => {
           >
             Podcast
           </h1>
-          <div className={classes.filters}>
+          {/* <div className={classes.filters}>
             <Button
               btnType={btnType}
               disabled={btnState.allIsDisabled}
@@ -224,7 +224,7 @@ const PodcastLayout = (props) => {
             >
               Film Studies
             </Button>
-          </div>
+          </div> */}
           <Row>
             <Posts
               {...props}

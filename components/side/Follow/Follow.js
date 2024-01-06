@@ -72,7 +72,8 @@ const Follow = (props) => {
 
             <Col xs={3}>
               <a
-                href="http://feeds.feedburner.com/TheRolistesPodcast"
+                // href="http://feeds.feedburner.com/TheRolistesPodcast"
+                href="https://rolistespod.com/rss"
                 className={classes.SideLink}
               >
                 <span>

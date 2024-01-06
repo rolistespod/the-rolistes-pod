@@ -22,7 +22,7 @@ const PodcastLayout = (props) => {
   const categoryId = "podcast";
 
   // NEW STUFF TO SOLVE
-  const activePagePodcast= props.podcast;
+  const activePagePodcast = props.podcast;
 
   const postPerPage = 24;
   const indexOfLastPost = props.currentPagePodcast * postPerPage;
@@ -169,6 +169,23 @@ const PodcastLayout = (props) => {
   return (
     <Fragment>
       <Head>
+        {/* Global Site Tag (gtag.js) - Google Analytics */}
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+              page_path: window.location.pathname,
+            });
+          `,
+          }}
+        />
         <title>The Rolistes Podcast - Podcasts</title>
         <meta name="description" content="" />
       </Head>
@@ -229,7 +246,7 @@ const PodcastLayout = (props) => {
             <Posts
               {...props}
               type="PODCAST"
-              activePagePodcast = {activePagePodcast}
+              activePagePodcast={activePagePodcast}
               filterCategory={props.currentCategoryPodcast}
               indexOfFirstPost={indexOfFirstPost}
               indexOfLastPost={indexOfLastPost}

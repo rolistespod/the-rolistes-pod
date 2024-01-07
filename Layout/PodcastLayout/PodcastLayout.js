@@ -9,21 +9,39 @@ import PaginationList from "../../components/UI/PaginationList/PaginationList";
 import * as actions from "../../store/actions/index";
 import { connect } from "react-redux";
 import { useState } from "react";
+import { useRouter } from 'next/router'
 // import { useParams } from 'react-router-dom';
 import Head from "next/head";
 
 import globalClasses from "../../styles/App.module.css";
 
 const PodcastLayout = (props) => {
-  // let { categoryId } = useParams();
-  // const search = props.location.search;
-  // const params = new URLSearchParams(search);
-  // const categoryId = params.get("cat");
-  const categoryId = "podcast";
+  const router =useRouter();
+  const categoryId = router.query.cat;
 
-  // NEW STUFF TO SOLVE
-  const activePagePodcast = props.podcast;
+  let activePagePodcast = props.podcast;
 
+  switch (categoryId) {
+    case "the-rolistes-podcast":
+      activePagePodcast = props.rolistesPodcast;        
+      break;
+
+    case "the-rolistes-present":
+      activePagePodcast = props.rolistesPresent;
+      break;
+
+    case "cafe-rolistes":
+      activePagePodcast = props.cafeRolistes;
+      break;
+
+    case "film-studies":
+      activePagePodcast = props.filmStudies;
+      break;
+
+    default:
+      activePagePodcast = props.podcast;
+  }
+  const currentCategorySize = activePagePodcast.length;
   const postPerPage = 24;
   const indexOfLastPost = props.currentPagePodcast * postPerPage;
   const indexOfFirstPost = indexOfLastPost - postPerPage;
@@ -39,7 +57,6 @@ const PodcastLayout = (props) => {
 
   useEffect(() => {
     let category = "";
-
     switch (categoryId) {
       case "the-rolistes-podcast":
         category = categoryId;
@@ -49,7 +66,7 @@ const PodcastLayout = (props) => {
           rolistesPresentIsDisabled: false,
           cafeRolistesIsDisabled: false,
           filmStudiesIsDisabled: false,
-        });
+        });  
         break;
 
       case "the-rolistes-present":
@@ -95,11 +112,11 @@ const PodcastLayout = (props) => {
           filmStudiesIsDisabled: false,
         });
     }
-
+    console.log(activePagePodcast);
     props.onSetCurrentPagePodcast(1);
     props.onSetCurrentCategoryPodcast(category);
     window.scrollTo(0, 0);
-  }, []);
+  }, [router.query]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -117,6 +134,7 @@ const PodcastLayout = (props) => {
       cafeRolistesIsDisabled: false,
       filmStudiesIsDisabled: false,
     });
+    router.push({ pathname: "/podcast", query: { cat: "podcast" } });
   };
 
   const filterRolistesPod = () => {
@@ -129,6 +147,7 @@ const PodcastLayout = (props) => {
       cafeRolistesIsDisabled: false,
       filmStudiesIsDisabled: false,
     });
+    router.push({ pathname: "/podcast", query: { cat: "the-rolistes-podcast" } });
   };
 
   const filterRolistesPresent = () => {
@@ -141,6 +160,7 @@ const PodcastLayout = (props) => {
       cafeRolistesIsDisabled: false,
       filmStudiesIsDisabled: false,
     });
+    router.push({ pathname: "/podcast", query: { cat: "the-rolistes-present" } });
   };
 
   const filterCafeRolistes = () => {
@@ -153,6 +173,7 @@ const PodcastLayout = (props) => {
       cafeRolistesIsDisabled: true,
       filmStudiesIsDisabled: false,
     });
+    router.push({ pathname: "/podcast", query: { cat: "cafe-rolistes" } });
   };
   const filterFilmStudies = () => {
     props.onSetCurrentCategoryPodcast("film-studies");
@@ -164,6 +185,7 @@ const PodcastLayout = (props) => {
       cafeRolistesIsDisabled: false,
       filmStudiesIsDisabled: true,
     });
+    router.push({ pathname: "/podcast", query: { cat: "film-studies" } });
   };
 
   return (
@@ -205,7 +227,7 @@ const PodcastLayout = (props) => {
           >
             Podcast
           </h1>
-          {/* <div className={classes.filters}>
+          <div className={classes.filters}>
             <Button
               btnType={btnType}
               disabled={btnState.allIsDisabled}
@@ -241,7 +263,7 @@ const PodcastLayout = (props) => {
             >
               Film Studies
             </Button>
-          </div> */}
+          </div>
           <Row>
             <Posts
               {...props}
@@ -253,7 +275,7 @@ const PodcastLayout = (props) => {
             />
           </Row>
           <PaginationList
-            totalRecords={props.currentCategorySize}
+            totalRecords={currentCategorySize}
             pageLimit={postPerPage}
             clicked={paginate}
             currentPage={props.currentPagePodcast}

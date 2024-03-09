@@ -1,16 +1,16 @@
 import { useEffect } from "react";
-import AboutUsLayout from "../../Layout/AboutUsLayout/AboutUsLayout";
+import DownloadsLayout from "../../Layout/DownloadsLayout/DownloadsLayout";
 
 import {
   fetchPostsHelper,
 } from "../../helpers/api-util.js";
 
-function AboutPage(props) {
+function DownloadsPage(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
   });
 
-  return <AboutUsLayout {...props} />;
+  return <DownloadsLayout {...props} />;
 }
 
 export async function getStaticProps() {
@@ -30,4 +30,4 @@ export async function getStaticProps() {
   };
 }
 
-export default AboutPage;
+export default DownloadsPage;

@@ -24,8 +24,8 @@ export async function getStaticProps() {
 
   return {
     props: {
-      about: fetchedPosts.about,
-      theTeam: fetchedPosts.theTeam,
+      downloads: fetchedPosts.downloads,
+      downloadsPerTitle: fetchedPosts.downloadsPerTitle,
     },
   };
 }

@@ -287,8 +287,8 @@ const replaceOldURL = (post) => {
     "<a " + baseURL + '/news"'
   );
   newStr = newStr.replaceAll(
-    '<a href="https://rolistespod.com/category/paris_gondo/',
-    "<a " + baseURL + '/paris_gondo"'
+    '<a href="https://rolistespod.com/category/our_games/',
+    "<a " + baseURL + '/our_games"'
   );
 
   return newStr;
@@ -317,10 +317,13 @@ export async function fetchPostsHelper(dataToProcess) {
   const fetchedAttachment = [];
   const fetchedNews = [];
   const fetchedPodcast = [];
-  const fetchedGondo = [];
-  const fetchedIntroGondo = [];
+  const fetchedGames = [];
+  const fetchedGondo = []; //ICI POUR MODIFIER
+  const fetchedIntroGondo = []; //ICI POUR MODIFIER
   const fetchedAbout = [];
   const fetchedTheTeam = [];
+  const fetchedDL = [];
+  const fetchedDLTitle = [];
   const fetchedComingSoon = [];
 
   const parseString = require("xml2js").parseString;
@@ -391,7 +394,23 @@ export async function fetchPostsHelper(dataToProcess) {
               });
               break;
 
-            case "paris-gondo":
+            case "our-games": //ICI POUR MODIFIER
+              const excerptGames = getExcerpt(
+                fetchedPosts[key]["content:encoded"][0],
+                40
+              );
+              const gamesURL = getURL(fetchedPosts[key], "news");
+              fetchedGames.push({
+                ...fetchedPosts[key],
+                cover: attachmentURL,
+                url: gamesURL,
+                excerpt: excerptGames,
+                id: key,
+              });
+              break;
+
+
+            case "paris-gondo": //ICI POUR MODIFIER
               const excerptGondo = getExcerpt(
                 fetchedPosts[key]["content:encoded"][0],
                 40
@@ -446,6 +465,26 @@ export async function fetchPostsHelper(dataToProcess) {
                 id: key,
               });
               break;
+
+            case "downloads":
+              fetchedDL.push({
+                ...fetchedPosts[key],
+                id: key,
+              });
+              break;
+
+            case "downloads-per-title":
+              // const attachmentURL = getAttachmentURL(
+              //   fetchedAttachment,
+              //   fetchedPosts[key]
+              // );
+
+              fetchedDLTitle.push({
+                ...fetchedPosts[key],
+                // cover: attachmentURL,
+                id: key,
+              });
+              break;
           }
         }
       }
@@ -456,6 +495,10 @@ export async function fetchPostsHelper(dataToProcess) {
     });
 
     fetchedNews.sort((a, b) => {
+      return new Date(b["pubDate"][0]) - new Date(a["pubDate"][0]);
+    });
+
+    fetchedGames.sort((a, b) => {
       return new Date(b["pubDate"][0]) - new Date(a["pubDate"][0]);
     });
 
@@ -476,10 +519,13 @@ export async function fetchPostsHelper(dataToProcess) {
     posts: fetchedPosts,
     news: fetchedNews,
     podcast: fetchedPodcast,
-    gondo: fetchedGondo,
+    games: fetchedGames,
+    gondo: fetchedGondo, //ICI POUR MODIFIER
     introGondo: fetchedIntroGondo,
     about: fetchedAbout,
     theTeam: fetchedTheTeam,
+    downloads: fetchedDL,
+    downloadsPerTitle: fetchedDLTitle,
     comingSoon: fetchedComingSoon,
   };
 }

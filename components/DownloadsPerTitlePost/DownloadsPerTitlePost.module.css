@@ -1,0 +1,16 @@
+.downloadsPerTitlePost_title{
+    margin: 25px 0 15px;
+    border-bottom: 0;
+}
+
+.downloadsPerTitlePost img{
+    max-width: 100% !important;
+    height: auto !important;
+    display:block;
+    margin-bottom: 15px;
+}
+
+.downloadsPerTitlePost audio{
+	width:100%;
+	margin-bottom: 15px;
+}

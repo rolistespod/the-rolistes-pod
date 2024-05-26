@@ -4,6 +4,8 @@ import PodcastTile from "../../components/PodcastTile/PodcastTile";
 import FullPost from "../../components/FullPost/FullPost";
 import AboutPost from "../../components/AboutPost/AboutPost";
 import TeamPost from "../../components/TeamPost/TeamPost";
+import DownloadsPost from "../../components/DownloadsPost/DownloadsPost";
+import DownloadsPerTitlePost from "../../components/DownloadsPerTitlePost/DownloadsPerTitlePost";
 import LatestNews from "../../components/Latest/LatestNews/LatestNews";
 import LatestPodcast from "../../components/Latest/LatestPodcast/LatestPodcast";
 import RecommendedPosts from "../../components/side/Recommended/RecommendedPosts";
@@ -55,6 +57,27 @@ const Posts = (props) => {
       ));
       break;
 
+    case "OURGAMES": //ICI POUR MODIFIER LES NOUVELLES NEWS
+      const currentParisGames = props.games.slice(
+        props.indexOfFirstPost,
+        props.indexOfLastPost
+      );
+
+      posts = currentParisGames.map((games) => (
+        <Post
+          key={games.id}
+          cover={games.cover}
+          excerpt={games.excerpt}
+          author={games["dc:creator"][0]}
+          title={games["title"]}
+          article={games["content:encoded"][0]}
+          date={games["pubDate"][0]}
+          postName={games["wp:post_name"][0]}
+          url={games.url}
+        />
+      ));
+      break;
+
     case "GONDO":
       const currentParisGondo = props.gondo.slice(
         props.indexOfFirstPost,
@@ -86,7 +109,7 @@ const Posts = (props) => {
       const currentPodcast = props.activePagePodcast.slice(
         props.indexOfFirstPost,
         props.indexOfLastPost
-      );     
+      );
 
       sizePodcast = currentPodcast.length;
       posts = currentPodcast.map((podcast) => (
@@ -145,6 +168,35 @@ const Posts = (props) => {
       ));
       break;
 
+    case "DOWNLOADS":
+      const downloads = props.downloads;
+      posts = (
+        <DownloadsPost
+          key={downloads[0].id}
+          cover={downloads[0].cover}
+          author={downloads[0]["dc:creator"][0]}
+          title={downloads[0]["title"]}
+          content={downloads[0]["content:encoded"][0]}
+          date={downloads[0]["pubDate"][0]}
+        />
+      );
+      break;
+
+    case "DOWNLOADSPERTITLE":
+      const downloadsPerTitle = props.downloadsPerTitle;
+      console.log(downloadsPerTitle);
+      posts = downloadsPerTitle.map((post) => (
+        <DownloadsPerTitlePost
+          key={post.id}
+          cover={post.cover}
+          author={post["dc:creator"][0]}
+          title={post["title"]}
+          content={post["content:encoded"][0]}
+          date={post["pubDate"][0]}
+        />
+      ));
+      break;
+
     case "FULLPOST":
       posts = (
         <FullPost
@@ -171,11 +223,16 @@ const Posts = (props) => {
       );
       break;
 
-    case "RECENT":      
-      posts = <RecentPosts recentPosts={props.recentPosts} url={props.recentPosts.url} />;
+    case "RECENT":
+      posts = (
+        <RecentPosts
+          recentPosts={props.recentPosts}
+          url={props.recentPosts.url}
+        />
+      );
       break;
 
-    case "RECOMMENDED":      
+    case "RECOMMENDED":
       posts = (
         <RecommendedPosts
           recommendedPosts={props.recommendedPosts}

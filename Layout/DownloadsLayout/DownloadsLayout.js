@@ -37,19 +37,11 @@ const DownloadsLayout = (props) => (
             globalClasses.no_padding_smallscreen,
           ].join(" ")}
         >
-          <Posts {...props} type="ABOUT" />
+          <Posts {...props} type="DOWNLOADS" />
 
-          <div className={globalClasses.item_box_left}>
-            <h1
-              className={[
-                globalClasses.section_title,
-                globalClasses.section_title_article,
-              ].join(" ")}
-            >
-              The Team
-            </h1>
-            <Posts {...props} type="THETEAM" />
-          </div>
+          {/* <div className={globalClasses.item_box_left}> */}
+          <Posts {...props} type="DOWNLOADSPERTITLE" />
+          {/* </div> */}
         </Col>
       </Row>
     </Container>

@@ -65,7 +65,7 @@ const NewsLayout = (props) => {
               <h2 className={"section_title"}>Latest Paris Gondo News</h2>
               <Posts
                 {...props}
-                type="GONDO"
+                type="GONDO" //ICI POUR MODIFIER LES NOUVELLES NEWS
                 indexOfFirstPost={indexOfFirstPost}
                 indexOfLastPost={indexOfLastPost}
               />

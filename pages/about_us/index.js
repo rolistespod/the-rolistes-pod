@@ -12,7 +12,7 @@ function AboutPage(props) {
 
   return <AboutUsLayout {...props} />;
 }
-//
+// /
 export async function getStaticProps() {
   const fs = require("fs");
   const path = require("path");

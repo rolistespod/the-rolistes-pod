@@ -1,3 +1,10 @@
+The Rolistes is the proudly London-based home of tabletop RPG fans across the Channel, the Pond and beyond.
+
+This app was originally created by Yoan Hernalesteen as a learning project for React in 2021.
+
+A conversion of this app to Next.JS was made in 2022
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

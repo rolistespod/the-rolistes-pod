@@ -15,7 +15,7 @@ export async function getStaticProps() {
   const fs = require("fs");
   const path = require("path");
   const dataToProcess = fs.readFileSync(
-    path.join(process.cwd(), "therolistespodcast.xml")
+    path.join(process.cwd(), "therolistespodcast")
   );
 
   const fetchedPosts = await fetchPostsHelper(dataToProcess);

@@ -47,7 +47,7 @@ const Listen = (props) => {
 
           <Col xs={6} md={true}>
             <a
-              href="http://www.stitcher.com/podcast/the-rolistes-podcast"
+              href="https://www.stitcher.com/podcast/the-rolistes-podcast"
               className={classes.supportLink}
             >
               <img
@@ -73,7 +73,7 @@ const Listen = (props) => {
 
           <Col xs={6} md={true}>
             <a
-              href="http://feeds.feedburner.com/TheRolistesPodcast"
+              href="https://feeds.feedburner.com/TheRolistesPodcast"
               // href="https://rolistespod.com/rss"
               className={classes.supportLink}
             >

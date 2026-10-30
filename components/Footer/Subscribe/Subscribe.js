@@ -13,7 +13,7 @@ const Subscribe = (props) => {
           </Col>
         </Row>
 
-        <a href="http://eepurl.com/gJCUVX" className={classes.FooterLinkText}>
+        <a href="https://eepurl.com/gJCUVX" className={classes.FooterLinkText}>
           <span>Subscribe</span>
         </a>
       </div>

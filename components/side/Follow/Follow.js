@@ -72,7 +72,7 @@ const Follow = (props) => {
 
             <Col xs={3}>
               <a
-                href="http://feeds.feedburner.com/TheRolistesPodcast"
+                href="https://feeds.feedburner.com/TheRolistesPodcast"
                 // href="https://rolistespod.com/rss"
                 className={classes.SideLink}
               >
@@ -187,7 +187,7 @@ const Follow = (props) => {
           <Row className={classes.side_icons}>
             <Col xs={12}>
               <a
-                href="http://eepurl.com/gJCUVX"
+                href="https://eepurl.com/gJCUVX"
                 className={classes.SideLinkText}
               >
                 <span>Subscribe</span>

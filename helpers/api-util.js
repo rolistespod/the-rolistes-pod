@@ -294,23 +294,49 @@ const replaceOldURL = (post) => {
   return newStr;
 };
 
-const getExcerpt = (content, wordLimit) => {
-  let filter = content.replace(/(<([^>]+)>)/gi, "");
-  filter = filter.replace(/\s+/g, " ");
-  const wordsarr = filter.split(" ");
-
-  if (wordsarr.length < wordLimit) {
-    return content;
-  } else {
-    let excerpt = "";
-
-    for (let i = 0; i < wordLimit; i++) {
-      excerpt = excerpt + " " + wordsarr[i] + " ";
-    }
-
-    return excerpt;
-  }
+const HTML_ENTITIES = {
+  amp: "&",
+  lt: "<",
+  gt: ">",
+  quot: '"',
+  apos: "'",
+  nbsp: " ",
+  hellip: "…",
+  lsquo: "‘",
+  rsquo: "’",
+  ldquo: "“",
+  rdquo: "”",
+  ndash: "–",
+  mdash: "—",
 };
+
+const decodeEntities = (text) =>
+  text.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (match, code) => {
+    if (code[0] === "#") {
+      const isHex = code[1].toLowerCase() === "x";
+      return String.fromCodePoint(parseInt(code.slice(isHex ? 2 : 1), isHex ? 16 : 10));
+    }
+    return HTML_ENTITIES[code.toLowerCase()] ?? match;
+  });
+
+// Inline tags can start or end mid-word (e.g. "P<a>andemonium</a>"), so they
+// are removed without a space; block tags separate words and become a space.
+const INLINE_TAGS = /<\/?(a|span|strong|b|em|i|u|del|sup|sub|small|mark|abbr|code)\b[^>]*>/gi;
+
+// The excerpt is rendered as text, so it must never contain markup
+const toPlainText = (html) =>
+  decodeEntities(
+    html
+      .replace(/<!--[\s\S]*?-->/g, " ")
+      .replace(INLINE_TAGS, "")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/\[\/?[a-z_]+[^\]]*\]/gi, " ")
+  )
+    .replace(/\s+/g, " ")
+    .trim();
+
+const getExcerpt = (content, wordLimit) =>
+  toPlainText(content).split(" ").slice(0, wordLimit).join(" ");
 
 export async function fetchPostsHelper(dataToProcess) {
   const fetchedPosts = [];

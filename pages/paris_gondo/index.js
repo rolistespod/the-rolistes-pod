@@ -1,6 +1,6 @@
 import GondoLayout from "../../Layout/GondoLayout/GondoLayout";
 import { loadPosts } from "../../helpers/load-posts.js";
-import { toArticle, toNewsSummary } from "../../helpers/normalize.js";
+import { toFullPost, toNewsSummary } from "../../helpers/normalize.js";
 
 function GondoPage(props) {
   return <GondoLayout {...props} />;
@@ -11,7 +11,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      introGondo: toArticle(fetchedPosts.introGondo[0]),
+      introGondo: toFullPost(fetchedPosts.introGondo[0]),
       gondo: fetchedPosts.gondo.map(toNewsSummary),
     },
   };

@@ -6,7 +6,7 @@ import {
   searchRecommendedPosts,
 } from "../../../../helpers/api-util.js";
 import { loadPosts } from "../../../../helpers/load-posts.js";
-import { toArticle, toSummary } from "../../../../helpers/normalize.js";
+import { toFullPost, toSummary } from "../../../../helpers/normalize.js";
 
 function PodcastPage(props) {
   return <PostLayout {...props} type="FULLPOST" />;
@@ -54,7 +54,7 @@ export async function getStaticProps(context) {
     props: {
       recommendedPosts: recommendedPosts.map(toSummary),
       recentPosts: recentPosts.map(toSummary),
-      fullPost: toArticle(fullPost),
+      fullPost: toFullPost(fullPost),
       fullPostType: fullPostType,
     },
   };

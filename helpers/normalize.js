@@ -1,3 +1,5 @@
+import { embedYoutubeLinks } from "./youtube.js";
+
 export const PODCAST_SERIES = [
   "the-rolistes-podcast",
   "the-rolistes-present",
@@ -34,3 +36,9 @@ export const toArticle = (post) => ({
   date: first(post.pubDate),
   content: first(post["content:encoded"]),
 });
+
+// Article rendered by FullPost: YouTube links are turned into players at build time
+export const toFullPost = (post) => {
+  const article = toArticle(post);
+  return { ...article, content: embedYoutubeLinks(article.content) };
+};

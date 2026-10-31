@@ -1,14 +1,9 @@
-import { useEffect } from "react";
 import NewsLayout from "../../Layout/NewsLayout/NewsLayout";
 
 import { loadPosts } from "../../helpers/load-posts.js";
 import { toNewsSummary } from "../../helpers/normalize.js";
 
 function NewsListPage(props) {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  });
-
   return <NewsLayout {...props} />;
 }
 

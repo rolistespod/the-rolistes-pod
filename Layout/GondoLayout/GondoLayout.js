@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useState } from "react";
 import FullPost from "../../components/FullPost/FullPost";
 import PostList from "../../components/PostList/PostList";
 import classes from "./GondoLayout.module.css";
@@ -13,11 +13,12 @@ import Head from "next/head";
 import globalClasses from "../../styles/App.module.css";
 
 const GondoLayout = (props) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  });
-
   const [currentPage, setCurrentPage] = useState(1);
+
+  const goToPage = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo(0, 0);
+  };
 
   const postPerPage = 10;
   const indexOfLastPost = currentPage * postPerPage;
@@ -73,7 +74,7 @@ const GondoLayout = (props) => {
               <PaginationList
                 totalRecords={props.gondo.length}
                 pageLimit={postPerPage}
-                clicked={setCurrentPage}
+                clicked={goToPage}
                 currentPage={currentPage}
               />
             </div>

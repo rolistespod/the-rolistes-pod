@@ -93,11 +93,10 @@ const PodcastLayout = (props) => {
     window.scrollTo(0, 0);
   }, [router.query]);
 
-  useEffect(() => {
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
     window.scrollTo(0, 0);
-  });
-
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  };
 
   const filterAll = () => {
     paginate(1);

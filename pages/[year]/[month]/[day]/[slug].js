@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import PostLayout from "../../../../Layout/PostLayout/PostLayout";
 
 import {
@@ -10,10 +9,6 @@ import { loadPosts } from "../../../../helpers/load-posts.js";
 import { toArticle, toSummary } from "../../../../helpers/normalize.js";
 
 function PodcastPage(props) {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  });
-
   return <PostLayout {...props} type="FULLPOST" />;
 }
 

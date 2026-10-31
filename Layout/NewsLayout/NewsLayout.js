@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
 import PostList from "../../components/PostList/PostList";
 import classes from "./NewsLayout.module.css";
 import Ads from "../../components/UI/Ads/Ads";
@@ -13,11 +13,12 @@ import Head from "next/head";
 import globalClasses from "../../styles/App.module.css";
 
 const NewsLayout = (props) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  });
-
   const [currentPage, setCurrentPage] = useState(1);
+
+  const goToPage = (pageNumber) => {
+    setCurrentPage(pageNumber);
+    window.scrollTo(0, 0);
+  };
 
   const postPerPage = 10;
   const indexOfLastPost = currentPage * postPerPage;
@@ -65,7 +66,7 @@ const NewsLayout = (props) => {
               <PaginationList
                 totalRecords={props.news.length}
                 pageLimit={postPerPage}
-                clicked={setCurrentPage}
+                clicked={goToPage}
                 currentPage={currentPage}
               />
             </div>

@@ -1,13 +1,8 @@
-import { useEffect } from "react";
 import GondoLayout from "../../Layout/GondoLayout/GondoLayout";
 import { loadPosts } from "../../helpers/load-posts.js";
 import { toArticle, toNewsSummary } from "../../helpers/normalize.js";
 
 function GondoPage(props) {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  });
-
   return <GondoLayout {...props} />;
 }
 

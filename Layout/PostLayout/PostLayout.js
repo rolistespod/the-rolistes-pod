@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from 'react';
+import { Fragment } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Ads from '../../components/UI/Ads/Ads';
 import Follow from '../../components/side/Follow/Follow';
@@ -12,10 +12,6 @@ import RecentPosts from '../../components/side/Recent/RecentPosts';
 const PostLayout = (props) => {
 
     const { fullPost } = props;
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-      },)
 
     return(
         <Fragment>

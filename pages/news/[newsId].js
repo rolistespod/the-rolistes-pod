@@ -1,7 +1,4 @@
-import { useEffect } from "react";
 import PostLayout from "../../Layout/PostLayout/PostLayout";
-import Spinner from "../../components/UI/Spinner/Spinner";
-import { useRouter } from "next/router";
 
 import {
   searchPost,
@@ -12,21 +9,7 @@ import { loadPosts } from "../../helpers/load-posts.js";
 import { toArticle, toSummary } from "../../helpers/normalize.js";
 
 function NewsPage(props) {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  });
-
-  const router = useRouter();
-
-  useEffect(() => {}, [router.isReady]);
-
   return <PostLayout {...props} type="FULLPOST" />;
-
-  // return newsId ? (
-  //   <PostLayout {...props} type="FULLPOST" postId={newsId} />
-  // ) : (
-  //   <Spinner />
-  // );
 }
 
 export async function getStaticProps(context) {

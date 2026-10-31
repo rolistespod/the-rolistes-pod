@@ -1,13 +1,9 @@
-import { useEffect } from "react";
 import HomeLayout from "../Layout/HomeLayout/HomeLayout";
 import { searchLatest, searchLatestPodcast } from "../helpers/api-util.js";
 import { loadPosts } from "../helpers/load-posts.js";
 import { toArticle, toNewsSummary, toSummary } from "../helpers/normalize.js";
 
 function HomePage(props) {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  });
   return <HomeLayout {...props} />;
 }
 

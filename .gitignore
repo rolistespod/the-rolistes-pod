@@ -26,7 +26,10 @@ yarn-error.log*
 .pnpm-debug.log*
 
 # local env files
-# .env*.local
+.env*.local
+
+# WordPress export (contains author emails, drafts and private posts) must never be served publicly
+/public/therolistespodcast.xml
 
 # vercel
 .vercel

@@ -45,16 +45,17 @@ export async function getStaticProps(context) {
 
   const key = await searchPost(fetchedPosts.podcast, podcastTitle);
   const fullPost = fetchedPosts.podcast[key];
-  const fullPostType = "FULLPOST";
-  const recommendedPosts = await searchRecommendedPosts(
-    fetchedPosts.podcast[key],
-    fetchedPosts.podcast
-  );
-  const recentPosts = await searchLatest(fetchedPosts.podcast, 2);
 
   if (!fullPost) {
     return { notFound: true };
   }
+
+  const fullPostType = "FULLPOST";
+  const recommendedPosts = await searchRecommendedPosts(
+    fullPost,
+    fetchedPosts.podcast
+  );
+  const recentPosts = await searchLatest(fetchedPosts.podcast, 2);
 
   return {
     props: {

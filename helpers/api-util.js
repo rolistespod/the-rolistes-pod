@@ -602,84 +602,59 @@ export async function searchPostsBasedOnCategory(posts, category) {
   return postsFromCategory;
 }
 
-const getValueCategory = (relatedCategory) => {
-  let valueCategory = 1;
+// Weight of a shared category when scoring recommendations: generic tags count
+// for nothing, games, publishers, guests and places count more.
+const DEFAULT_CATEGORY_WEIGHT = 1;
+const CATEGORY_WEIGHTS = new Map(
+  [
+    [catValue0, 0],
+    [catValue2, 2],
+    [catValue3, 3],
+    [catValue4, 4],
+    [catValue5, 5],
+  ].flatMap(([categories, weight]) =>
+    categories.map((category) => [category, weight])
+  )
+);
 
-  for (let i = 0; i < catValue0.length; i++) {
-    if (catValue0[i] === relatedCategory) {
-      valueCategory = 0;
-      return valueCategory;
-    }
-  }
+const getValueCategory = (category) =>
+  CATEGORY_WEIGHTS.get(category) ?? DEFAULT_CATEGORY_WEIGHT;
 
-  for (let i = 0; i < catValue2.length; i++) {
-    if (catValue2[i] === relatedCategory) {
-      valueCategory = 2;
-      return valueCategory;
-    }
-  }
-
-  for (let i = 0; i < catValue3.length; i++) {
-    if (catValue3[i] === relatedCategory) {
-      valueCategory = 3;
-      return valueCategory;
-    }
-  }
-
-  for (let i = 0; i < catValue4.length; i++) {
-    if (catValue4[i] === relatedCategory) {
-      valueCategory = 4;
-      return valueCategory;
-    }
-  }
-
-  for (let i = 0; i < catValue5.length; i++) {
-    if (catValue5[i] === relatedCategory) {
-      valueCategory = 5;
-      return valueCategory;
-    }
-  }
-
-  return valueCategory;
-};
+const nicenamesOf = (post) =>
+  post["category"].map((category) => category["$"]["nicename"]);
 
 export async function searchRecommendedPosts(postToRead, posts) {
-  const RecommendedPodcast = [];
-
-  for (let i = 0; i < posts.length; i++) {
-    let amountMatchCategories = 0;
-
-    if (posts[i] !== postToRead) {
-      for (let j = 0; j < postToRead["category"].length; j++) {
-        for (let k = 0; k < posts[i]["category"].length; k++) {
-          if (
-            postToRead["category"][j]["$"]["nicename"] ===
-            posts[i]["category"][k]["$"]["nicename"]
-          ) {
-            const valueCategory = getValueCategory(
-              posts[i]["category"][k]["$"]["nicename"]
-            );
-            amountMatchCategories += valueCategory;
-          }
-        }
-      }
-
-      RecommendedPodcast.push({
-        ...posts[i],
-        amountMatchCategories: amountMatchCategories,
-        id: i,
-      });
-    }
+  // A nicename can appear twice on a post (as a category and as a tag), and
+  // each occurrence counts, so occurrences are counted rather than deduplicated.
+  const currentCategories = new Map();
+  for (const name of nicenamesOf(postToRead)) {
+    currentCategories.set(name, (currentCategories.get(name) ?? 0) + 1);
   }
 
-  RecommendedPodcast.sort((a, b) => {
-    return (
-      b.amountMatchCategories - a.amountMatchCategories ||
-      new Date(b["pubDate"][0]) - new Date(a["pubDate"][0])
-    );
+  const scored = [];
+  posts.forEach((post, i) => {
+    if (post === postToRead) return;
+
+    let score = 0;
+    for (const name of nicenamesOf(post)) {
+      score += (currentCategories.get(name) ?? 0) * getValueCategory(name);
+    }
+    scored.push({ post, score, id: i });
   });
-  
-  return RecommendedPodcast.slice(0, 2);
+
+  scored.sort(
+    (a, b) =>
+      b.score - a.score ||
+      new Date(b.post["pubDate"][0]) - new Date(a.post["pubDate"][0])
+  );
+
+  return scored
+    .slice(0, 2)
+    .map(({ post, score, id }) => ({
+      ...post,
+      amountMatchCategories: score,
+      id,
+    }));
 }
 
 export async function searchLatestPodcast(posts, amountToReturn) {

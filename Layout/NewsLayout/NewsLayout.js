@@ -1,5 +1,5 @@
 import { Fragment, useEffect } from "react";
-import Posts from "../../containers/Posts/Posts";
+import PostList from "../../components/PostList/PostList";
 import classes from "./NewsLayout.module.css";
 import Ads from "../../components/UI/Ads/Ads";
 import PaginationList from "../../components/UI/PaginationList/PaginationList";
@@ -61,11 +61,8 @@ const NewsLayout = (props) => {
           >
             <div className={globalClasses.item_box_left}>
               <h1 className={globalClasses.section_title}>News</h1>
-              <Posts
-                {...props}
-                type="NEWS"
-                indexOfFirstPost={indexOfFirstPost}
-                indexOfLastPost={indexOfLastPost}
+              <PostList
+                posts={props.news.slice(indexOfFirstPost, indexOfLastPost)}
               />
               <PaginationList
                 totalRecords={props.news.length}

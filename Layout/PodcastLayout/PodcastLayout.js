@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import Button from "../../components/UI/Button/Button";
 import classes from "./PodcastLayout.module.css";
 import { Col, Container, Row } from "react-bootstrap";
-import Posts from "../../containers/Posts/Posts";
+import PodcastTile from "../../components/PodcastTile/PodcastTile";
 import Ads from "../../components/UI/Ads/Ads";
 import Footer from "../../components/Footer/Footer";
 import PaginationList from "../../components/UI/PaginationList/PaginationList";
@@ -265,14 +265,17 @@ const PodcastLayout = (props) => {
             </Button>
           </div>
           <Row>
-            <Posts
-              {...props}
-              type="PODCAST"
-              activePagePodcast={activePagePodcast}
-              filterCategory={props.currentCategoryPodcast}
-              indexOfFirstPost={indexOfFirstPost}
-              indexOfLastPost={indexOfLastPost}
-            />
+            {activePagePodcast
+              .slice(indexOfFirstPost, indexOfLastPost)
+              .map((podcast) => (
+                <PodcastTile
+                  key={podcast.id}
+                  cover={podcast.cover}
+                  date={podcast["pubDate"][0]}
+                  title={podcast["title"]}
+                  url={podcast.url}
+                />
+              ))}
           </Row>
           <PaginationList
             totalRecords={currentCategorySize}

@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from "react";
-import Posts from "../../containers/Posts/Posts";
+import FullPost from "../../components/FullPost/FullPost";
+import PostList from "../../components/PostList/PostList";
 import classes from "./GondoLayout.module.css";
 import PaginationList from "../../components/UI/PaginationList/PaginationList";
 import { Col, Container, Row } from "react-bootstrap";
@@ -13,7 +14,7 @@ import Subscribe from "../../components/side/Subscribe/Subscribe";
 import Head from "next/head";
 import globalClasses from "../../styles/App.module.css";
 
-const NewsLayout = (props) => {
+const GondoLayout = (props) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   });
@@ -55,7 +56,12 @@ const NewsLayout = (props) => {
             xs={12}
             className={["no_padding_right", "no_padding_smallscreen"].join(" ")}
           >
-            <Posts {...props} type="INTROGONDO" />
+            <FullPost
+              title={props.introGondo[0]["title"]}
+              content={props.introGondo[0]["content:encoded"][0]}
+              date={props.introGondo[0]["pubDate"][0]}
+              type="INTROGONDO"
+            />
             {/* crash comes from here */}
             {/* <div className={classes.item_box_left_gondo}>
                             <iframe className={classes.gondo_ads} frameBorder="0" src="https://itch.io/embed/1185131?border_width=0&amp;border_color=ffffff" width="206" height="165"><a href="https://rolistespod.itch.io/paris-gondo%22%3EParis Gondo - The Life-Saving Magic of Inventorying by Kalum from The Rolistes Podcast"></a></iframe>                       
@@ -63,11 +69,8 @@ const NewsLayout = (props) => {
 
             <div className={"item_box_left"}>
               <h2 className={"section_title"}>Latest Paris Gondo News</h2>
-              <Posts
-                {...props}
-                type="GONDO" //ICI POUR MODIFIER LES NOUVELLES NEWS
-                indexOfFirstPost={indexOfFirstPost}
-                indexOfLastPost={indexOfLastPost}
+              <PostList
+                posts={props.gondo.slice(indexOfFirstPost, indexOfLastPost)}
               />
               <PaginationList
                 totalRecords={props.gondo.length}
@@ -111,4 +114,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NewsLayout);
+export default connect(mapStateToProps, mapDispatchToProps)(GondoLayout);

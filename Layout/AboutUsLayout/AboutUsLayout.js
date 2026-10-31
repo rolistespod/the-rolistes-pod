@@ -1,5 +1,6 @@
 import { Fragment } from "react";
-import Posts from "../../containers/Posts/Posts";
+import AboutPost from "../../components/AboutPost/AboutPost";
+import TeamPost from "../../components/TeamPost/TeamPost";
 import { Col, Container, Row } from "react-bootstrap";
 import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
@@ -37,7 +38,10 @@ const AboutUsLayout = (props) => (
             globalClasses.no_padding_smallscreen,
           ].join(" ")}
         >
-          <Posts {...props} type="ABOUT" />
+          <AboutPost
+            title={props.about[0]["title"]}
+            content={props.about[0]["content:encoded"][0]}
+          />
 
           <div className={globalClasses.item_box_left}>
             <h1
@@ -48,7 +52,14 @@ const AboutUsLayout = (props) => (
             >
               The Team
             </h1>
-            <Posts {...props} type="THETEAM" />
+            {props.theTeam.map((member) => (
+              <TeamPost
+                key={member.id}
+                cover={member.cover}
+                title={member["title"]}
+                content={member["content:encoded"][0]}
+              />
+            ))}
           </div>
         </Col>
       </Row>

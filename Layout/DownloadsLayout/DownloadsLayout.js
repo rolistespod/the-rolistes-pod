@@ -1,5 +1,6 @@
 import { Fragment } from "react";
-import Posts from "../../containers/Posts/Posts";
+import DownloadsPost from "../../components/DownloadsPost/DownloadsPost";
+import DownloadsPerTitlePost from "../../components/DownloadsPerTitlePost/DownloadsPerTitlePost";
 import { Col, Container, Row } from "react-bootstrap";
 import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
@@ -37,11 +38,18 @@ const DownloadsLayout = (props) => (
             globalClasses.no_padding_smallscreen,
           ].join(" ")}
         >
-          <Posts {...props} type="DOWNLOADS" />
+          <DownloadsPost
+            title={props.downloads[0]["title"]}
+            content={props.downloads[0]["content:encoded"][0]}
+          />
 
-          {/* <div className={globalClasses.item_box_left}> */}
-          <Posts {...props} type="DOWNLOADSPERTITLE" />
-          {/* </div> */}
+          {props.downloadsPerTitle.map((post) => (
+            <DownloadsPerTitlePost
+              key={post.id}
+              title={post["title"]}
+              content={post["content:encoded"][0]}
+            />
+          ))}
         </Col>
       </Row>
     </Container>

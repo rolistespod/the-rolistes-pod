@@ -1,8 +1,12 @@
 import React, { Fragment } from "react";
 import Footer from "../../components/Footer/Footer";
 import { Container } from "react-bootstrap";
-import Posts from "../../containers/Posts/Posts";
 import Head from "next/head";
+import ComingSoon from "../../components/ComingSoon/ComingSoon";
+import Banner from "../../components/UI/Banner/Banner";
+import LatestPodcast from "../../components/Latest/LatestPodcast/LatestPodcast";
+import Ads from "../../components/UI/Ads/Ads";
+import LatestNews from "../../components/Latest/LatestNews/LatestNews";
 
 const HomeLayout = (props) => (
   <Fragment>
@@ -28,7 +32,11 @@ const HomeLayout = (props) => (
       <meta name="description" content="" />
     </Head>
     <Container>
-      <Posts {...props} type="LATEST" />
+      <ComingSoon latestComingSoon={props.latestComingSoon} />
+      <Banner />
+      <LatestPodcast podcast={props.latestPodcast} />
+      <Ads />
+      <LatestNews news={props.latestNews} />
     </Container>
     <Footer />
   </Fragment>

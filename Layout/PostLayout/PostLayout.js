@@ -1,18 +1,17 @@
 import { Fragment, useEffect } from 'react';
-import Posts from '../../containers/Posts/Posts';
-import classes from './PostLayout.module.css';
 import { Col, Container, Row } from 'react-bootstrap';
 import Ads from '../../components/UI/Ads/Ads';
 import Follow from '../../components/side/Follow/Follow';
 import Support from '../../components/side/Support/Support';
 import PaginationList from '../../components/UI/PaginationList/PaginationList';
 import Footer from '../../components/Footer/Footer';
-// import { useParams } from 'react-router-dom';
-import Subscribe from '../../components/side/Subscribe/Subscribe';
+import FullPost from '../../components/FullPost/FullPost';
+import RecommendedPosts from '../../components/side/Recommended/RecommendedPosts';
+import RecentPosts from '../../components/side/Recent/RecentPosts';
 
 const PostLayout = (props) => {
 
-    const pageId = props.postId;
+    const { fullPost } = props;
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -20,38 +19,40 @@ const PostLayout = (props) => {
 
     return(
         <Fragment>
-            
+
             <Container>
                 <Ads/>
                 <Row>
                     <Col lg={8} xs={12} className={["no_padding_right","no_padding_smallscreen"].join(' ')}>
-                        <Posts {...props} type={props.type} pageTitle={pageId}/>                    
+                        <FullPost
+                            title={fullPost["title"]}
+                            content={fullPost["content:encoded"][0]}
+                            date={fullPost["pubDate"][0]}
+                            type={props.fullPostType}
+                        />
                         <PaginationList/>
                     </Col>
                     <Col  lg={4} xs={12}>
-                        <Row>  
+                        <Row>
                             <Col xs={12} className={"no_padding_smallscreen"}>
-                                <Follow /> 
-                            </Col>                  
+                                <Follow />
+                            </Col>
                             <Col xs={12} className={"no_padding_smallscreen"}>
                                 <Support />
-                            </Col>  
-                            {/* <Col xs={12} className={globalClasses.no_padding_smallscreen}>
-                                <Subscribe />
-                            </Col>    */}
+                            </Col>
                             <Col xs={12} className={"no_padding_smallscreen"}>
-                                <Posts {...props} type="RECOMMENDED" postType={props.type} pageTitle={pageId}/>
-                            </Col>  
+                                <RecommendedPosts recommendedPosts={props.recommendedPosts}/>
+                            </Col>
                             <Col xs={12} className={"no_padding_smallscreen"}>
-                                <Posts {...props} type="RECENT" postType={props.type}/>
-                            </Col>                  
-                        </Row>                    
+                                <RecentPosts recentPosts={props.recentPosts}/>
+                            </Col>
+                        </Row>
                     </Col>
                 </Row>
-            </Container>    
-            
-            <Footer/>  
-            
+            </Container>
+
+            <Footer/>
+
         </Fragment>
     )
 

@@ -11,14 +11,14 @@ const RecommendedPosts = (props) => {
     const relatedPosts = props.recommendedPosts;
 
     const recommendedPosts = relatedPosts.map (post => {
-        return <Col xs={6} md={6} lg={6} className={classes.cell} key={post["id"]}>
+        return <Col xs={6} md={6} lg={6} className={classes.cell} key={post.id}>
             <Link href={post.url}>
                 <div className={"img_color_animate"}>  
                     <img src={post.cover} alt="Cover Episode"/>
                 </div>  
             </Link>
             <Link href={post.url}>
-                <h3 className={["section_title", "section_title_side", "section_title_Reco"].join(' ')}>{post["title"]}</h3>    
+                <h3 className={["section_title", "section_title_side", "section_title_Reco"].join(' ')}>{post.title}</h3>    
             </Link>
         </Col>;   
     });    

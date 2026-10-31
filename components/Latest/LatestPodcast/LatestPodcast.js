@@ -9,28 +9,8 @@ import globalClasses from '../../../styles/App.module.css';
 
 const LatestPodcast = (props) => {
 
-    const podcast = [];
+    const podcast = [...props.podcast];
 
-    for (let key in props.podcast){
-
-        const tempDate = new Date(props.podcast[key]["pubDate"][0]);   
-
-        podcast.push(
-            {
-                key: props.podcast[key].id,
-                cover: props.podcast[key].cover,
-                date: props.podcast[key]["pubDate"][0],
-                title: props.podcast[key]["title"],
-                content: props.podcast[key]["content:encoded"][0],
-                postName: props.podcast[key]["wp:post_name"][0],
-                url: props.podcast[key].url,
-                year:tempDate.getFullYear(),
-                month:tempDate.getMonth()+1,
-                day:tempDate.getDate()
-            }
-        );
-    }
-    
     const podcastMainOutput = 
         <Fragment>
             <Link href={podcast[0].url}>
@@ -49,7 +29,7 @@ const LatestPodcast = (props) => {
     podcast.shift();
 
     const podcastSecondaryOutput = podcast.map(podcast => {
-        return <Col xs={12} md={6} key={podcast.key}>
+        return <Col xs={12} md={6} key={podcast.id}>
             {/* <Link href={props.location + '/'  + props.postName}> */}
                 <Link href={podcast.url}>
                     <div className={globalClasses.img_scale_animate}>  

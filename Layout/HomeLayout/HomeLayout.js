@@ -32,7 +32,9 @@ const HomeLayout = (props) => (
       <meta name="description" content="" />
     </Head>
     <Container>
-      <ComingSoon latestComingSoon={props.latestComingSoon} />
+      {props.latestComingSoon && (
+        <ComingSoon latestComingSoon={props.latestComingSoon} />
+      )}
       <Banner />
       <LatestPodcast podcast={props.latestPodcast} />
       <Ads />

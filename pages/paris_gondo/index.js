@@ -1,8 +1,7 @@
 import { useEffect } from "react";
 import GondoLayout from "../../Layout/GondoLayout/GondoLayout";
-
-import { searchLatest, searchLatestPodcast } from "../../helpers/api-util.js";
 import { loadPosts } from "../../helpers/load-posts.js";
+import { toArticle, toNewsSummary } from "../../helpers/normalize.js";
 
 function GondoPage(props) {
   useEffect(() => {
@@ -14,15 +13,11 @@ function GondoPage(props) {
 
 export async function getStaticProps() {
   const fetchedPosts = await loadPosts();
-  const latestNews = await searchLatest(fetchedPosts.news, 5);
-  const latestPodcast = await searchLatestPodcast(fetchedPosts.podcast, 5);
 
   return {
     props: {
-      introGondo: fetchedPosts.introGondo,
-      gondo: fetchedPosts.gondo,
-      latestNews: latestNews,
-      latestPodcast: latestPodcast,
+      introGondo: toArticle(fetchedPosts.introGondo[0]),
+      gondo: fetchedPosts.gondo.map(toNewsSummary),
     },
   };
 }

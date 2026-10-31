@@ -12,33 +12,16 @@ import { useRouter } from 'next/router'
 import Head from "next/head";
 
 import globalClasses from "../../styles/App.module.css";
+import { PODCAST_SERIES } from "../../helpers/normalize.js";
 
 const PodcastLayout = (props) => {
   const router =useRouter();
   const categoryId = router.query.cat;
 
-  let activePagePodcast = props.podcast;
+  const activePagePodcast = PODCAST_SERIES.includes(categoryId)
+    ? props.podcasts.filter((podcast) => podcast.series.includes(categoryId))
+    : props.podcasts;
 
-  switch (categoryId) {
-    case "the-rolistes-podcast":
-      activePagePodcast = props.rolistesPodcast;        
-      break;
-
-    case "the-rolistes-present":
-      activePagePodcast = props.rolistesPresent;
-      break;
-
-    case "cafe-rolistes":
-      activePagePodcast = props.cafeRolistes;
-      break;
-
-    case "film-studies":
-      activePagePodcast = props.filmStudies;
-      break;
-
-    default:
-      activePagePodcast = props.podcast;
-  }
   const [currentPage, setCurrentPage] = useState(1);
 
   const currentCategorySize = activePagePodcast.length;
@@ -258,8 +241,8 @@ const PodcastLayout = (props) => {
                 <PodcastTile
                   key={podcast.id}
                   cover={podcast.cover}
-                  date={podcast["pubDate"][0]}
-                  title={podcast["title"]}
+                  date={podcast.date}
+                  title={podcast.title}
                   url={podcast.url}
                 />
               ))}

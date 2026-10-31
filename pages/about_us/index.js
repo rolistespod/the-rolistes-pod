@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import AboutUsLayout from "../../Layout/AboutUsLayout/AboutUsLayout";
 
 import { loadPosts } from "../../helpers/load-posts.js";
+import { toArticle } from "../../helpers/normalize.js";
 
 function AboutPage(props) {
   useEffect(() => {
@@ -16,8 +17,11 @@ export async function getStaticProps() {
 
   return {
     props: {
-      about: fetchedPosts.about,
-      theTeam: fetchedPosts.theTeam,
+      about: toArticle(fetchedPosts.about[0]),
+      theTeam: fetchedPosts.theTeam.map((member) => ({
+        ...toArticle(member),
+        cover: member.cover,
+      })),
     },
   };
 }

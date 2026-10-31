@@ -9,28 +9,7 @@ import globalClasses from '../../../styles/App.module.css';
 
 const LatestNews = (props) => {
 
-    const news = [];
-
-    for (let key in props.news){
-
-        const tempDate = new Date(props.news[key]["pubDate"][0]);   
-
-        news.push(
-            {
-                key: props.news[key].id,
-                cover: props.news[key].cover,
-                excerpt: props.news[key].excerpt,
-                date: props.news[key]["pubDate"][0],
-                title: props.news[key]["title"],
-                url: props.news[key].url,
-                content: props.news[key]["content:encoded"][0],
-                postName: props.news[key]["wp:post_name"][0],                
-                year:tempDate.getFullYear(),
-                month:tempDate.getMonth()+1,
-                day:tempDate.getDate()
-            }
-        );
-    }
+    const news = [...props.news];
 
     const newsMainOutput = <Fragment>
 
@@ -53,7 +32,7 @@ const LatestNews = (props) => {
     news.shift();
 
     const newsSecondaryOutput = news.map(news => {
-        return <Col xs={12} md={6} key={news.key}>
+        return <Col xs={12} md={6} key={news.id}>
                 <Link href={news.url}>
                     <div className={globalClasses.img_scale_animate}>  
                         <img src={news.cover + '?w=2237&h=1173&crop=1'} alt=""/>

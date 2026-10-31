@@ -55,9 +55,9 @@ const GondoLayout = (props) => {
             className={["no_padding_right", "no_padding_smallscreen"].join(" ")}
           >
             <FullPost
-              title={props.introGondo[0]["title"]}
-              content={props.introGondo[0]["content:encoded"][0]}
-              date={props.introGondo[0]["pubDate"][0]}
+              title={props.introGondo.title}
+              content={props.introGondo.content}
+              date={props.introGondo.date}
               type="INTROGONDO"
             />
             {/* crash comes from here */}

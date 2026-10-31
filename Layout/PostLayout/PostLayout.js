@@ -25,9 +25,9 @@ const PostLayout = (props) => {
                 <Row>
                     <Col lg={8} xs={12} className={["no_padding_right","no_padding_smallscreen"].join(' ')}>
                         <FullPost
-                            title={fullPost["title"]}
-                            content={fullPost["content:encoded"][0]}
-                            date={fullPost["pubDate"][0]}
+                            title={fullPost.title}
+                            content={fullPost.content}
+                            date={fullPost.date}
                             type={props.fullPostType}
                         />
                         <PaginationList/>

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import DownloadsLayout from "../../Layout/DownloadsLayout/DownloadsLayout";
 
 import { loadPosts } from "../../helpers/load-posts.js";
+import { toArticle } from "../../helpers/normalize.js";
 
 function DownloadsPage(props) {
   useEffect(() => {
@@ -16,8 +17,8 @@ export async function getStaticProps() {
 
   return {
     props: {
-      downloads: fetchedPosts.downloads,
-      downloadsPerTitle: fetchedPosts.downloadsPerTitle,
+      downloads: toArticle(fetchedPosts.downloads[0]),
+      downloadsPerTitle: fetchedPosts.downloadsPerTitle.map(toArticle),
     },
   };
 }

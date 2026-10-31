@@ -9,6 +9,7 @@ import {
   searchRecommendedPosts,
 } from "../../helpers/api-util.js";
 import { loadPosts } from "../../helpers/load-posts.js";
+import { toArticle, toSummary } from "../../helpers/normalize.js";
 
 function NewsPage(props) {
   useEffect(() => {
@@ -49,10 +50,9 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      recommendedPosts: recommendedPosts,
-      recentPosts: recentPosts,
-      fullPost: fullPost,
-      type: fullPostType,
+      recommendedPosts: recommendedPosts.map(toSummary),
+      recentPosts: recentPosts.map(toSummary),
+      fullPost: toArticle(fullPost),
       fullPostType: fullPostType
     },
   };

@@ -39,15 +39,15 @@ const DownloadsLayout = (props) => (
           ].join(" ")}
         >
           <DownloadsPost
-            title={props.downloads[0]["title"]}
-            content={props.downloads[0]["content:encoded"][0]}
+            title={props.downloads.title}
+            content={props.downloads.content}
           />
 
           {props.downloadsPerTitle.map((post) => (
             <DownloadsPerTitlePost
               key={post.id}
-              title={post["title"]}
-              content={post["content:encoded"][0]}
+              title={post.title}
+              content={post.content}
             />
           ))}
         </Col>

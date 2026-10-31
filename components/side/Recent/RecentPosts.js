@@ -13,7 +13,7 @@ const RecentPosts = (props) => {
     const relatedPosts = props.recentPosts;
 
     const recentPosts = relatedPosts.map (post => {
-        return <Col xs={12} className={classes.cell} key={post["id"]}>
+        return <Col xs={12} className={classes.cell} key={post.id}>
             <div className={classes.post_recent}>
                 <aside className={[classes.aside, classes.aside_1].join(' ')}>
                     <Link href={post.url}>
@@ -24,8 +24,8 @@ const RecentPosts = (props) => {
                 </aside>
                 <aside className={[classes.aside, classes.aside_2].join(' ')}>
                     <Link href={post.url}>
-                        <div className={["date_article", classes.date_recent].join(' ')}><FontAwesomeIcon icon={faCalendarAlt} aria-hidden="true"/> {post["pubDate"][0]}</div>
-                        <h3 className={["section_title", "section_title_side", "section_title_Reco"].join(' ')}>{post["title"]}</h3>      
+                        <div className={["date_article", classes.date_recent].join(' ')}><FontAwesomeIcon icon={faCalendarAlt} aria-hidden="true"/> {post.date}</div>
+                        <h3 className={["section_title", "section_title_side", "section_title_Reco"].join(' ')}>{post.title}</h3>      
                     </Link>  
                 </aside>                  
             </div>

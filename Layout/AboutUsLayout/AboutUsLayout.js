@@ -39,8 +39,8 @@ const AboutUsLayout = (props) => (
           ].join(" ")}
         >
           <AboutPost
-            title={props.about[0]["title"]}
-            content={props.about[0]["content:encoded"][0]}
+            title={props.about.title}
+            content={props.about.content}
           />
 
           <div className={globalClasses.item_box_left}>
@@ -56,8 +56,8 @@ const AboutUsLayout = (props) => (
               <TeamPost
                 key={member.id}
                 cover={member.cover}
-                title={member["title"]}
-                content={member["content:encoded"][0]}
+                title={member.title}
+                content={member.content}
               />
             ))}
           </div>

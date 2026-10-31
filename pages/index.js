@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import HomeLayout from "../Layout/HomeLayout/HomeLayout";
 import { searchLatest, searchLatestPodcast } from "../helpers/api-util.js";
 import { loadPosts } from "../helpers/load-posts.js";
+import { toArticle, toNewsSummary, toSummary } from "../helpers/normalize.js";
 
 function HomePage(props) {
   useEffect(() => {
@@ -18,9 +19,9 @@ export async function getStaticProps() {
 
   return {
     props: {
-      latestNews: latestNews,
-      latestPodcast: latestPodcast,
-      latestComingSoon: latestComingSoon,
+      latestNews: latestNews.map(toNewsSummary),
+      latestPodcast: latestPodcast.map(toSummary),
+      latestComingSoon: latestComingSoon ? toArticle(latestComingSoon) : null,
     },
   };
 }

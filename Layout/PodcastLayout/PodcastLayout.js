@@ -1,161 +1,60 @@
-import React, { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Button from "../../components/UI/Button/Button";
 import classes from "./PodcastLayout.module.css";
-import { Col, Container, Row } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import PodcastTile from "../../components/PodcastTile/PodcastTile";
 import Ads from "../../components/UI/Ads/Ads";
 import Footer from "../../components/Footer/Footer";
 import PaginationList from "../../components/UI/PaginationList/PaginationList";
-import { useState } from "react";
-import { useRouter } from 'next/router'
-// import { useParams } from 'react-router-dom';
+import { useRouter } from "next/router";
 import Head from "next/head";
 
 import globalClasses from "../../styles/App.module.css";
 import { PODCAST_SERIES } from "../../helpers/normalize.js";
 
-const PodcastLayout = (props) => {
-  const router =useRouter();
-  const categoryId = router.query.cat;
+const ALL = "podcast";
 
-  const activePagePodcast = PODCAST_SERIES.includes(categoryId)
-    ? props.podcasts.filter((podcast) => podcast.series.includes(categoryId))
-    : props.podcasts;
+const FILTERS = [
+  { id: ALL, label: "ALL" },
+  { id: "the-rolistes-podcast", label: "The Rolistes Podcast" },
+  { id: "the-rolistes-present", label: "The Rolistes Present" },
+  { id: "cafe-rolistes", label: "Cafe Rolistes" },
+  { id: "film-studies", label: "Film Studies" },
+];
+
+const postPerPage = 24;
+
+const PodcastLayout = (props) => {
+  const router = useRouter();
+
+  const activeCategory = PODCAST_SERIES.includes(router.query.cat)
+    ? router.query.cat
+    : ALL;
+
+  const activePagePodcast =
+    activeCategory === ALL
+      ? props.podcasts
+      : props.podcasts.filter((podcast) =>
+          podcast.series.includes(activeCategory)
+        );
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const currentCategorySize = activePagePodcast.length;
-  const postPerPage = 24;
   const indexOfLastPost = currentPage * postPerPage;
   const indexOfFirstPost = indexOfLastPost - postPerPage;
 
-  const btnType = "filter";
-  const [btnState, setBtnState] = useState({
-    allIsDisabled: true,
-    rolistesPodIsDisabled: false,
-    rolistesPresentIsDisabled: false,
-    cafeRolistesIsDisabled: false,
-    filmStudiesIsDisabled: false,
-  });
-
   useEffect(() => {
-    switch (categoryId) {
-      case "the-rolistes-podcast":
-        setBtnState({
-          allIsDisabled: false,
-          rolistesPodIsDisabled: true,
-          rolistesPresentIsDisabled: false,
-          cafeRolistesIsDisabled: false,
-          filmStudiesIsDisabled: false,
-        });  
-        break;
-
-      case "the-rolistes-present":
-        setBtnState({
-          allIsDisabled: false,
-          rolistesPodIsDisabled: false,
-          rolistesPresentIsDisabled: true,
-          cafeRolistesIsDisabled: false,
-          filmStudiesIsDisabled: false,
-        });
-        break;
-
-      case "cafe-rolistes":
-        setBtnState({
-          allIsDisabled: false,
-          rolistesPodIsDisabled: false,
-          rolistesPresentIsDisabled: false,
-          cafeRolistesIsDisabled: true,
-          filmStudiesIsDisabled: false,
-        });
-        break;
-
-      case "film-studies":
-        setBtnState({
-          allIsDisabled: false,
-          rolistesPodIsDisabled: false,
-          rolistesPresentIsDisabled: false,
-          cafeRolistesIsDisabled: false,
-          filmStudiesIsDisabled: true,
-        });
-        break;
-
-      default:
-        setBtnState({
-          allIsDisabled: true,
-          rolistesPodIsDisabled: false,
-          rolistesPresentIsDisabled: false,
-          cafeRolistesIsDisabled: false,
-          filmStudiesIsDisabled: false,
-        });
-    }
     setCurrentPage(1);
     window.scrollTo(0, 0);
-  }, [router.query]);
+  }, [activeCategory]);
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
     window.scrollTo(0, 0);
   };
 
-  const filterAll = () => {
-    paginate(1);
-    setBtnState({
-      allIsDisabled: true,
-      rolistesPodIsDisabled: false,
-      rolistesPresentIsDisabled: false,
-      cafeRolistesIsDisabled: false,
-      filmStudiesIsDisabled: false,
-    });
-    router.push({ pathname: "/podcast", query: { cat: "podcast" } });
-  };
-
-  const filterRolistesPod = () => {
-    paginate(1);
-    setBtnState({
-      allIsDisabled: false,
-      rolistesPodIsDisabled: true,
-      rolistesPresentIsDisabled: false,
-      cafeRolistesIsDisabled: false,
-      filmStudiesIsDisabled: false,
-    });
-    router.push({ pathname: "/podcast", query: { cat: "the-rolistes-podcast" } });
-  };
-
-  const filterRolistesPresent = () => {
-    paginate(1);
-    setBtnState({
-      allIsDisabled: false,
-      rolistesPodIsDisabled: false,
-      rolistesPresentIsDisabled: true,
-      cafeRolistesIsDisabled: false,
-      filmStudiesIsDisabled: false,
-    });
-    router.push({ pathname: "/podcast", query: { cat: "the-rolistes-present" } });
-  };
-
-  const filterCafeRolistes = () => {
-    paginate(1);
-    setBtnState({
-      allIsDisabled: false,
-      rolistesPodIsDisabled: false,
-      rolistesPresentIsDisabled: false,
-      cafeRolistesIsDisabled: true,
-      filmStudiesIsDisabled: false,
-    });
-    router.push({ pathname: "/podcast", query: { cat: "cafe-rolistes" } });
-  };
-  const filterFilmStudies = () => {
-    paginate(1);
-    setBtnState({
-      allIsDisabled: false,
-      rolistesPodIsDisabled: false,
-      rolistesPresentIsDisabled: false,
-      cafeRolistesIsDisabled: false,
-      filmStudiesIsDisabled: true,
-    });
-    router.push({ pathname: "/podcast", query: { cat: "film-studies" } });
-  };
+  const selectCategory = (category) =>
+    router.push({ pathname: "/podcast", query: { cat: category } });
 
   return (
     <Fragment>
@@ -180,41 +79,16 @@ const PodcastLayout = (props) => {
             Podcast
           </h1>
           <div className={classes.filters}>
-            <Button
-              btnType={btnType}
-              disabled={btnState.allIsDisabled}
-              clicked={filterAll}
-            >
-              ALL
-            </Button>
-            <Button
-              btnType={btnType}
-              disabled={btnState.rolistesPodIsDisabled}
-              clicked={filterRolistesPod}
-            >
-              The Rolistes Podcast
-            </Button>
-            <Button
-              btnType={btnType}
-              disabled={btnState.rolistesPresentIsDisabled}
-              clicked={filterRolistesPresent}
-            >
-              The Rolistes Present
-            </Button>
-            <Button
-              btnType={btnType}
-              disabled={btnState.cafeRolistesIsDisabled}
-              clicked={filterCafeRolistes}
-            >
-              Cafe Rolistes
-            </Button>
-            <Button
-              btnType={btnType}
-              disabled={btnState.filmStudiesIsDisabled}
-              clicked={filterFilmStudies}
-            >
-              Film Studies
-            </Button>
+            {FILTERS.map((filter) => (
+              <Button
+                key={filter.id}
+                btnType="filter"
+                disabled={filter.id === activeCategory}
+                clicked={() => selectCategory(filter.id)}
+              >
+                {filter.label}
+              </Button>
+            ))}
           </div>
           <Row>
             {activePagePodcast
@@ -230,7 +104,7 @@ const PodcastLayout = (props) => {
               ))}
           </Row>
           <PaginationList
-            totalRecords={currentCategorySize}
+            totalRecords={activePagePodcast.length}
             pageLimit={postPerPage}
             clicked={paginate}
             currentPage={currentPage}

@@ -1,10 +1,11 @@
 move "D:\Downloads\rolistespod*" therolistespodcastExport.zip
 "C:\Program Files\7-Zip\7z.exe" x therolistespodcastExport.zip
 move /Y "rolistespod.wordpress.*" "rolistespodExport" 
-ren rolistespodExport\therolistespodcast*.xml therolistespodcast.xml
-move rolistespodExport\therolistespodcast.xml src\assets
+ren rolistespodExport\therolistespodcast*.xml wordpress-export.xml
+move /Y rolistespodExport\wordpress-export.xml wordpress-export.xml
 del /Q therolistespodcastExport.zip
 rmdir rolistespodExport
+call npm run sanitize
 npm run rss-deploy
 
 

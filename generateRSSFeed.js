@@ -82,34 +82,6 @@ We are for those curious about what and how tabletop roleplaying games are playe
 	        hourly	</sy:updatePeriod>
 	        <sy:updateFrequency>
             1	</sy:updateFrequency>` +
-    //             <itunes:subtitle>Your London-based tabletop RPG shows!</itunes:subtitle>
-    // <itunes:summary>Welcome among The Rolistes…
-
-    // We are the proudly London-based producers of Tabletop RPG podcasts showcasing fans across the Channel, the Pond and beyond.
-
-    // We cross borders, languages, fandoms, game systems and settings with unique discoveries in each episode.
-
-    // Join us for a mix of discussions, RPG actual plays, travel-diaries, vox-populi, movie reviews, and even music by amazing Creative Commons artists.
-
-    // Meet independent game designers, popular British publishers, immigrants, travellers visiting London or other random encounters made during our travels.
-
-    // Our content is for YOU, no matter if you are a seasoned grognard or wannabe players who are about to take their first steps in The Hobby.
-
-    // We are for those curious about what and how tabletop roleplaying games are played across the World, how players can have wildly different walks of life and interests can be.</itunes:summary>
-    // <itunes:author>Kalum</itunes:author>
-    // <itunes:owner><itunes:email>rolistespod@gmail.com</itunes:email>
-    // </itunes:owner><copyright>The Rolistes Podcast by Kalum is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.</copyright>
-    // <itunes:explicit>no</itunes:explicit>
-    // <itunes:image href='https://rolistespod.files.wordpress.com/2019/12/cropped-the-rolistes_logo-2019_v1_logo-only_cropped85-e1573424020821.jpg?fit=3000%2C3000' />
-    // <itunes:category text='Leisure'>
-    // 	<itunes:category text='Games' />
-    // </itunes:category>
-    // <itunes:category text='Leisure'>
-    // 	<itunes:category text='Hobbies' />
-    // </itunes:category>
-    // <itunes:category text='Society &amp; Culture'>
-    // 	<itunes:category text='Places &amp; Travel' />
-    // </itunes:category>
     `${postXml}
         </channel>
     </rss>`
@@ -244,16 +216,12 @@ const getPosts = () => {
               );
 
               const enclosure = getEnclosureURL(fetchedPost);
-              // const itunesAuthor = fetchedPost["dc:creator"];
-              // const itunesImage = 'test';
-              // const itunesSummary = 'test';
-              // const itunesSubtitle = 'test';
               const mediaThumbnail = attachment["guid"][0]["_"];
               const mediaThumbnailContent = attachment["guid"][0]["_"];
               const mediaThumbnailTitle = attachment["wp:post_name"][0];
               const mediaAuthorContent =
                 "https://2.gravatar.com/avatar/e25822b2ed220131f32139e2f1797c71?s=96&#38;d=identicon&#38;r=G";
-              const mediaAuthorTitle = fetchedPost["dc:creator"];
+              const mediaAuthorTitle = "rolistespod";
               const mediaAudioContent = enclosure;
 
               fetchedPodcast.push({
@@ -264,10 +232,6 @@ const getPosts = () => {
                 guid: guid,
                 description: description,
                 enclosure: enclosure,
-                // itunesAuthor:itunesAuthor,
-                // itunesImage:itunesImage,
-                // itunesSummary:itunesSummary,
-                // itunesSubtitle:itunesSubtitle,
                 mediaThumbnail: mediaThumbnail,
                 mediaThumbnailContent: mediaThumbnailContent,
                 mediaThumbnailTitle: mediaThumbnailTitle,
@@ -292,119 +256,6 @@ const getPosts = () => {
     const xml = toRssXML(fetchedPodcast);
     fs.writeFileSync("./public/rss.xml", xml);
   });
-
-  // fs.readFile("./therolistespodcast.xml", function (err, data) {
-  //   let xml2js = require("xml2js");
-  //   let parser = new xml2js.Parser();
-
-  //   parser.parseString(data, (err, result) => {
-  //     const fetchedAttachment = [];
-  //     const limitAmountPost = 150;
-
-  //     for (let key in result["rss"]["channel"][0]["item"]) {
-  //       if (
-  //         result["rss"]["channel"][0]["item"][key]["wp:post_type"][0] ===
-  //         "attachment"
-  //       ) {
-  //         fetchedAttachment.push({
-  //           ...result["rss"]["channel"][0]["item"][key],
-  //           id: key,
-  //         });
-  //       }
-  //     }
-
-  //     for (let key in result["rss"]["channel"][0]["item"]) {
-  //       const fetchedPost = result["rss"]["channel"][0]["item"][key];
-  //       const currentDate = new Date();
-  //       const publishDate = new Date(fetchedPost["pubDate"][0]);
-
-  //       if (
-  //         fetchedPost["category"] &&
-  //         (fetchedPost["wp:status"][0] === "publish" ||
-  //           (fetchedPost["wp:status"][0] === "future" &&
-  //             currentDate.getTime() > publishDate.getTime()))
-  //       ) {
-  //         for (let i = 0; i < fetchedPost["category"].length; i++) {
-  //           switch (fetchedPost["category"][i]["$"]["nicename"]) {
-  //             case "podcast":
-  //               const attachment = getAttachment(
-  //                 fetchedAttachment,
-  //                 fetchedPost
-  //               );
-  //               const title = fetchedPost["title"];
-  //               const tempDate = new Date(fetchedPost["pubDate"][0]);
-  //               const year = tempDate.getFullYear();
-  //               const month = tempDate.getMonth() + 1;
-  //               const day = tempDate.getDate();
-  //               const link =
-  //                 "https://rolistespod.com/" +
-  //                 year +
-  //                 "/" +
-  //                 month +
-  //                 "/" +
-  //                 day +
-  //                 "/" +
-  //                 fetchedPost["wp:post_name"][0];
-  //               const pubDate = fetchedPost["pubDate"][0];
-  //               const categories = fetchedPost["category"];
-  //               const guid = link;
-
-  //               const description = cleanDescription(
-  //                 fetchedPost["content:encoded"][0],
-  //                 link,
-  //                 title
-  //               );
-
-  //               const enclosure = getEnclosureURL(fetchedPost);
-  //               // const itunesAuthor = fetchedPost["dc:creator"];
-  //               // const itunesImage = 'test';
-  //               // const itunesSummary = 'test';
-  //               // const itunesSubtitle = 'test';
-  //               const mediaThumbnail = attachment["guid"][0]["_"];
-  //               const mediaThumbnailContent = attachment["guid"][0]["_"];
-  //               const mediaThumbnailTitle = attachment["wp:post_name"][0];
-  //               const mediaAuthorContent =
-  //                 "https://2.gravatar.com/avatar/e25822b2ed220131f32139e2f1797c71?s=96&#38;d=identicon&#38;r=G";
-  //               const mediaAuthorTitle = fetchedPost["dc:creator"];
-  //               const mediaAudioContent = enclosure;
-
-  //               fetchedPodcast.push({
-  //                 title: title,
-  //                 link: link,
-  //                 pubDate: pubDate,
-  //                 categories: categories,
-  //                 guid: guid,
-  //                 description: description,
-  //                 enclosure: enclosure,
-  //                 // itunesAuthor:itunesAuthor,
-  //                 // itunesImage:itunesImage,
-  //                 // itunesSummary:itunesSummary,
-  //                 // itunesSubtitle:itunesSubtitle,
-  //                 mediaThumbnail: mediaThumbnail,
-  //                 mediaThumbnailContent: mediaThumbnailContent,
-  //                 mediaThumbnailTitle: mediaThumbnailTitle,
-  //                 mediaAuthorContent: mediaAuthorContent,
-  //                 mediaAuthorTitle: mediaAuthorTitle,
-  //                 mediaAudioContent: mediaAudioContent,
-  //                 id: key,
-  //               });
-
-  //               break;
-  //           }
-  //         }
-  //       }
-  //     }
-
-  //     fetchedPodcast.sort((a, b) => {
-  //       return new Date(b.pubDate) - new Date(a.pubDate);
-  //     });
-
-  //     fetchedPodcast.splice(limitAmountPost);
-
-  //     const xml = toRssXML(fetchedPodcast);
-  //     fs.writeFileSync("./public/rss.xml", xml);
-  //   });
-  // });
 };
 
 const posts = getPosts();

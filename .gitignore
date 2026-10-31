@@ -28,7 +28,11 @@ yarn-error.log*
 # local env files
 .env*.local
 
-# WordPress export (contains author emails, drafts and private posts) must never be served publicly
+/wordpress-export.xml
+/therolistespodcastExport.zip
+/rolistespodExport/
+/rolistespod.wordpress.com-*/
+/assets/therolistespodcast.xml
 /public/therolistespodcast.xml
 
 # vercel

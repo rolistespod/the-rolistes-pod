@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "deploy": "git commit -m 'Updated RSS & site'",
+    "sanitize": "node scripts/sanitize-export.js",
     "rss": "node generateRSSFeed.js",
     "rss-deploy": "node generateRSSFeed.js && git commit -a -m \"Update RSS feed\" && git push origin main"
   },

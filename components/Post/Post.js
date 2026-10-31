@@ -4,7 +4,6 @@ import classes from './Post.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
-import globalClasses from '../../styles/App.module.css';
 
 const Post = (props) => {    
 
@@ -18,8 +17,8 @@ const Post = (props) => {
             </Link>   
             <Link href={props.url}>
                 <h2 className={classes.title_news}>{props.title}</h2>            
-                {/* <p className={globalClasses.author}>{props.author}</p> */}
-                <p className={globalClasses.date}><FontAwesomeIcon icon={faCalendarAlt} aria-hidden="true"/> {props.date}</p>            
+                {/* <p className="author">{props.author}</p> */}
+                <p className="date"><FontAwesomeIcon icon={faCalendarAlt} aria-hidden="true"/> {props.date}</p>            
                 {/* <div className={classes.mainArticle} dangerouslySetInnerHTML={{ __html: props.article }} /> */}           
                 <p>{props.excerpt}... <span className={"continue_reading"}>Continue reading</span></p>
             </Link>

@@ -5,7 +5,6 @@ import classes from './PodcastTile.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
-import globalClasses from '../../styles/App.module.css';
 
 const PodcastTile = (props) => { 
 
@@ -19,7 +18,7 @@ const PodcastTile = (props) => {
                     {/* <img src={imgTest} alt=""/>  */}
                     <div className={classes.overlay}> 
                         <div className={classes.overlayText}>
-                            <div className={globalClasses.date}><FontAwesomeIcon icon={faCalendarAlt} aria-hidden="true"/> {props.date}</div>
+                            <div className="date"><FontAwesomeIcon icon={faCalendarAlt} aria-hidden="true"/> {props.date}</div>
                             
                             {/* <div dangerouslySetInnerHTML={{ __html: props.content }} /> */}                            
                             <h2>{props.title}</h2>

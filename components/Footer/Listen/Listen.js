@@ -1,7 +1,6 @@
 import { Fragment } from "react";
 import classes from "../Footer.module.css";
 import { Row, Col } from "react-bootstrap";
-import globalClasses from '../../../styles/App.module.css';
 
 const appleButton = "/images/Buttons_Apple_BnW.png";
 const spotifyButton = "/images/Buttons_Spotify_BnW.png";
@@ -12,10 +11,10 @@ const RSSButton = "/images/Buttons_RSS_BnW.png";
 const Listen = (props) => {
   return (
     <Fragment>
-      <div className={globalClasses.item_box_footer}>
+      <div className="item_box_footer">
         <Row>
           <Col xs={12}>
-            <h2 className={globalClasses.section_title_footer}>Listen</h2>
+            <h2 className="section_title_footer">Listen</h2>
           </Col>
         </Row>
         <Row>

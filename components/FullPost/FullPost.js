@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import Head from "next/head";
 
-import globalClasses from "../../styles/App.module.css";
 
 const FullPost = (props) => {
   let classIMG = [classes.fullPost, classes.fullPostNotPodcast].join(" ");
@@ -19,12 +18,9 @@ const FullPost = (props) => {
         <title>{props.title}</title>
         <meta name="description" content="" />
       </Head>
-      <div className={globalClasses.item_box_left}>
+      <div className="item_box_left">
         <h1
-          className={[
-            globalClasses.section_title,
-            globalClasses.section_title_article,
-          ].join(" ")}
+          className="section_title section_title_article"
         >
           {props.title}
         </h1>
@@ -32,7 +28,7 @@ const FullPost = (props) => {
         {props.type === "INTROGONDO" ? (
           <p />
         ) : (
-          <div className={globalClasses.date_article}>
+          <div className="date_article">
             <FontAwesomeIcon icon={faCalendarAlt} aria-hidden="true" />{" "}
             {props.date}
           </div>

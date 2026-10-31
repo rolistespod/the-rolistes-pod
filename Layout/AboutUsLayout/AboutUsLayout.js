@@ -4,7 +4,6 @@ import TeamPost from "../../components/TeamPost/TeamPost";
 import { Col, Container, Row } from "react-bootstrap";
 import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
-import globalClasses from "../../styles/App.module.css";
 
 const AboutUsLayout = (props) => (
   <Fragment>
@@ -16,22 +15,16 @@ const AboutUsLayout = (props) => (
       <Row>
         <Col
           xs={12}
-          className={[
-            globalClasses.no_padding_right,
-            globalClasses.no_padding_smallscreen,
-          ].join(" ")}
+          className="no_padding_right no_padding_smallscreen"
         >
           <AboutPost
             title={props.about.title}
             content={props.about.content}
           />
 
-          <div className={globalClasses.item_box_left}>
+          <div className="item_box_left">
             <h1
-              className={[
-                globalClasses.section_title,
-                globalClasses.section_title_article,
-              ].join(" ")}
+              className="section_title section_title_article"
             >
               The Team
             </h1>

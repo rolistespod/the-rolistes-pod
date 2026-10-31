@@ -10,7 +10,6 @@ import Support from "../../components/side/Support/Support";
 import Footer from "../../components/Footer/Footer";
 import Subscribe from "../../components/side/Subscribe/Subscribe";
 import Head from "next/head";
-import globalClasses from "../../styles/App.module.css";
 
 const GondoLayout = (props) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -36,7 +35,7 @@ const GondoLayout = (props) => {
           <Col
             lg={8}
             xs={12}
-            className={["no_padding_right", "no_padding_smallscreen"].join(" ")}
+            className="no_padding_right no_padding_smallscreen"
           >
             <FullPost
               title={props.introGondo.title}
@@ -65,13 +64,13 @@ const GondoLayout = (props) => {
 
           <Col lg={4} xs={12}>
             <Row>
-              <Col xs={12} className={globalClasses.no_padding_smallscreen}>
+              <Col xs={12} className="no_padding_smallscreen">
                 <Follow />
               </Col>
-              <Col xs={12} className={globalClasses.no_padding_smallscreen}>
+              <Col xs={12} className="no_padding_smallscreen">
                 <Support />
               </Col>
-              {/* <Col xs={12} className={globalClasses.no_padding_smallscreen}>
+              {/* <Col xs={12} className="no_padding_smallscreen">
                                 <Subscribe />
                             </Col>      */}
             </Row>

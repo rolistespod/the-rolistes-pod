@@ -4,7 +4,6 @@ import DownloadsPerTitlePost from "../../components/DownloadsPerTitlePost/Downlo
 import { Col, Container, Row } from "react-bootstrap";
 import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
-import globalClasses from "../../styles/App.module.css";
 
 const DownloadsLayout = (props) => (
   <Fragment>
@@ -16,10 +15,7 @@ const DownloadsLayout = (props) => (
       <Row>
         <Col
           xs={12}
-          className={[
-            globalClasses.no_padding_right,
-            globalClasses.no_padding_smallscreen,
-          ].join(" ")}
+          className="no_padding_right no_padding_smallscreen"
         >
           <DownloadsPost
             title={props.downloads.title}

@@ -9,7 +9,6 @@ import PaginationList from "../../components/UI/PaginationList/PaginationList";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
-import globalClasses from "../../styles/App.module.css";
 import { PODCAST_SERIES } from "../../helpers/normalize.js";
 
 const ALL = "podcast";
@@ -65,16 +64,10 @@ const PodcastLayout = (props) => {
       <Container>
         <Ads />
         <div
-          className={[
-            globalClasses.item_box,
-            globalClasses.no_padding_smallscreen,
-          ].join(" ")}
+          className="item_box no_padding_smallscreen"
         >
           <h1
-            className={[
-              globalClasses.section_title,
-              globalClasses.section_title_podcast,
-            ].join(" ")}
+            className="section_title section_title_podcast"
           >
             Podcast
           </h1>

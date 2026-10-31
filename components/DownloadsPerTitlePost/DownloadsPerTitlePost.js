@@ -1,7 +1,6 @@
 
 import { Fragment } from 'react';
 import classes from './DownloadsPerTitlePost.module.css';
-import globalClasses from '../../styles/App.module.css';
 import { Col, Row } from 'react-bootstrap';
 
 const DownloadsPerTitlePost = (props) => {
@@ -9,8 +8,8 @@ const DownloadsPerTitlePost = (props) => {
     return (
         
         <Fragment>
-            <div className={globalClasses.item_box_left} >               
-                <h1 className={[globalClasses.section_title, globalClasses.section_title_article].join(' ')}>{props.title}</h1>                    
+            <div className="item_box_left" >               
+                <h1 className="section_title section_title_article">{props.title}</h1>                    
                 {/* <p>{props.author}</p> */}
                 
                 <div dangerouslySetInnerHTML={{ __html: props.content }} className={classes.downloadsPost}/>     

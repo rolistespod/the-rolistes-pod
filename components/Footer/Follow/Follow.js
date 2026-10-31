@@ -3,15 +3,14 @@ import { faFacebookF, faMastodon, faTwitter } from "@fortawesome/free-brands-svg
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classes from "../Footer.module.css";
 import { Row, Col } from "react-bootstrap";
-import globalClasses from '../../../styles/App.module.css';
 
 const Follow = (props) => {
   return (
     <Fragment>
-      <div className={globalClasses.item_box_footer}>
+      <div className="item_box_footer">
         <Row>
           <Col xs={12}>
-            <h2 className={globalClasses.section_title_footer}>Follow</h2>
+            <h2 className="section_title_footer">Follow</h2>
           </Col>
         </Row>
         <Row>

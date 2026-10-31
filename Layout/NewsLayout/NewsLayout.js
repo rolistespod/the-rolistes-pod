@@ -10,7 +10,6 @@ import Footer from "../../components/Footer/Footer";
 import Subscribe from "../../components/side/Subscribe/Subscribe";
 import Head from "next/head";
 
-import globalClasses from "../../styles/App.module.css";
 
 const NewsLayout = (props) => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -36,13 +35,10 @@ const NewsLayout = (props) => {
           <Col
             lg={8}
             xs={12}
-            className={[
-              globalClasses.no_padding_right,
-              globalClasses.no_padding_smallscreen,
-            ].join(" ")}
+            className="no_padding_right no_padding_smallscreen"
           >
-            <div className={globalClasses.item_box_left}>
-              <h1 className={globalClasses.section_title}>News</h1>
+            <div className="item_box_left">
+              <h1 className="section_title">News</h1>
               <PostList
                 posts={props.news.slice(indexOfFirstPost, indexOfLastPost)}
               />
@@ -57,13 +53,13 @@ const NewsLayout = (props) => {
 
           <Col lg={4} xs={12}>
             <Row>
-              <Col xs={12} className={globalClasses.no_padding_smallscreen}>
+              <Col xs={12} className="no_padding_smallscreen">
                 <Follow />
               </Col>
-              <Col xs={12} className={globalClasses.no_padding_smallscreen}>
+              <Col xs={12} className="no_padding_smallscreen">
                 <Support />
               </Col>
-              {/* <Col xs={12} className={globalClasses.no_padding_smallscreen}>
+              {/* <Col xs={12} className="no_padding_smallscreen">
                                 <Subscribe />
                             </Col>                                         */}
             </Row>

@@ -1,27 +1,17 @@
 import { useEffect } from "react";
-import PostLayout from "../Layout/PostLayout/PostLayout";
-import Spinner from "../components/UI/Spinner/Spinner";
-import { useRouter } from "next/router";
+import PostLayout from "../../../../Layout/PostLayout/PostLayout";
 
 import {
   searchPost,
   searchLatest,
   searchRecommendedPosts,
   fetchPostsHelper,
-} from "../helpers/api-util.js";
+} from "../../../../helpers/api-util.js";
 
 function PodcastPage(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
   });
-
-  const router = useRouter();
-
-  useEffect(() => {}, [router.isReady]);
-
-  // if (!filterData) {
-  //   return <Spinner />;
-  // }
 
   return <PostLayout {...props} type="FULLPOST" />;
 }
@@ -29,7 +19,7 @@ function PodcastPage(props) {
 async function getData() {
   const fs = require("fs");
   const path = require("path");
-  const dataToProcess = await fs.readFileSync(
+  const dataToProcess = fs.readFileSync(
     path.join(process.cwd(), "therolistespodcast.xml")
   );
   const fetchedPosts = await fetchPostsHelper(dataToProcess);
@@ -37,16 +27,34 @@ async function getData() {
   return fetchedPosts;
 }
 
+const getDateParams = (podcast) => {
+  const tempDate = new Date(podcast["pubDate"][0]);
+  return {
+    year: String(tempDate.getFullYear()),
+    month: String(tempDate.getMonth() + 1),
+    day: String(tempDate.getDate()),
+  };
+};
+
 export async function getStaticProps(context) {
-  const podcastId = context.params.podcastId;
-  const podcastTitle = podcastId[3];
+  const { year, month, day, slug } = context.params;
 
   const fetchedPosts = await getData();
 
-  const key = await searchPost(fetchedPosts.podcast, podcastTitle);
+  const key = await searchPost(fetchedPosts.podcast, slug);
   const fullPost = fetchedPosts.podcast[key];
 
   if (!fullPost) {
+    return { notFound: true };
+  }
+
+  // The date in the URL must match the episode's publication date
+  const expected = getDateParams(fullPost);
+  if (
+    year !== expected.year ||
+    month !== expected.month ||
+    day !== expected.day
+  ) {
     return { notFound: true };
   }
 
@@ -71,18 +79,10 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   const fetchedPosts = await getData();
 
-  const ids = fetchedPosts.podcast.map((podcast) => {
-    const tempDate = new Date(podcast["pubDate"][0]);
-    const year = String(tempDate.getFullYear());
-    const month = String(tempDate.getMonth() + 1);
-    const day = String(tempDate.getDate());
-    return [year, month, day, podcast["wp:post_name"][0]];
-  });
-
-  // console.log(ids);
-  const pathsWithParams = ids.map((id) => ({
+  const pathsWithParams = fetchedPosts.podcast.map((podcast) => ({
     params: {
-      podcastId: [id[0], id[1], id[2], id[3]],
+      ...getDateParams(podcast),
+      slug: podcast["wp:post_name"][0],
     },
   }));
 

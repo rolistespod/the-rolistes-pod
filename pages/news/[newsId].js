@@ -7,8 +7,8 @@ import {
   searchPost,
   searchLatest,
   searchRecommendedPosts,
-  fetchPostsHelper,
 } from "../../helpers/api-util.js";
+import { loadPosts } from "../../helpers/load-posts.js";
 
 function NewsPage(props) {
   useEffect(() => {
@@ -28,25 +28,11 @@ function NewsPage(props) {
   // );
 }
 
-async function getData(){
-
-  const fs = require("fs");
-  const path = require("path");
-  const dataToProcess = await fs.readFileSync(
-    path.join(process.cwd(), "therolistespodcast.xml")
-  );
-  const fetchedPosts = await fetchPostsHelper(dataToProcess);
-
-  return fetchedPosts;
-}
-
 export async function getStaticProps(context) {
   const pageTitle = context.params.newsId;
   
-  const fetchedPosts = await getData();
+  const fetchedPosts = await loadPosts();
 
-  // console.log(pageTitle);
- 
   const key = await searchPost(fetchedPosts.news, pageTitle);
   const fullPost = fetchedPosts.news[key];
 
@@ -74,7 +60,7 @@ export async function getStaticProps(context) {
 
 export async function getStaticPaths() {
 
-  const fetchedPosts = await getData(); 
+  const fetchedPosts = await loadPosts();
 
   const ids = fetchedPosts.news.map(news =>news["wp:post_name"][0]);
   const pathsWithParams = ids.map(id=>({params:{newsId:id}}));

@@ -1,11 +1,8 @@
 import { useEffect } from "react";
 import GondoLayout from "../../Layout/GondoLayout/GondoLayout";
 
-import {
-  searchLatest,
-  searchLatestPodcast,
-  fetchPostsHelper,
-} from "../../helpers/api-util.js";
+import { searchLatest, searchLatestPodcast } from "../../helpers/api-util.js";
+import { loadPosts } from "../../helpers/load-posts.js";
 
 function GondoPage(props) {
   useEffect(() => {
@@ -16,13 +13,7 @@ function GondoPage(props) {
 }
 
 export async function getStaticProps() {
-  const fs = require("fs");
-  const path = require("path");
-  const dataToProcess = fs.readFileSync(
-    path.join(process.cwd(), "therolistespodcast.xml")
-  );
-
-  const fetchedPosts = await fetchPostsHelper(dataToProcess);
+  const fetchedPosts = await loadPosts();
   const latestNews = await searchLatest(fetchedPosts.news, 5);
   const latestPodcast = await searchLatestPodcast(fetchedPosts.podcast, 5);
 

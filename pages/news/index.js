@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import NewsLayout from "../../Layout/NewsLayout/NewsLayout";
 
-import {
-  fetchPostsHelper,
-} from "../../helpers/api-util.js";
+import { loadPosts } from "../../helpers/load-posts.js";
 
 function NewsListPage(props) {
   useEffect(() => {
@@ -14,13 +12,7 @@ function NewsListPage(props) {
 }
 
 export async function getStaticProps() {
-  const fs = require("fs");
-  const path = require("path");
-  const dataToProcess = fs.readFileSync(
-    path.join(process.cwd(), "therolistespodcast.xml")
-  );
-
-  const fetchedPosts = await fetchPostsHelper(dataToProcess);
+  const fetchedPosts = await loadPosts();
 
   return {
     props: {

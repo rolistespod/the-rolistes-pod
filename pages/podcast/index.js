@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import PodcastLayout from "../../Layout/PodcastLayout/PodcastLayout";
 
-import { fetchPostsHelper,searchPostsBasedOnCategory } from "../../helpers/api-util.js";
+import { searchPostsBasedOnCategory } from "../../helpers/api-util.js";
+import { loadPosts } from "../../helpers/load-posts.js";
 
 function PodcastListPage(props) {
   useEffect(() => {
@@ -12,13 +13,7 @@ function PodcastListPage(props) {
 }
 
 export async function getStaticProps() {
-  const fs = require("fs");
-  const path = require("path");
-  const dataToProcess = fs.readFileSync(
-    path.join(process.cwd(), "therolistespodcast.xml")
-  );
-
-  const fetchedPosts = await fetchPostsHelper(dataToProcess);
+  const fetchedPosts = await loadPosts();
   const allPodcast = await searchPostsBasedOnCategory(
     fetchedPosts.podcast,
     "podcast"

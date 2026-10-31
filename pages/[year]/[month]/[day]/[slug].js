@@ -5,8 +5,8 @@ import {
   searchPost,
   searchLatest,
   searchRecommendedPosts,
-  fetchPostsHelper,
 } from "../../../../helpers/api-util.js";
+import { loadPosts } from "../../../../helpers/load-posts.js";
 
 function PodcastPage(props) {
   useEffect(() => {
@@ -14,17 +14,6 @@ function PodcastPage(props) {
   });
 
   return <PostLayout {...props} type="FULLPOST" />;
-}
-
-async function getData() {
-  const fs = require("fs");
-  const path = require("path");
-  const dataToProcess = fs.readFileSync(
-    path.join(process.cwd(), "therolistespodcast.xml")
-  );
-  const fetchedPosts = await fetchPostsHelper(dataToProcess);
-
-  return fetchedPosts;
 }
 
 const getDateParams = (podcast) => {
@@ -39,7 +28,7 @@ const getDateParams = (podcast) => {
 export async function getStaticProps(context) {
   const { year, month, day, slug } = context.params;
 
-  const fetchedPosts = await getData();
+  const fetchedPosts = await loadPosts();
 
   const key = await searchPost(fetchedPosts.podcast, slug);
   const fullPost = fetchedPosts.podcast[key];
@@ -77,7 +66,7 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
-  const fetchedPosts = await getData();
+  const fetchedPosts = await loadPosts();
 
   const pathsWithParams = fetchedPosts.podcast.map((podcast) => ({
     params: {

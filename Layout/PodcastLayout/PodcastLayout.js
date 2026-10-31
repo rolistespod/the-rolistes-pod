@@ -6,8 +6,6 @@ import PodcastTile from "../../components/PodcastTile/PodcastTile";
 import Ads from "../../components/UI/Ads/Ads";
 import Footer from "../../components/Footer/Footer";
 import PaginationList from "../../components/UI/PaginationList/PaginationList";
-import * as actions from "../../store/actions/index";
-import { connect } from "react-redux";
 import { useState } from "react";
 import { useRouter } from 'next/router'
 // import { useParams } from 'react-router-dom';
@@ -41,9 +39,11 @@ const PodcastLayout = (props) => {
     default:
       activePagePodcast = props.podcast;
   }
+  const [currentPage, setCurrentPage] = useState(1);
+
   const currentCategorySize = activePagePodcast.length;
   const postPerPage = 24;
-  const indexOfLastPost = props.currentPagePodcast * postPerPage;
+  const indexOfLastPost = currentPage * postPerPage;
   const indexOfFirstPost = indexOfLastPost - postPerPage;
 
   const btnType = "filter";
@@ -56,10 +56,8 @@ const PodcastLayout = (props) => {
   });
 
   useEffect(() => {
-    let category = "";
     switch (categoryId) {
       case "the-rolistes-podcast":
-        category = categoryId;
         setBtnState({
           allIsDisabled: false,
           rolistesPodIsDisabled: true,
@@ -70,7 +68,6 @@ const PodcastLayout = (props) => {
         break;
 
       case "the-rolistes-present":
-        category = categoryId;
         setBtnState({
           allIsDisabled: false,
           rolistesPodIsDisabled: false,
@@ -81,7 +78,6 @@ const PodcastLayout = (props) => {
         break;
 
       case "cafe-rolistes":
-        category = categoryId;
         setBtnState({
           allIsDisabled: false,
           rolistesPodIsDisabled: false,
@@ -92,7 +88,6 @@ const PodcastLayout = (props) => {
         break;
 
       case "film-studies":
-        category = categoryId;
         setBtnState({
           allIsDisabled: false,
           rolistesPodIsDisabled: false,
@@ -103,7 +98,6 @@ const PodcastLayout = (props) => {
         break;
 
       default:
-        category = "podcast";
         setBtnState({
           allIsDisabled: true,
           rolistesPodIsDisabled: false,
@@ -112,9 +106,7 @@ const PodcastLayout = (props) => {
           filmStudiesIsDisabled: false,
         });
     }
-    console.log(activePagePodcast);
-    props.onSetCurrentPagePodcast(1);
-    props.onSetCurrentCategoryPodcast(category);
+    setCurrentPage(1);
     window.scrollTo(0, 0);
   }, [router.query]);
 
@@ -122,10 +114,9 @@ const PodcastLayout = (props) => {
     window.scrollTo(0, 0);
   });
 
-  const paginate = (pageNumber) => props.onSetCurrentPagePodcast(pageNumber);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const filterAll = () => {
-    props.onSetCurrentCategoryPodcast("podcast");
     paginate(1);
     setBtnState({
       allIsDisabled: true,
@@ -138,7 +129,6 @@ const PodcastLayout = (props) => {
   };
 
   const filterRolistesPod = () => {
-    props.onSetCurrentCategoryPodcast("the-rolistes-podcast");
     paginate(1);
     setBtnState({
       allIsDisabled: false,
@@ -151,7 +141,6 @@ const PodcastLayout = (props) => {
   };
 
   const filterRolistesPresent = () => {
-    props.onSetCurrentCategoryPodcast("the-rolistes-present");
     paginate(1);
     setBtnState({
       allIsDisabled: false,
@@ -164,7 +153,6 @@ const PodcastLayout = (props) => {
   };
 
   const filterCafeRolistes = () => {
-    props.onSetCurrentCategoryPodcast("cafe-rolistes");
     paginate(1);
     setBtnState({
       allIsDisabled: false,
@@ -176,7 +164,6 @@ const PodcastLayout = (props) => {
     router.push({ pathname: "/podcast", query: { cat: "cafe-rolistes" } });
   };
   const filterFilmStudies = () => {
-    props.onSetCurrentCategoryPodcast("film-studies");
     paginate(1);
     setBtnState({
       allIsDisabled: false,
@@ -281,7 +268,7 @@ const PodcastLayout = (props) => {
             totalRecords={currentCategorySize}
             pageLimit={postPerPage}
             clicked={paginate}
-            currentPage={props.currentPagePodcast}
+            currentPage={currentPage}
           />
         </div>
       </Container>
@@ -290,21 +277,4 @@ const PodcastLayout = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    currentPagePodcast: state.posts.currentPagePodcast,
-    currentCategoryPodcast: state.posts.currentCategoryPodcast,
-    // currentCategorySize: state.posts.currentCategorySize,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onSetCurrentPagePodcast: (pageNumber) =>
-      dispatch(actions.setCurrentPagePodcast(pageNumber)),
-    onSetCurrentCategoryPodcast: (category) =>
-      dispatch(actions.setCurrentCategoryPodcast(category)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(PodcastLayout);
+export default PodcastLayout;

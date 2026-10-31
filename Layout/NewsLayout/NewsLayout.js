@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { Fragment, useEffect, useState } from "react";
 import PostList from "../../components/PostList/PostList";
 import classes from "./NewsLayout.module.css";
 import Ads from "../../components/UI/Ads/Ads";
@@ -7,8 +7,6 @@ import { Col, Container, Row } from "react-bootstrap";
 import Follow from "../../components/side/Follow/Follow";
 import Support from "../../components/side/Support/Support";
 import Footer from "../../components/Footer/Footer";
-import * as actions from "../../store/actions/index";
-import { connect } from "react-redux";
 import Subscribe from "../../components/side/Subscribe/Subscribe";
 import Head from "next/head";
 
@@ -19,11 +17,11 @@ const NewsLayout = (props) => {
     window.scrollTo(0, 0);
   });
 
-  const postPerPage = 10;
-  const indexOfLastPost = props.currentPageNews * postPerPage;
-  const indexOfFirstPost = indexOfLastPost - postPerPage;
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const paginate = (pageNumber) => props.onSetCurrentPageNews(pageNumber);
+  const postPerPage = 10;
+  const indexOfLastPost = currentPage * postPerPage;
+  const indexOfFirstPost = indexOfLastPost - postPerPage;
 
   return (
     <Fragment>
@@ -67,8 +65,8 @@ const NewsLayout = (props) => {
               <PaginationList
                 totalRecords={props.news.length}
                 pageLimit={postPerPage}
-                clicked={paginate}
-                currentPage={props.currentPageNews}
+                clicked={setCurrentPage}
+                currentPage={currentPage}
               />
             </div>
           </Col>
@@ -93,17 +91,4 @@ const NewsLayout = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    currentPageNews: state.posts.currentPageNews,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onSetCurrentPageNews: (pageNumber) =>
-      dispatch(actions.setCurrentPageNews(pageNumber)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(NewsLayout);
+export default NewsLayout;

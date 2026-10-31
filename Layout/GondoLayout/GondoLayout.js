@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import FullPost from "../../components/FullPost/FullPost";
 import PostList from "../../components/PostList/PostList";
 import classes from "./GondoLayout.module.css";
@@ -8,8 +8,6 @@ import Follow from "../../components/side/Follow/Follow";
 import Ads from "../../components/UI/Ads/Ads";
 import Support from "../../components/side/Support/Support";
 import Footer from "../../components/Footer/Footer";
-import * as actions from "../../store/actions/index";
-import { connect } from "react-redux";
 import Subscribe from "../../components/side/Subscribe/Subscribe";
 import Head from "next/head";
 import globalClasses from "../../styles/App.module.css";
@@ -19,11 +17,11 @@ const GondoLayout = (props) => {
     window.scrollTo(0, 0);
   });
 
-  const postPerPage = 10;
-  const indexOfLastPost = props.currentPageNews * postPerPage;
-  const indexOfFirstPost = indexOfLastPost - postPerPage;
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const paginate = (pageNumber) => props.onSetCurrentPageNews(pageNumber);
+  const postPerPage = 10;
+  const indexOfLastPost = currentPage * postPerPage;
+  const indexOfFirstPost = indexOfLastPost - postPerPage;
 
   return (
     <Fragment>
@@ -75,8 +73,8 @@ const GondoLayout = (props) => {
               <PaginationList
                 totalRecords={props.gondo.length}
                 pageLimit={postPerPage}
-                clicked={paginate}
-                currentPage={props.currentPageNews}
+                clicked={setCurrentPage}
+                currentPage={currentPage}
               />
             </div>
           </Col>
@@ -101,17 +99,4 @@ const GondoLayout = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    currentPageNews: state.posts.currentPageNews,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onSetCurrentPageNews: (pageNumber) =>
-      dispatch(actions.setCurrentPageNews(pageNumber)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(GondoLayout);
+export default GondoLayout;

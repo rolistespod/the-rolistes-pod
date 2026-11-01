@@ -25,6 +25,9 @@ const Support = (props) => {
                     src={DriveThruRPGButton}
                     alt="Donate with Paypal"
                     aria-hidden="true"
+                    width={620}
+                    height={283}
+                    loading="lazy"
                   />
                 </a>
               </Col>
@@ -38,6 +41,9 @@ const Support = (props) => {
                     src={itchIOButton}
                     alt="Support on ItchIo"
                     aria-hidden="true"
+                    width={620}
+                    height={283}
+                    loading="lazy"
                   />
                 </a>
               </Col>
@@ -51,6 +57,9 @@ const Support = (props) => {
                     src={paypalButton}
                     alt="Donate with Paypal"
                     aria-hidden="true"
+                    width={620}
+                    height={283}
+                    loading="lazy"
                   />
                 </a>
               </Col>
@@ -64,6 +73,9 @@ const Support = (props) => {
                     src={patreonButton}
                     alt="Support me on Patreon"
                     aria-hidden="true"
+                    width={620}
+                    height={283}
+                    loading="lazy"
                   />
                 </a>
               </Col>

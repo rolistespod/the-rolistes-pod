@@ -28,6 +28,9 @@ const Listen = (props) => {
                 src={appleButton}
                 alt="Donate with Paypal"
                 aria-hidden="true"
+                width={620}
+                height={283}
+                loading="lazy"
               />
             </a>
           </Col>
@@ -41,6 +44,9 @@ const Listen = (props) => {
                 src={spotifyButton}
                 alt="Support on ItchIo"
                 aria-hidden="true"
+                width={620}
+                height={283}
+                loading="lazy"
               />
             </a>
           </Col>
@@ -54,6 +60,9 @@ const Listen = (props) => {
                 src={stitcherButton}
                 alt="Donate with Paypal"
                 aria-hidden="true"
+                width={620}
+                height={283}
+                loading="lazy"
               />
             </a>
           </Col>
@@ -67,19 +76,25 @@ const Listen = (props) => {
                 src={podchaserButton}
                 alt="Support me on Patreon"
                 aria-hidden="true"
+                width={620}
+                height={283}
+                loading="lazy"
               />
             </a>
           </Col>
 
           <Col xs={6} md={true}>
             <a
-              href={SOCIAL_LINKS.rss}
+              href={SOCIAL_LINKS.rss}
               className={classes.supportLink}
             >
               <img
                 src={RSSButton}
                 alt="Support me on Patreon"
                 aria-hidden="true"
+                width={620}
+                height={283}
+                loading="lazy"
               />
             </a>
           </Col>

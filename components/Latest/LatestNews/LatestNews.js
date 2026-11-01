@@ -14,7 +14,7 @@ const LatestNews = (props) => {
 
                 <Link href={news[0].url}>
                     <div className="img_scale_animate">  
-                        <img src={news[0].cover + '?w=2237&h=1173&crop=1'} alt=""/> 
+                        <img src={news[0].cover + '?w=2237&h=1173&crop=1'} alt="" loading="lazy"/>
                     </div>
                 </Link>
                 <div>   
@@ -34,7 +34,7 @@ const LatestNews = (props) => {
         return <Col xs={12} md={6} key={news.id}>
                 <Link href={news.url}>
                     <div className="img_scale_animate">  
-                        <img src={news.cover + '?w=2237&h=1173&crop=1'} alt=""/>
+                        <img src={news.cover + '?w=2237&h=1173&crop=1'} alt="" loading="lazy"/>
                     </div>
                 </Link>
                 <div>                                                 

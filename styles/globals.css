@@ -329,6 +329,8 @@ a:hover > h3 {
 img {
   border-radius: 5px;
   width: 100%;
+  /* Keeps the ratio given by the width and height attributes */
+  height: auto;
 }
 
 

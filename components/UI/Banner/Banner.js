@@ -5,7 +5,13 @@ const bannerImg = "/images/rollinKunzArt/Banner.jpg";
 
 const Banner = (props) => (
   <Fragment>
-    <img src={bannerImg} alt="banner" className={classes.banner} />
+    <img
+      src={bannerImg}
+      alt="banner"
+      className={classes.banner}
+      width={1500}
+      height={500}
+    />
   </Fragment>
 );
 

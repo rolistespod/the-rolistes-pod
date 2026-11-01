@@ -27,7 +27,7 @@ const Support = (props) => {
                         </Col>
 
                         <Col xs={3}>
-                            <a href={SOCIAL_LINKS.driveThruRPG} className={classes.sideLinkIcon}><img src={DriveThruRPGButton}  alt="Donate with Paypal" aria-hidden="true"/></a>
+                            <a href={SOCIAL_LINKS.driveThruRPG} className={classes.sideLinkIcon}><img src={DriveThruRPGButton}  alt="Donate with Paypal" aria-hidden="true" width={120} height={121} loading="lazy"/></a>
                         </Col>
 
                         <Col xs={3}>

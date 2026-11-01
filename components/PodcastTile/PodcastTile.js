@@ -14,7 +14,7 @@ const PodcastTile = (props) => {
                 {/* <Link href={props.location + '/'  + props.postName}> */}
                 {/* <Link href={'/' + year + '/' + month + '/' + day + '/' + props.postName}>   */}
                 <Link href={props.url}>
-                    <img src={props.cover} alt="Cover Episode"/> 
+                    <img src={props.cover} alt="Cover Episode" loading="lazy"/>
                     {/* <img src={imgTest} alt=""/>  */}
                     <div className={classes.overlay}> 
                         <div className={classes.overlayText}>

@@ -67,13 +67,16 @@ const Follow = (props) => {
                   src={PodchaserButton}
                   alt="Donate with Paypal"
                   aria-hidden="true"
+                  width={120}
+                  height={121}
+                  loading="lazy"
                 />
               </a>
             </Col>
 
             <Col xs={3}>
               <a
-                href={SOCIAL_LINKS.rss}
+                href={SOCIAL_LINKS.rss}
                 className={classes.SideLink}
               >
                 <span>

@@ -26,7 +26,13 @@ const NavigationItems = (props) => (
       href={SOCIAL_LINKS.patreon}
       className={classes.supportLink}
     >
-      <img src={patreonButton} alt="Support me on Patreon" aria-hidden="true" />
+      <img
+        src={patreonButton}
+        alt="Support me on Patreon"
+        aria-hidden="true"
+        width={320}
+        height={81}
+      />
     </a>
   </ul>
 );

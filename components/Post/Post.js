@@ -12,7 +12,7 @@ const Post = (props) => {
         <Col xs={12} className={"article_preview"}>
             <Link href={props.url}>
                 <div className={"img_scale_animate"}>
-                    <img src={props.cover + '?w=2237&h=1173&crop=1'} alt=""/>
+                    <img src={props.cover + '?w=2237&h=1173&crop=1'} alt="" loading="lazy"/>
                 </div>          
             </Link>   
             <Link href={props.url}>

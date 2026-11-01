@@ -12,7 +12,7 @@ const Ads = (props) => (
             <Col xs={12}>
                 <div className={classes.adsContainer}>
                     <a href={SOCIAL_LINKS.driveThruRPG}>            
-                        <img src={adsIMG} alt="drivethru RPG ads" className={classes.ads}/>  
+                        <img src={adsIMG} alt="drivethru RPG ads" className={classes.ads} width={764} height={240}/>  
                     </a>
                 </div>
 

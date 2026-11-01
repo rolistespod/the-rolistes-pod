@@ -16,7 +16,7 @@ const RecentPosts = (props) => {
                 <aside className={[classes.aside, classes.aside_1].join(' ')}>
                     <Link href={post.url}>
                         <div className={"img_color_animate"}>  
-                            <img src={post.cover} alt="Episode Cover" className={classes.recent_img}/>              
+                            <img src={post.cover} alt="Episode Cover" className={classes.recent_img} loading="lazy"/>              
                         </div>
                     </Link> 
                 </aside>

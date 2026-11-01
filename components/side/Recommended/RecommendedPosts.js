@@ -12,7 +12,7 @@ const RecommendedPosts = (props) => {
         return <Col xs={6} md={6} lg={6} className={classes.cell} key={post.id}>
             <Link href={post.url}>
                 <div className={"img_color_animate"}>  
-                    <img src={post.cover} alt="Cover Episode"/>
+                    <img src={post.cover} alt="Cover Episode" loading="lazy"/>
                 </div>  
             </Link>
             <Link href={post.url}>

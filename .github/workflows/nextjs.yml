@@ -70,15 +70,6 @@ jobs:
         with:
           node-version: "24"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-        with:
-          # Automatically inject basePath in your Next.js configuration file and disable
-          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
-          #
-          # You may remove this line if you want to manage the configuration yourself.
-          static_site_generator: next
-          # static_site_generator: next
       - name: Restore cache
         uses: actions/cache@v4
         with:
@@ -97,6 +88,15 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} run format:check
       - name: Test
         run: ${{ steps.detect-package-manager.outputs.manager }} test
+      # Runs after the checks above, because it rewrites next.config.js
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        with:
+          # Automatically inject basePath in your Next.js configuration file and disable
+          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
+          #
+          # You may remove this line if you want to manage the configuration yourself.
+          static_site_generator: next
       # "run build" also runs the prebuild script, which generates public/rss.xml
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.manager }} run build

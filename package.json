@@ -8,6 +8,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
     "sanitize": "node scripts/sanitize-export.js",
     "rss": "node scripts/generate-rss-feed.js",
     "rss-deploy": "node scripts/generate-rss-feed.js && git add data/therolistespodcast.xml && git commit -m \"Update content\" && git push origin main"
@@ -17,7 +20,6 @@
     "@fortawesome/free-brands-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
-    "axios": "^1.6.8",
     "bootstrap": "^5.2.3",
     "next": "^15.2.3",
     "react": "18.2.0",
@@ -27,9 +29,10 @@
     "xml2js": "^0.6.2"
   },
   "devDependencies": {
-    "eslint": "8.30.0",
-    "eslint-config-next": "^12.0.4",
-    "gh-pages": "^6.3.0",
-    "xml-loader": "^1.2.1"
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^15.2.3",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.3.3",
+    "vitest": "^2.1.9"
   }
 }

@@ -93,6 +93,8 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Lint
         run: ${{ steps.detect-package-manager.outputs.manager }} run lint
+      - name: Test
+        run: ${{ steps.detect-package-manager.outputs.manager }} test
       # "run build" also runs the prebuild script, which generates public/rss.xml
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.manager }} run build

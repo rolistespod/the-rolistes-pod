@@ -1,0 +1,5 @@
+.next/
+out/
+data/
+public/
+package-lock.json

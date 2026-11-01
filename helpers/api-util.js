@@ -250,7 +250,7 @@ const getURL = (post, category) => {
   return "";
 };
 
-const replaceOldURL = (post) => {
+export const replaceOldURL = (post) => {
   const baseURL = 'href="';
 
   let str = post;
@@ -333,7 +333,7 @@ const toPlainText = (html) =>
     .replace(/\s+/g, " ")
     .trim();
 
-const getExcerpt = (content, wordLimit) =>
+export const getExcerpt = (content, wordLimit) =>
   toPlainText(content).split(" ").slice(0, wordLimit).join(" ");
 
 export async function fetchPostsHelper(dataToProcess) {

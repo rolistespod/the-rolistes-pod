@@ -20,7 +20,7 @@ const toRssXML = (posts) => {
             <title><![CDATA[${post.title}]]></title>
             <link>${post.link}</link>
             <pubDate>${post.pubDate}</pubDate>${postCategories}
-            <guid>${post.link}</guid>
+            <guid isPermaLink="false">${post.guid}</guid>
             <description>
             <![CDATA[ ${post.description} ]]>
             </description>
@@ -120,6 +120,31 @@ const getEnclosureURL = (postMeta) => {
   return "";
 };
 
+// Podcast apps identify episodes by their guid, so it must never change.
+// Guids were historically built from the date in Paris time, which differs
+// from the UTC date of the link for episodes published late in the evening.
+const getLegacyGuid = (date, postName) => {
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/Paris",
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  }).formatToParts(date);
+  const part = (type) =>
+    Number(parts.find((p) => p.type === type).value);
+
+  return (
+    "https://rolistespod.com/" +
+    part("year") +
+    "/" +
+    part("month") +
+    "/" +
+    part("day") +
+    "/" +
+    postName
+  );
+};
+
 const cleanDescription = (content, link, title) => {
   let filter = content.replace(/\[audio/, "<audio controls");
   filter = filter.replace(/mp3\"\]/, 'mp3"></audio><br>');
@@ -192,10 +217,11 @@ const getPosts = () => {
             case "podcast":
               const attachment = getAttachment(fetchedAttachment, fetchedPost);
               const title = fetchedPost["title"];
+              // In UTC, to match the page URLs built by getURL in api-util.js
               const tempDate = new Date(fetchedPost["pubDate"][0]);
-              const year = tempDate.getFullYear();
-              const month = tempDate.getMonth() + 1;
-              const day = tempDate.getDate();
+              const year = tempDate.getUTCFullYear();
+              const month = tempDate.getUTCMonth() + 1;
+              const day = tempDate.getUTCDate();
               const link =
                 "https://rolistespod.com/" +
                 year +
@@ -207,7 +233,7 @@ const getPosts = () => {
                 fetchedPost["wp:post_name"][0];
               const pubDate = fetchedPost["pubDate"][0];
               const categories = fetchedPost["category"];
-              const guid = link;
+              const guid = getLegacyGuid(tempDate, fetchedPost["wp:post_name"][0]);
 
               const description = cleanDescription(
                 fetchedPost["content:encoded"][0],

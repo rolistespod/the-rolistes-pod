@@ -236,10 +236,11 @@ const getAttachmentURL = (attachments, postMeta) => {
 };
 
 const getURL = (post, category) => {
+  // In UTC, so the URL does not depend on the timezone of the machine building it
   const tempDate = new Date(post["pubDate"][0]);
-  const year = tempDate.getFullYear();
-  const month = tempDate.getMonth() + 1;
-  const day = tempDate.getDate();
+  const year = tempDate.getUTCFullYear();
+  const month = tempDate.getUTCMonth() + 1;
+  const day = tempDate.getUTCDate();
   const postName = post["wp:post_name"][0];
 
   switch (category) {

@@ -17,6 +17,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import classes from "./Follow.module.css";
 import { Row, Col } from "react-bootstrap";
+import { SOCIAL_LINKS } from "../../../helpers/social-links.js";
 
 const PodchaserButton = "/images/Icon_Podchaser.png";
 
@@ -37,7 +38,7 @@ const Follow = (props) => {
           <Row className={classes.side_icons}>
             <Col xs={3}>
               <a
-                href="https://podcasts.apple.com/us/podcast/the-rolistes-podcast/id1043891191?mt=2"
+                href={SOCIAL_LINKS.apple}
                 className={classes.SideLink}
               >
                 <span>
@@ -48,7 +49,7 @@ const Follow = (props) => {
 
             <Col xs={3}>
               <a
-                href="https://open.spotify.com/show/6WC5wywaLMEhnO7JWIuxom"
+                href={SOCIAL_LINKS.spotify}
                 className={classes.SideLink}
               >
                 <span>
@@ -59,7 +60,7 @@ const Follow = (props) => {
 
             <Col xs={3}>
               <a
-                href="https://www.podchaser.com/podcasts/the-rolistes-podcast-425798"
+                href={SOCIAL_LINKS.podchaser}
                 className={classes.sideLinkIcon}
               >
                 <img
@@ -72,8 +73,7 @@ const Follow = (props) => {
 
             <Col xs={3}>
               <a
-                href="https://feeds.feedburner.com/TheRolistesPodcast"
-                // href="https://rolistespod.com/rss"
+                href={SOCIAL_LINKS.rss}
                 className={classes.SideLink}
               >
                 <span>
@@ -91,7 +91,7 @@ const Follow = (props) => {
           <Row className={classes.side_icons}>
             <Col xs={3}>
               <a
-                href="https://www.youtube.com/channel/UCpguBUBlPRHN4BGTbKPFxrg"
+                href={SOCIAL_LINKS.youtube}
                 className={classes.SideLink}
               >
                 <span>
@@ -102,7 +102,7 @@ const Follow = (props) => {
 
             <Col xs={3}>
               <a
-                href="https://www.twitch.tv/rolistespod"
+                href={SOCIAL_LINKS.twitch}
                 className={classes.SideLink}
               >
                 <span>
@@ -113,7 +113,7 @@ const Follow = (props) => {
 
             <Col xs={3}>
               <a
-                href="https://www.tiktok.com/@rolistespod"
+                href={SOCIAL_LINKS.tiktok}
                 className={classes.SideLink}
               >
                 <span>
@@ -131,7 +131,7 @@ const Follow = (props) => {
           <Row className={classes.side_icons}>
             <Col xs={3}>
               <a
-                href="https://www.facebook.com/Rolistespod/"
+                href={SOCIAL_LINKS.facebook}
                 className={classes.SideLink}
               >
                 <span>
@@ -141,7 +141,7 @@ const Follow = (props) => {
             </Col>
             <Col xs={3}>
               <a
-                href="https://twitter.com/rolistespod"
+                href={SOCIAL_LINKS.twitter}
                 className={classes.SideLink}
               >
                 <span>
@@ -152,7 +152,7 @@ const Follow = (props) => {
 
             <Col xs={3}>
               <a
-                href="https://dice.camp/@Rolistespod"
+                href={SOCIAL_LINKS.mastodon}
                 className={classes.SideLink}
               >
                 <span>
@@ -170,7 +170,7 @@ const Follow = (props) => {
           <Row className={classes.side_icons}>
             <Col xs={3}>
               <a
-                href="mailto:rolistespod@gmail.com"
+                href={SOCIAL_LINKS.email}
                 className={classes.SideLink}
               >
                 <span>
@@ -187,7 +187,7 @@ const Follow = (props) => {
           <Row className={classes.side_icons}>
             <Col xs={12}>
               <a
-                href="https://eepurl.com/gJCUVX"
+                href={SOCIAL_LINKS.newsletter}
                 className={classes.SideLinkText}
               >
                 <span>Subscribe</span>

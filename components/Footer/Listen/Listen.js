@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import classes from "../Footer.module.css";
 import { Row, Col } from "react-bootstrap";
+import { SOCIAL_LINKS } from "../../../helpers/social-links.js";
 
 const appleButton = "/images/Buttons_Apple_BnW.png";
 const spotifyButton = "/images/Buttons_Spotify_BnW.png";
@@ -20,7 +21,7 @@ const Listen = (props) => {
         <Row>
           <Col xs={6} md={true}>
             <a
-              href="https://podcasts.apple.com/us/podcast/the-rolistes-podcast/id1043891191"
+              href={SOCIAL_LINKS.apple}
               className={classes.supportLink}
             >
               <img
@@ -33,7 +34,7 @@ const Listen = (props) => {
 
           <Col xs={6} md={true}>
             <a
-              href="https://open.spotify.com/show/6WC5wywaLMEhnO7JWIuxom?si=f8oaIyG1QU2cgrBeDlLP5A"
+              href={SOCIAL_LINKS.spotify}
               className={classes.supportLink}
             >
               <img
@@ -46,7 +47,7 @@ const Listen = (props) => {
 
           <Col xs={6} md={true}>
             <a
-              href="https://www.stitcher.com/podcast/the-rolistes-podcast"
+              href={SOCIAL_LINKS.stitcher}
               className={classes.supportLink}
             >
               <img
@@ -59,7 +60,7 @@ const Listen = (props) => {
 
           <Col xs={6} md={true}>
             <a
-              href="https://www.podchaser.com/podcasts/the-rolistes-podcast-425798"
+              href={SOCIAL_LINKS.podchaser}
               className={classes.supportLink}
             >
               <img
@@ -72,8 +73,7 @@ const Listen = (props) => {
 
           <Col xs={6} md={true}>
             <a
-              href="https://feeds.feedburner.com/TheRolistesPodcast"
-              // href="https://rolistespod.com/rss"
+              href={SOCIAL_LINKS.rss}
               className={classes.supportLink}
             >
               <img

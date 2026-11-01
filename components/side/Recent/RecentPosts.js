@@ -1,6 +1,5 @@
 
 import { Fragment } from 'react';
-import Spinner from '../../UI/Spinner/Spinner';
 import classes from './RecentPosts.module.css';
 import Link from 'next/link';
 import { Col, Row } from 'react-bootstrap';
@@ -8,8 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
 
 const RecentPosts = (props) => {
-    
-    // let recentPosts = <Spinner/>
+
     const relatedPosts = props.recentPosts;
 
     const recentPosts = relatedPosts.map (post => {

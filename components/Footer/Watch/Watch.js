@@ -7,6 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classes from "../Footer.module.css";
 import { Row, Col } from "react-bootstrap";
+import { SOCIAL_LINKS } from "../../../helpers/social-links.js";
 
 const Watch = (props) => {
   return (
@@ -20,7 +21,7 @@ const Watch = (props) => {
         <Row>
           <Col xs={4}>
             <a
-              href="https://www.youtube.com/channel/UCpguBUBlPRHN4BGTbKPFxrg"
+              href={SOCIAL_LINKS.youtube}
               className={classes.FooterLink}
             >
               <span>
@@ -31,7 +32,7 @@ const Watch = (props) => {
 
           <Col xs={4}>
             <a
-              href="https://www.twitch.tv/rolistespod"
+              href={SOCIAL_LINKS.twitch}
               className={classes.FooterLink}
             >
               <span>
@@ -42,7 +43,7 @@ const Watch = (props) => {
 
           <Col xs={4}>
             <a
-              href="https://www.tiktok.com/@rolistespod?lang=en"
+              href={SOCIAL_LINKS.tiktok}
               className={classes.FooterLink}
             >
               <span>

@@ -3,6 +3,7 @@ import { faFacebookF, faMastodon, faTwitter } from "@fortawesome/free-brands-svg
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classes from "../Footer.module.css";
 import { Row, Col } from "react-bootstrap";
+import { SOCIAL_LINKS } from "../../../helpers/social-links.js";
 
 const Follow = (props) => {
   return (
@@ -16,7 +17,7 @@ const Follow = (props) => {
         <Row>
           <Col xs={4}>
             <a
-              href="https://www.facebook.com/Rolistespod/"
+              href={SOCIAL_LINKS.facebook}
               className={classes.FooterLink}
             >
               <span>
@@ -27,7 +28,7 @@ const Follow = (props) => {
 
           <Col xs={4}>
             <a
-              href="https://twitter.com/rolistespod"
+              href={SOCIAL_LINKS.twitter}
               className={classes.FooterLink}
             >
               <span>
@@ -38,7 +39,7 @@ const Follow = (props) => {
 
           <Col xs={4}>
             <a
-              href="https://dice.camp/@Rolistespod"
+              href={SOCIAL_LINKS.mastodon}
               className={classes.FooterLink}
             >
               <span>

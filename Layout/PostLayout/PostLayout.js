@@ -3,7 +3,6 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Ads from '../../components/UI/Ads/Ads';
 import Follow from '../../components/side/Follow/Follow';
 import Support from '../../components/side/Support/Support';
-import PaginationList from '../../components/UI/PaginationList/PaginationList';
 import Footer from '../../components/Footer/Footer';
 import FullPost from '../../components/FullPost/FullPost';
 import RecommendedPosts from '../../components/side/Recommended/RecommendedPosts';
@@ -26,7 +25,6 @@ const PostLayout = (props) => {
                             date={fullPost.date}
                             type={props.fullPostType}
                         />
-                        <PaginationList/>
                     </Col>
                     <Col  lg={4} xs={12}>
                         <Row>

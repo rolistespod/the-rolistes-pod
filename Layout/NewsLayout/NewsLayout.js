@@ -1,13 +1,11 @@
 import { Fragment, useState } from "react";
 import PostList from "../../components/PostList/PostList";
-import classes from "./NewsLayout.module.css";
 import Ads from "../../components/UI/Ads/Ads";
 import PaginationList from "../../components/UI/PaginationList/PaginationList";
 import { Col, Container, Row } from "react-bootstrap";
 import Follow from "../../components/side/Follow/Follow";
 import Support from "../../components/side/Support/Support";
 import Footer from "../../components/Footer/Footer";
-import Subscribe from "../../components/side/Subscribe/Subscribe";
 import Head from "next/head";
 
 
@@ -59,9 +57,6 @@ const NewsLayout = (props) => {
               <Col xs={12} className="no_padding_smallscreen">
                 <Support />
               </Col>
-              {/* <Col xs={12} className="no_padding_smallscreen">
-                                <Subscribe />
-                            </Col>                                         */}
             </Row>
           </Col>
         </Row>

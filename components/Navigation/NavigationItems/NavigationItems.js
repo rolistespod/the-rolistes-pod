@@ -3,10 +3,11 @@ import NavigationItem from "./NavigationItem/NavigationItem";
 import Logo from "../../Logo/Logo";
 // import patreonButton from '../../../public/images/become_a_patron_button_BnW - Black.png';
 import Link from "next/link";
+import { SOCIAL_LINKS } from "../../../helpers/social-links.js";
 
 const patreonButton = "/images/become_a_patron_button_BnW - Black.png";
 
-const navigationItems = (props) => (
+const NavigationItems = (props) => (
   <ul className={classes.NavigationItems}>
     <Link href="/" exact="true">
       <Logo />
@@ -22,7 +23,7 @@ const navigationItems = (props) => (
     <NavigationItem link="/about_us">About Us</NavigationItem>
 
     <a
-      href="https://www.patreon.com/RolistesPod"
+      href={SOCIAL_LINKS.patreon}
       className={classes.supportLink}
     >
       <img src={patreonButton} alt="Support me on Patreon" aria-hidden="true" />
@@ -30,4 +31,4 @@ const navigationItems = (props) => (
   </ul>
 );
 
-export default navigationItems;
+export default NavigationItems;

@@ -1,17 +1,15 @@
 
 import classes from './Toolbar.module.css';
 
-import Logo from '../../Logo/Logo';
 import NavigationItems from '../NavigationItems/NavigationItems';
 import DrawerToggle from '../SideDrawer/DrawerToggle/DrawerToggle';
-import Search from '../Search/Search';
 import { Container } from 'react-bootstrap';
 
-const toolbar = (props) => (
+const Toolbar = (props) => (
     <header className={classes.Toolbar}>
-        <Container>            
+        <Container>
 
-            <nav>                                        
+            <nav>
                 <div className={classes.DesktopOnly}>
                     <NavigationItems/>
                 </div>
@@ -19,12 +17,8 @@ const toolbar = (props) => (
 
             <DrawerToggle clicked = {props.drawerToggleClicked}/>
 
-            <div>
-                <Search/>
-            </div>
-
         </Container>
     </header>
 );
 
-export default toolbar;
+export default Toolbar;

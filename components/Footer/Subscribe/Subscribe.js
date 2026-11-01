@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import classes from "../Footer.module.css";
 import { Row, Col } from "react-bootstrap";
+import { SOCIAL_LINKS } from "../../../helpers/social-links.js";
 
 const Subscribe = (props) => {
   return (
@@ -12,7 +13,7 @@ const Subscribe = (props) => {
           </Col>
         </Row>
 
-        <a href="https://eepurl.com/gJCUVX" className={classes.FooterLinkText}>
+        <a href={SOCIAL_LINKS.newsletter} className={classes.FooterLinkText}>
           <span>Subscribe</span>
         </a>
       </div>

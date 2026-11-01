@@ -172,13 +172,11 @@ const catValue4 = [
   "haqadosch",
   "kanard",
   "james",
-  "persephelia",
   "federica",
   "nelyhann",
   "porter-williams",
   "oliver-brooks",
   "andrew-dacey",
-  "dominic-mcdowall",
   "aora",
   "rae",
   "nala",
@@ -208,13 +206,12 @@ const catValue5 = [
   "halloween",
   "rpg-club",
   "rolistes-abroad",
-  "london-rpg-clubs",
   "food",
   "larp",
 ];
 
 const getAttachmentURL = (attachments, postMeta) => {
-  let attachmentId = 0;
+  let attachmentId = null;
 
   for (let metaKey in postMeta["wp:postmeta"]) {
     if (
@@ -225,7 +222,7 @@ const getAttachmentURL = (attachments, postMeta) => {
   }
 
   for (let key in attachments) {
-    if (attachments[key]["wp:post_id"][0] == attachmentId) {
+    if (attachments[key]["wp:post_id"][0] === attachmentId) {
       if (attachments[key]["guid"][0]["_"]) {
         return attachments[key]["guid"][0]["_"];
       }
@@ -570,7 +567,7 @@ export async function searchLatest(posts, amountToReturn) {
   for (let i = 0; i < amountToReturn; i++) {
     news.push({
       ...posts[i],
-      latest: i == 0 ? true : false,
+      latest: i === 0,
       id: i,
     });
   }

@@ -1,7 +1,6 @@
 
 import { Fragment } from 'react';
 import classes from './DownloadsPerTitlePost.module.css';
-import { Col, Row } from 'react-bootstrap';
 
 const DownloadsPerTitlePost = (props) => {
 

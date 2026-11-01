@@ -5,7 +5,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../../../Logo/Logo';
 import Link from 'next/link';
 
-const drawerToggle = (props) => (       
+const DrawerToggle = (props) => (       
         <div className={classes.DrawerToggle} >
             <Link  href="/" exact="true">
                 <Logo/>
@@ -16,4 +16,4 @@ const drawerToggle = (props) => (
         </div>    
 );
 
-export default drawerToggle;
+export default DrawerToggle;

@@ -3,6 +3,7 @@ import { faEnvelope} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classes from '../Footer.module.css';
 import { Row, Col } from 'react-bootstrap';
+import { SOCIAL_LINKS } from '../../../helpers/social-links.js';
 
 const Contact = (props) => {
 
@@ -18,7 +19,7 @@ const Contact = (props) => {
                 </Row>
                 <Row>
                     <Col xs={4}>
-                        <a href="mailto:rolistespod@gmail.com" className={classes.FooterLink}><span><FontAwesomeIcon icon={faEnvelope} aria-hidden="true"/></span></a>
+                        <a href={SOCIAL_LINKS.email} className={classes.FooterLink}><span><FontAwesomeIcon icon={faEnvelope} aria-hidden="true"/></span></a>
                     </Col>                          
                 </Row>           
             </div>                    

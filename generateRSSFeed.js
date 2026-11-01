@@ -89,7 +89,7 @@ We are for those curious about what and how tabletop roleplaying games are playe
 };
 
 const getAttachment = (attachments, postMeta) => {
-  let attachmentId = 0;
+  let attachmentId = null;
 
   for (let metaKey in postMeta["wp:postmeta"]) {
     if (
@@ -100,7 +100,7 @@ const getAttachment = (attachments, postMeta) => {
   }
 
   for (let key in attachments) {
-    if (attachments[key]["wp:post_id"][0] == attachmentId) {
+    if (attachments[key]["wp:post_id"][0] === attachmentId) {
       return attachments[key];
     }
   }
@@ -284,4 +284,4 @@ const getPosts = () => {
   });
 };
 
-const posts = getPosts();
+getPosts();

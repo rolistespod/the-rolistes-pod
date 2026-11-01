@@ -1,7 +1,7 @@
 import classes from "./NavigationItem.module.css";
 import Link from "next/link";
 
-const navigationItem = (props) => (
+const NavigationItem = (props) => (
   <li className={classes.NavigationItem}>
     <Link
       href={props.link} //exact activeClassName={classes.active}
@@ -11,4 +11,4 @@ const navigationItem = (props) => (
   </li>
 );
 
-export default navigationItem;
+export default NavigationItem;

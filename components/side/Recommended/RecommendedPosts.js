@@ -1,13 +1,11 @@
 
 import { Fragment } from 'react';
-import Spinner from '../../UI/Spinner/Spinner';
 import { Col, Row } from 'react-bootstrap';
 import Link from 'next/link';
 import classes from './RecommendedPosts.module.css';
 
 const RecommendedPosts = (props) => {
-    
-    // let recommendedPosts = <Spinner/>
+
     const relatedPosts = props.recommendedPosts;
 
     const recommendedPosts = relatedPosts.map (post => {

@@ -1,14 +1,12 @@
-import React, { Fragment, useState } from "react";
+import { Fragment, useState } from "react";
 import FullPost from "../../components/FullPost/FullPost";
 import PostList from "../../components/PostList/PostList";
-import classes from "./GondoLayout.module.css";
 import PaginationList from "../../components/UI/PaginationList/PaginationList";
 import { Col, Container, Row } from "react-bootstrap";
 import Follow from "../../components/side/Follow/Follow";
 import Ads from "../../components/UI/Ads/Ads";
 import Support from "../../components/side/Support/Support";
 import Footer from "../../components/Footer/Footer";
-import Subscribe from "../../components/side/Subscribe/Subscribe";
 import Head from "next/head";
 
 const GondoLayout = (props) => {
@@ -70,9 +68,6 @@ const GondoLayout = (props) => {
               <Col xs={12} className="no_padding_smallscreen">
                 <Support />
               </Col>
-              {/* <Col xs={12} className="no_padding_smallscreen">
-                                <Subscribe />
-                            </Col>      */}
             </Row>
           </Col>
         </Row>

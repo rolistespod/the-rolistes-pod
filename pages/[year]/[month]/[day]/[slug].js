@@ -1,4 +1,4 @@
-import PostLayout from "../../../../Layout/PostLayout/PostLayout";
+import PostLayout from "../../../../layouts/PostLayout/PostLayout";
 
 import {
   searchPost,

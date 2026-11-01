@@ -1,5 +1,5 @@
 import Script from "next/script";
-import Layout from "../Layout/Layout";
+import Layout from "../layouts/Layout";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/globals.css";
 

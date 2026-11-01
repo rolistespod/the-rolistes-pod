@@ -1,4 +1,4 @@
-import HomeLayout from "../Layout/HomeLayout/HomeLayout";
+import HomeLayout from "../layouts/HomeLayout/HomeLayout";
 import { searchLatest, searchLatestPodcast } from "../helpers/api-util.js";
 import { loadPosts } from "../helpers/load-posts.js";
 import { toArticle, toNewsSummary, toSummary } from "../helpers/normalize.js";

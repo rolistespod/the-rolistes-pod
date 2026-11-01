@@ -1,4 +1,4 @@
-import DownloadsLayout from "../../Layout/DownloadsLayout/DownloadsLayout";
+import DownloadsLayout from "../../layouts/DownloadsLayout/DownloadsLayout";
 
 import { loadPosts } from "../../helpers/load-posts.js";
 import { toArticle } from "../../helpers/normalize.js";

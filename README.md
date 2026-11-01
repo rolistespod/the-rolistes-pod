@@ -15,7 +15,7 @@ I designed, built and have maintained this site since 2021. It started as my fir
 
 ## Features
 
-- Episode listing fetched automatically from the podcast RSS feed?
+- Episode listing built from the WordPress export, which also generates the podcast RSS feed at each build
 - Other features: episode pages, embedded player, host pages, adjacents news
 - Future features: shop section to showcase boardgames created by The Rolistes
 

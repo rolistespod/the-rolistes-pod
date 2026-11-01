@@ -1,4 +1,4 @@
-import NewsLayout from "../../Layout/NewsLayout/NewsLayout";
+import NewsLayout from "../../layouts/NewsLayout/NewsLayout";
 
 import { loadPosts } from "../../helpers/load-posts.js";
 import { toNewsSummary } from "../../helpers/normalize.js";

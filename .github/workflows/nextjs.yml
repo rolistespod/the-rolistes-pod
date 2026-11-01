@@ -12,21 +12,38 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+  # Every hour, publishes the scheduled posts whose date has passed
+  schedule:
+    - cron: "5 * * * *"
+
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
 jobs:
+  # On the hourly schedule, only rebuild when a scheduled post just went live
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      due: ${{ steps.due.outputs.due }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Look for posts that just went live
+        id: due
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            node scripts/check-due-posts.js
+          else
+            echo "due=true" >> "$GITHUB_OUTPUT"
+          fi
+
   # Build job
   build:
+    needs: check
+    if: needs.check.outputs.due == 'true'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -49,7 +66,7 @@ jobs:
             exit 1
           fi
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "24"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
@@ -63,7 +80,7 @@ jobs:
           static_site_generator: next
           # static_site_generator: next
       - name: Restore cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             .next/cache
@@ -74,12 +91,21 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Lint
+        run: ${{ steps.detect-package-manager.outputs.manager }} run lint
+      # "run build" also runs the prebuild script, which generates public/rss.xml
       - name: Build with Next.js
-        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+        run: ${{ steps.detect-package-manager.outputs.manager }} run build
         env:
           NEXT_PUBLIC_GOOGLE_ANALYTICS: ${{ vars.NEXT_PUBLIC_GOOGLE_ANALYTICS }}
-      #- name: Static HTML export with Next.js
-       # run: ${{ steps.detect-package-manager.outputs.runner }} next export
+      # Never publish the site without its podcast feed
+      - name: Check RSS feed
+        run: |
+          if [ ! -s out/rss.xml ]; then
+            echo "out/rss.xml is missing or empty"
+            exit 1
+          fi
+          grep -q "<item>" out/rss.xml || { echo "out/rss.xml has no episode"; exit 1; }
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -87,6 +113,12 @@ jobs:
 
   # Deployment job
   deploy:
+    # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+    # However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+    # Set on this job rather than the workflow, so an hourly run that builds nothing never takes a push's place.
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

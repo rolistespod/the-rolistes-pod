@@ -1,4 +1,4 @@
-import PodcastLayout from "../../Layout/PodcastLayout/PodcastLayout";
+import PodcastLayout from "../../layouts/PodcastLayout/PodcastLayout";
 
 import { searchPostsBasedOnCategory } from "../../helpers/api-util.js";
 import { loadPosts } from "../../helpers/load-posts.js";

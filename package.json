@@ -4,13 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/generate-rss-feed.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "git commit -m 'Updated RSS & site'",
     "sanitize": "node scripts/sanitize-export.js",
-    "rss": "node generateRSSFeed.js",
-    "rss-deploy": "node generateRSSFeed.js && git commit -a -m \"Update RSS feed\" && git push origin main"
+    "rss": "node scripts/generate-rss-feed.js",
+    "rss-deploy": "node scripts/generate-rss-feed.js && git add data/therolistespodcast.xml && git commit -m \"Update content\" && git push origin main"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.1",

@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 import { fetchPostsHelper } from "./api-util.js";
 
-const DATA_FILE = path.join(process.cwd(), "therolistespodcast.xml");
+const DATA_FILE = path.join(process.cwd(), "data", "therolistespodcast.xml");
 
 let cachedPosts;
 

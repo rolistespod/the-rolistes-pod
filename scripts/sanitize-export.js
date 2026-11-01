@@ -3,7 +3,7 @@ const path = require("path");
 const xml2js = require("xml2js");
 
 const input = path.resolve(process.argv[2] || "wordpress-export.xml");
-const output = path.resolve(process.argv[3] || "therolistespodcast.xml");
+const output = path.resolve(process.argv[3] || "data/therolistespodcast.xml");
 
 const PRIVATE_CATEGORIES = [
   "paris-gondo-introduction",

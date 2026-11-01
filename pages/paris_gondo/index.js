@@ -1,4 +1,4 @@
-import GondoLayout from "../../Layout/GondoLayout/GondoLayout";
+import GondoLayout from "../../layouts/GondoLayout/GondoLayout";
 import { loadPosts } from "../../helpers/load-posts.js";
 import { toFullPost, toNewsSummary } from "../../helpers/normalize.js";
 

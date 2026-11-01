@@ -180,7 +180,7 @@ const getPosts = () => {
   const fs = require("fs");
   const path = require("path");
   const data = fs.readFileSync(
-    path.join(process.cwd(), "therolistespodcast.xml")
+    path.join(process.cwd(), "data", "therolistespodcast.xml")
   );
 
   const parseString = require("xml2js").parseString;

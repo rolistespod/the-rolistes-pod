@@ -1,4 +1,4 @@
-import AboutUsLayout from "../../Layout/AboutUsLayout/AboutUsLayout";
+import AboutUsLayout from "../../layouts/AboutUsLayout/AboutUsLayout";
 
 import { loadPosts } from "../../helpers/load-posts.js";
 import { toArticle } from "../../helpers/normalize.js";

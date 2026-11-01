@@ -110,7 +110,11 @@ const sanitize = (result) => {
       $: result.rss.$,
       channel: [{ ...pick(channel, CHANNEL_FIELDS), item: orderedItems }],
     },
-    stats: { total: items.length, posts: posts.length, attachments: attachments.length },
+    stats: {
+      total: items.length,
+      posts: posts.length,
+      attachments: attachments.length,
+    },
   };
 };
 

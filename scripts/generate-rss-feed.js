@@ -130,8 +130,7 @@ const getLegacyGuid = (date, postName) => {
     month: "numeric",
     day: "numeric",
   }).formatToParts(date);
-  const part = (type) =>
-    Number(parts.find((p) => p.type === type).value);
+  const part = (type) => Number(parts.find((p) => p.type === type).value);
 
   return (
     "https://rolistespod.com/" +
@@ -233,7 +232,10 @@ const getPosts = () => {
                 fetchedPost["wp:post_name"][0];
               const pubDate = fetchedPost["pubDate"][0];
               const categories = fetchedPost["category"];
-              const guid = getLegacyGuid(tempDate, fetchedPost["wp:post_name"][0]);
+              const guid = getLegacyGuid(
+                tempDate,
+                fetchedPost["wp:post_name"][0]
+              );
 
               const description = cleanDescription(
                 fetchedPost["content:encoded"][0],

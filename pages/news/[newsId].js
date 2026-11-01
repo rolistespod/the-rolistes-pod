@@ -14,7 +14,7 @@ function NewsPage(props) {
 
 export async function getStaticProps(context) {
   const pageTitle = context.params.newsId;
-  
+
   const fetchedPosts = await loadPosts();
 
   const key = await searchPost(fetchedPosts.news, pageTitle);
@@ -36,17 +36,16 @@ export async function getStaticProps(context) {
       recommendedPosts: recommendedPosts.map(toSummary),
       recentPosts: recentPosts.map(toSummary),
       fullPost: toFullPost(fullPost),
-      fullPostType: fullPostType
+      fullPostType: fullPostType,
     },
   };
 }
 
 export async function getStaticPaths() {
-
   const fetchedPosts = await loadPosts();
 
-  const ids = fetchedPosts.news.map(news =>news["wp:post_name"][0]);
-  const pathsWithParams = ids.map(id=>({params:{newsId:id}}));
+  const ids = fetchedPosts.news.map((news) => news["wp:post_name"][0]);
+  const pathsWithParams = ids.map((id) => ({ params: { newsId: id } }));
 
   return {
     paths: pathsWithParams,

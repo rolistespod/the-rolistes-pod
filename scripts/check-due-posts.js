@@ -18,10 +18,14 @@ const duePosts = xml
   .slice(1)
   .filter((item) => /<wp:status>(<!\[CDATA\[)?future\b/.test(item))
   .map((item) => ({
-    name: (item.match(/<wp:post_name>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?<\/wp:post_name>/) || [])[1],
+    name: (item.match(
+      /<wp:post_name>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?<\/wp:post_name>/
+    ) || [])[1],
     date: new Date((item.match(/<pubDate>(.*?)<\/pubDate>/) || [])[1]),
   }))
-  .filter(({ date }) => date.getTime() <= now && now - date.getTime() < WINDOW_MS);
+  .filter(
+    ({ date }) => date.getTime() <= now && now - date.getTime() < WINDOW_MS
+  );
 
 duePosts.forEach(({ name, date }) =>
   console.log(`Went live: ${name} (${date.toISOString()})`)

@@ -1,30 +1,31 @@
-import { Fragment } from 'react';
-import { faEnvelope} from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import classes from '../Footer.module.css';
-import { Row, Col } from 'react-bootstrap';
-import { SOCIAL_LINKS } from '../../../helpers/social-links.js';
+import { Fragment } from "react";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import classes from "../Footer.module.css";
+import { Row, Col } from "react-bootstrap";
+import { SOCIAL_LINKS } from "../../../helpers/social-links.js";
 
 const Contact = (props) => {
-
-    
-
-    return (
-        <Fragment>   
-            <div className="item_box_footer">                
-                <Row>            
-                    <Col xs={12}>
-                        <h2 className="section_title_footer">Contact Us</h2>                     
-                    </Col>
-                </Row>
-                <Row>
-                    <Col xs={4}>
-                        <a href={SOCIAL_LINKS.email} className={classes.FooterLink}><span><FontAwesomeIcon icon={faEnvelope} aria-hidden="true"/></span></a>
-                    </Col>                          
-                </Row>           
-            </div>                    
-        </Fragment>
-    )
-}
+  return (
+    <Fragment>
+      <div className="item_box_footer">
+        <Row>
+          <Col xs={12}>
+            <h2 className="section_title_footer">Contact Us</h2>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={4}>
+            <a href={SOCIAL_LINKS.email} className={classes.FooterLink}>
+              <span>
+                <FontAwesomeIcon icon={faEnvelope} aria-hidden="true" />
+              </span>
+            </a>
+          </Col>
+        </Row>
+      </div>
+    </Fragment>
+  );
+};
 
 export default Contact;

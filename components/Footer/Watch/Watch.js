@@ -20,10 +20,7 @@ const Watch = (props) => {
         </Row>
         <Row>
           <Col xs={4}>
-            <a
-              href={SOCIAL_LINKS.youtube}
-              className={classes.FooterLink}
-            >
+            <a href={SOCIAL_LINKS.youtube} className={classes.FooterLink}>
               <span>
                 <FontAwesomeIcon icon={faYoutube} aria-hidden="true" />
               </span>
@@ -31,10 +28,7 @@ const Watch = (props) => {
           </Col>
 
           <Col xs={4}>
-            <a
-              href={SOCIAL_LINKS.twitch}
-              className={classes.FooterLink}
-            >
+            <a href={SOCIAL_LINKS.twitch} className={classes.FooterLink}>
               <span>
                 <FontAwesomeIcon icon={faTwitch} aria-hidden="true" />
               </span>
@@ -42,10 +36,7 @@ const Watch = (props) => {
           </Col>
 
           <Col xs={4}>
-            <a
-              href={SOCIAL_LINKS.tiktok}
-              className={classes.FooterLink}
-            >
+            <a href={SOCIAL_LINKS.tiktok} className={classes.FooterLink}>
               <span>
                 <FontAwesomeIcon icon={faTiktok} aria-hidden="true" />
               </span>

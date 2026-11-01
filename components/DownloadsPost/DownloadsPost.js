@@ -1,18 +1,19 @@
-import { Fragment } from 'react';
-import classes from './DownloadsPost.module.css';
+import { Fragment } from "react";
+import classes from "./DownloadsPost.module.css";
 
 const DownloadsPost = (props) => {
-
-    return (
-        
-        <Fragment>
-            <div className="item_box_left" >               
-                <h1 className="section_title section_title_article">{props.title}</h1>                    
-                {/* <p>{props.author}</p> */}
-                <div dangerouslySetInnerHTML={{ __html: props.content }} className={classes.downloadsPost}/>     
-            </div>                                   
-        </Fragment>
-    );
-}
+  return (
+    <Fragment>
+      <div className="item_box_left">
+        <h1 className="section_title section_title_article">{props.title}</h1>
+        {/* <p>{props.author}</p> */}
+        <div
+          dangerouslySetInnerHTML={{ __html: props.content }}
+          className={classes.downloadsPost}
+        />
+      </div>
+    </Fragment>
+  );
+};
 
 export default DownloadsPost;

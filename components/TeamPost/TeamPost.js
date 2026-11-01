@@ -1,24 +1,32 @@
-
-import { Fragment } from 'react';
-import classes from './TeamPost.module.css';
-import { Col, Row } from 'react-bootstrap';
+import { Fragment } from "react";
+import classes from "./TeamPost.module.css";
+import { Col, Row } from "react-bootstrap";
 
 const TeamPost = (props) => {
-
-    return (
-        
-        <Fragment> 
-            <h2 className={["section_title", "section_title_article", classes.teamPost_title].join(' ')}>{props.title}</h2>  
-            <Row>
-                <Col xs={12} md={4}>
-                    <img src={props.cover} alt="" loading="lazy"/>
-                </Col>
-                <Col xs={12} md={8}>                        
-                    <div dangerouslySetInnerHTML={{ __html: props.content }} className={classes.teamPost}/>  
-                </Col>
-            </Row>                                                     
-        </Fragment>
-    );
-}
+  return (
+    <Fragment>
+      <h2
+        className={[
+          "section_title",
+          "section_title_article",
+          classes.teamPost_title,
+        ].join(" ")}
+      >
+        {props.title}
+      </h2>
+      <Row>
+        <Col xs={12} md={4}>
+          <img src={props.cover} alt="" loading="lazy" />
+        </Col>
+        <Col xs={12} md={8}>
+          <div
+            dangerouslySetInnerHTML={{ __html: props.content }}
+            className={classes.teamPost}
+          />
+        </Col>
+      </Row>
+    </Fragment>
+  );
+};
 
 export default TeamPost;

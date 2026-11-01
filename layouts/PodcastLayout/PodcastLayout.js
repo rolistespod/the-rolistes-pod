@@ -63,14 +63,8 @@ const PodcastLayout = (props) => {
       </Head>
       <Container>
         <Ads />
-        <div
-          className="item_box no_padding_smallscreen"
-        >
-          <h1
-            className="section_title section_title_podcast"
-          >
-            Podcast
-          </h1>
+        <div className="item_box no_padding_smallscreen">
+          <h1 className="section_title section_title_podcast">Podcast</h1>
           <div className={classes.filters}>
             {FILTERS.map((filter) => (
               <Button

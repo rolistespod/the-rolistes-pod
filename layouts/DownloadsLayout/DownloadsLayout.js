@@ -13,10 +13,7 @@ const DownloadsLayout = (props) => (
     </Head>
     <Container>
       <Row>
-        <Col
-          xs={12}
-          className="no_padding_right no_padding_smallscreen"
-        >
+        <Col xs={12} className="no_padding_right no_padding_smallscreen">
           <DownloadsPost
             title={props.downloads.title}
             content={props.downloads.content}

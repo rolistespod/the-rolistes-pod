@@ -1,13 +1,13 @@
-
-
-import classes from './Button.module.css';
+import classes from "./Button.module.css";
 
 const Button = (props) => (
-    <button 
-        className={classes[props.btnType]}
-        onClick={props.clicked} disabled={props.disabled}>{props.children}
-        
-    </button>
+  <button
+    className={classes[props.btnType]}
+    onClick={props.clicked}
+    disabled={props.disabled}
+  >
+    {props.children}
+  </button>
 );
 
 export default Button;

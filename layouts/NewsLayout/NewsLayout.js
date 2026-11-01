@@ -8,7 +8,6 @@ import Support from "../../components/side/Support/Support";
 import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
 
-
 const NewsLayout = (props) => {
   const [currentPage, setCurrentPage] = useState(1);
 

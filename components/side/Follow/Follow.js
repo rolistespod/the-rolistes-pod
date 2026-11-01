@@ -37,10 +37,7 @@ const Follow = (props) => {
           </Col>
           <Row className={classes.side_icons}>
             <Col xs={3}>
-              <a
-                href={SOCIAL_LINKS.apple}
-                className={classes.SideLink}
-              >
+              <a href={SOCIAL_LINKS.apple} className={classes.SideLink}>
                 <span>
                   <FontAwesomeIcon icon={faPodcast} aria-hidden="true" />
                 </span>
@@ -48,10 +45,7 @@ const Follow = (props) => {
             </Col>
 
             <Col xs={3}>
-              <a
-                href={SOCIAL_LINKS.spotify}
-                className={classes.SideLink}
-              >
+              <a href={SOCIAL_LINKS.spotify} className={classes.SideLink}>
                 <span>
                   <FontAwesomeIcon icon={faSpotify} aria-hidden="true" />
                 </span>
@@ -59,10 +53,7 @@ const Follow = (props) => {
             </Col>
 
             <Col xs={3}>
-              <a
-                href={SOCIAL_LINKS.podchaser}
-                className={classes.sideLinkIcon}
-              >
+              <a href={SOCIAL_LINKS.podchaser} className={classes.sideLinkIcon}>
                 <img
                   src={PodchaserButton}
                   alt="Donate with Paypal"
@@ -75,10 +66,7 @@ const Follow = (props) => {
             </Col>
 
             <Col xs={3}>
-              <a
-                href={SOCIAL_LINKS.rss}
-                className={classes.SideLink}
-              >
+              <a href={SOCIAL_LINKS.rss} className={classes.SideLink}>
                 <span>
                   <FontAwesomeIcon icon={faRss} aria-hidden="true" />
                 </span>
@@ -93,10 +81,7 @@ const Follow = (props) => {
           </Col>
           <Row className={classes.side_icons}>
             <Col xs={3}>
-              <a
-                href={SOCIAL_LINKS.youtube}
-                className={classes.SideLink}
-              >
+              <a href={SOCIAL_LINKS.youtube} className={classes.SideLink}>
                 <span>
                   <FontAwesomeIcon icon={faYoutube} aria-hidden="true" />
                 </span>
@@ -104,10 +89,7 @@ const Follow = (props) => {
             </Col>
 
             <Col xs={3}>
-              <a
-                href={SOCIAL_LINKS.twitch}
-                className={classes.SideLink}
-              >
+              <a href={SOCIAL_LINKS.twitch} className={classes.SideLink}>
                 <span>
                   <FontAwesomeIcon icon={faTwitch} aria-hidden="true" />
                 </span>
@@ -115,10 +97,7 @@ const Follow = (props) => {
             </Col>
 
             <Col xs={3}>
-              <a
-                href={SOCIAL_LINKS.tiktok}
-                className={classes.SideLink}
-              >
+              <a href={SOCIAL_LINKS.tiktok} className={classes.SideLink}>
                 <span>
                   <FontAwesomeIcon icon={faTiktok} aria-hidden="true" />
                 </span>
@@ -133,20 +112,14 @@ const Follow = (props) => {
           </Col>
           <Row className={classes.side_icons}>
             <Col xs={3}>
-              <a
-                href={SOCIAL_LINKS.facebook}
-                className={classes.SideLink}
-              >
+              <a href={SOCIAL_LINKS.facebook} className={classes.SideLink}>
                 <span>
                   <FontAwesomeIcon icon={faFacebookF} aria-hidden="true" />
                 </span>
               </a>
             </Col>
             <Col xs={3}>
-              <a
-                href={SOCIAL_LINKS.twitter}
-                className={classes.SideLink}
-              >
+              <a href={SOCIAL_LINKS.twitter} className={classes.SideLink}>
                 <span>
                   <FontAwesomeIcon icon={faTwitter} aria-hidden="true" />
                 </span>
@@ -154,10 +127,7 @@ const Follow = (props) => {
             </Col>
 
             <Col xs={3}>
-              <a
-                href={SOCIAL_LINKS.mastodon}
-                className={classes.SideLink}
-              >
+              <a href={SOCIAL_LINKS.mastodon} className={classes.SideLink}>
                 <span>
                   <FontAwesomeIcon icon={faMastodon} aria-hidden="true" />
                 </span>
@@ -172,10 +142,7 @@ const Follow = (props) => {
           </Col>
           <Row className={classes.side_icons}>
             <Col xs={3}>
-              <a
-                href={SOCIAL_LINKS.email}
-                className={classes.SideLink}
-              >
+              <a href={SOCIAL_LINKS.email} className={classes.SideLink}>
                 <span>
                   <FontAwesomeIcon icon={faEnvelope} aria-hidden="true" />
                 </span>

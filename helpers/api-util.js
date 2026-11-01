@@ -312,14 +312,17 @@ const decodeEntities = (text) =>
   text.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (match, code) => {
     if (code[0] === "#") {
       const isHex = code[1].toLowerCase() === "x";
-      return String.fromCodePoint(parseInt(code.slice(isHex ? 2 : 1), isHex ? 16 : 10));
+      return String.fromCodePoint(
+        parseInt(code.slice(isHex ? 2 : 1), isHex ? 16 : 10)
+      );
     }
     return HTML_ENTITIES[code.toLowerCase()] ?? match;
   });
 
 // Inline tags can start or end mid-word (e.g. "P<a>andemonium</a>"), so they
 // are removed without a space; block tags separate words and become a space.
-const INLINE_TAGS = /<\/?(a|span|strong|b|em|i|u|del|sup|sub|small|mark|abbr|code)\b[^>]*>/gi;
+const INLINE_TAGS =
+  /<\/?(a|span|strong|b|em|i|u|del|sup|sub|small|mark|abbr|code)\b[^>]*>/gi;
 
 // The excerpt is rendered as text, so it must never contain markup
 const toPlainText = (html) =>
@@ -432,7 +435,6 @@ export async function fetchPostsHelper(dataToProcess) {
                 id: key,
               });
               break;
-
 
             case "paris-gondo": //ICI POUR MODIFIER
               const excerptGondo = getExcerpt(
@@ -646,13 +648,11 @@ export async function searchRecommendedPosts(postToRead, posts) {
       new Date(b.post["pubDate"][0]) - new Date(a.post["pubDate"][0])
   );
 
-  return scored
-    .slice(0, 2)
-    .map(({ post, score, id }) => ({
-      ...post,
-      amountMatchCategories: score,
-      id,
-    }));
+  return scored.slice(0, 2).map(({ post, score, id }) => ({
+    ...post,
+    amountMatchCategories: score,
+    id,
+  }));
 }
 
 export async function searchLatestPodcast(posts, amountToReturn) {

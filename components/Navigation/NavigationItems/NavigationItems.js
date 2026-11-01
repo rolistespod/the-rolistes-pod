@@ -22,10 +22,7 @@ const NavigationItems = (props) => (
     <span className={classes.VerticalLine} />
     <NavigationItem link="/about_us">About Us</NavigationItem>
 
-    <a
-      href={SOCIAL_LINKS.patreon}
-      className={classes.supportLink}
-    >
+    <a href={SOCIAL_LINKS.patreon} className={classes.supportLink}>
       <img
         src={patreonButton}
         alt="Support me on Patreon"

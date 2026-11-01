@@ -1,5 +1,9 @@
 import { Fragment } from "react";
-import { faFacebookF, faMastodon, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import {
+  faFacebookF,
+  faMastodon,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classes from "../Footer.module.css";
 import { Row, Col } from "react-bootstrap";
@@ -16,10 +20,7 @@ const Follow = (props) => {
         </Row>
         <Row>
           <Col xs={4}>
-            <a
-              href={SOCIAL_LINKS.facebook}
-              className={classes.FooterLink}
-            >
+            <a href={SOCIAL_LINKS.facebook} className={classes.FooterLink}>
               <span>
                 <FontAwesomeIcon icon={faFacebookF} aria-hidden="true" />
               </span>
@@ -27,10 +28,7 @@ const Follow = (props) => {
           </Col>
 
           <Col xs={4}>
-            <a
-              href={SOCIAL_LINKS.twitter}
-              className={classes.FooterLink}
-            >
+            <a href={SOCIAL_LINKS.twitter} className={classes.FooterLink}>
               <span>
                 <FontAwesomeIcon icon={faTwitter} aria-hidden="true" />
               </span>
@@ -38,10 +36,7 @@ const Follow = (props) => {
           </Col>
 
           <Col xs={4}>
-            <a
-              href={SOCIAL_LINKS.mastodon}
-              className={classes.FooterLink}
-            >
+            <a href={SOCIAL_LINKS.mastodon} className={classes.FooterLink}>
               <span>
                 <FontAwesomeIcon icon={faMastodon} aria-hidden="true" />
               </span>

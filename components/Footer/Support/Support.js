@@ -33,10 +33,7 @@ const Support = (props) => {
               </Col>
 
               <Col xs={6} md={3} lg={3}>
-                <a
-                  href={SOCIAL_LINKS.itchIo}
-                  className={classes.supportLink}
-                >
+                <a href={SOCIAL_LINKS.itchIo} className={classes.supportLink}>
                   <img
                     src={itchIOButton}
                     alt="Support on ItchIo"
@@ -49,10 +46,7 @@ const Support = (props) => {
               </Col>
 
               <Col xs={6} md={3} lg={3}>
-                <a
-                  href={SOCIAL_LINKS.paypal}
-                  className={classes.supportLink}
-                >
+                <a href={SOCIAL_LINKS.paypal} className={classes.supportLink}>
                   <img
                     src={paypalButton}
                     alt="Donate with Paypal"
@@ -65,10 +59,7 @@ const Support = (props) => {
               </Col>
 
               <Col xs={6} md={3} lg={3}>
-                <a
-                  href={SOCIAL_LINKS.patreon}
-                  className={classes.supportLink}
-                >
+                <a href={SOCIAL_LINKS.patreon} className={classes.supportLink}>
                   <img
                     src={patreonButton}
                     alt="Support me on Patreon"

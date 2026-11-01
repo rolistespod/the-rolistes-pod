@@ -1,20 +1,23 @@
 @font-face {
   font-family: "BellGothicStd";
-  src: local("BellGothicStd"),
+  src:
+    local("BellGothicStd"),
     url("../assets/fonts/BellGothicStd-Black.otf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "BellGothicStd";
-  src: local("BellGothicStd"),
+  src:
+    local("BellGothicStd"),
     url("../assets/fonts/BellGothicStd-Bold.otf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "BellGothicStd";
-  src: local("BellGothicStd"),
+  src:
+    local("BellGothicStd"),
     url("../assets/fonts/BellGothicStd-Light.otf") format("truetype");
   font-weight: normal;
   font-style: normal;
@@ -22,21 +25,24 @@
 
 @font-face {
   font-family: "Johnston100";
-  src: local("Johnston100"),
+  src:
+    local("Johnston100"),
     url("../assets/fonts/Johnston100-Regular.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "Johnston100";
-  src: local("Johnston100"),
+  src:
+    local("Johnston100"),
     url("../assets/fonts/Johnston100-Light.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Johnston100";
-  src: local("Johnston100"),
+  src:
+    local("Johnston100"),
     url("../assets/fonts/Johnston100-Medium.ttf") format("truetype");
   font-weight: normal;
   font-style: italic;
@@ -172,7 +178,6 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
 
 :root {
   --main-color: #000000;
@@ -313,7 +318,7 @@ iframe {
 }
 
 a {
-  color: var(--link-color);  
+  color: var(--link-color);
   text-decoration: none;
 }
 
@@ -332,7 +337,6 @@ img {
   /* Keeps the ratio given by the width and height attributes */
   height: auto;
 }
-
 
 .img_scale_animate > img {
   transition: all 0.8s ease-out;

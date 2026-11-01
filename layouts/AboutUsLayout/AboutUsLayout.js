@@ -13,21 +13,11 @@ const AboutUsLayout = (props) => (
     </Head>
     <Container>
       <Row>
-        <Col
-          xs={12}
-          className="no_padding_right no_padding_smallscreen"
-        >
-          <AboutPost
-            title={props.about.title}
-            content={props.about.content}
-          />
+        <Col xs={12} className="no_padding_right no_padding_smallscreen">
+          <AboutPost title={props.about.title} content={props.about.content} />
 
           <div className="item_box_left">
-            <h1
-              className="section_title section_title_article"
-            >
-              The Team
-            </h1>
+            <h1 className="section_title section_title_article">The Team</h1>
             {props.theTeam.map((member) => (
               <TeamPost
                 key={member.id}

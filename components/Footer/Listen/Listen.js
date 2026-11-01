@@ -20,10 +20,7 @@ const Listen = (props) => {
         </Row>
         <Row>
           <Col xs={6} md={true}>
-            <a
-              href={SOCIAL_LINKS.apple}
-              className={classes.supportLink}
-            >
+            <a href={SOCIAL_LINKS.apple} className={classes.supportLink}>
               <img
                 src={appleButton}
                 alt="Donate with Paypal"
@@ -36,10 +33,7 @@ const Listen = (props) => {
           </Col>
 
           <Col xs={6} md={true}>
-            <a
-              href={SOCIAL_LINKS.spotify}
-              className={classes.supportLink}
-            >
+            <a href={SOCIAL_LINKS.spotify} className={classes.supportLink}>
               <img
                 src={spotifyButton}
                 alt="Support on ItchIo"
@@ -52,10 +46,7 @@ const Listen = (props) => {
           </Col>
 
           <Col xs={6} md={true}>
-            <a
-              href={SOCIAL_LINKS.stitcher}
-              className={classes.supportLink}
-            >
+            <a href={SOCIAL_LINKS.stitcher} className={classes.supportLink}>
               <img
                 src={stitcherButton}
                 alt="Donate with Paypal"
@@ -68,10 +59,7 @@ const Listen = (props) => {
           </Col>
 
           <Col xs={6} md={true}>
-            <a
-              href={SOCIAL_LINKS.podchaser}
-              className={classes.supportLink}
-            >
+            <a href={SOCIAL_LINKS.podchaser} className={classes.supportLink}>
               <img
                 src={podchaserButton}
                 alt="Support me on Patreon"
@@ -84,10 +72,7 @@ const Listen = (props) => {
           </Col>
 
           <Col xs={6} md={true}>
-            <a
-              href={SOCIAL_LINKS.rss}
-              className={classes.supportLink}
-            >
+            <a href={SOCIAL_LINKS.rss} className={classes.supportLink}>
               <img
                 src={RSSButton}
                 alt="Support me on Patreon"

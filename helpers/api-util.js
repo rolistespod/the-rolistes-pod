@@ -1,3 +1,6 @@
+import { parseStringPromise } from "xml2js";
+import { PODCAST_SERIES } from "./normalize.js";
+
 const missingIMG = "/images/Logo_Nav_Missing.jpg";
 
 const catValue0 = [
@@ -234,7 +237,7 @@ const getAttachmentURL = (attachments, postMeta) => {
 
 const getURL = (post, category) => {
   // In UTC, so the URL does not depend on the timezone of the machine building it
-  const tempDate = new Date(post["pubDate"][0]);
+  const tempDate = new Date(post.publishedAt);
   const year = tempDate.getUTCFullYear();
   const month = tempDate.getUTCMonth() + 1;
   const day = tempDate.getUTCDate();
@@ -250,47 +253,42 @@ const getURL = (post, category) => {
   return "";
 };
 
-export const replaceOldURL = (post) => {
-  const baseURL = 'href="';
-
-  let str = post;
-  let newStr = str.replace(/\[audio/, "<audio controls");
-  newStr = newStr.replace(/mp3\"\]/, 'mp3"></audio><br>');
-  newStr = newStr.replaceAll(
-    '<a href="https://rolistespod.com',
-    "<a " + baseURL
-  );
-  newStr = newStr.replaceAll(
-    '<a href="https://rolistespod.com/category/film-studies/',
-    "<a " + baseURL + '/podcast?cat=film-studies"'
-  );
-  newStr = newStr.replaceAll(
-    '<a href="https://rolistespod.com/category/the-rolistes-present/',
-    "<a " + baseURL + '/podcast?cat=the-rolistes-present"'
-  );
-  newStr = newStr.replaceAll(
-    '<a href="https://rolistespod.com/category/cafe-rolistes/',
-    "<a " + baseURL + "/podcast?cat=cafe-rolistes"
-  );
-  newStr = newStr.replaceAll(
-    '<a href="https://rolistespod.com/category/the-rolistes-podcast/',
-    "<a " + baseURL + '/podcast?cat=the-rolistes-podcast"'
-  );
-  newStr = newStr.replaceAll(
-    '<a href="https://rolistespod.com/category/podcast/',
-    "<a " + baseURL + '/podcas?cat=all"'
-  );
-  newStr = newStr.replaceAll(
-    '<a href="https://rolistespod.com/category/news/',
-    "<a " + baseURL + '/news"'
-  );
-  newStr = newStr.replaceAll(
-    '<a href="https://rolistespod.com/category/our_games/',
-    "<a " + baseURL + '/our_games"'
-  );
-
-  return newStr;
+const CATEGORY_PAGES = {
+  podcast: "/podcast",
+  news: "/news",
+  "paris-gondo": "/paris_gondo",
+  "our-games": "/paris_gondo",
+  our_games: "/paris_gondo",
+  ...Object.fromEntries(
+    PODCAST_SERIES.map((series) => [series, `/podcast?cat=${series}`])
+  ),
 };
+
+const OLD_SITE_LINK = /href="https:\/\/rolistespod\.com(\/[^"]*)?"/g;
+
+const toSitePath = (path = "/", siteURLs) => {
+  const [type, ...names] = path.split("/").filter(Boolean);
+
+  if (type === "category") {
+    const known = names.reverse().find((name) => name in CATEGORY_PAGES);
+    return known ? CATEGORY_PAGES[known] : "/podcast";
+  }
+  if (type === "tag") return "/podcast";
+
+  const slug = names[2];
+  if (/^\d{4}$/.test(type) && siteURLs.has(slug)) return siteURLs.get(slug);
+
+  return path;
+};
+
+export const replaceOldURL = (post, siteURLs = new Map()) =>
+  post
+    .replace(/\[audio/, "<audio controls")
+    .replace(/mp3\"\]/, 'mp3"></audio><br>')
+    .replace(
+      OLD_SITE_LINK,
+      (match, path) => `href="${toSitePath(path, siteURLs)}"`
+    );
 
 const HTML_ENTITIES = {
   amp: "&",
@@ -339,221 +337,145 @@ const toPlainText = (html) =>
 export const getExcerpt = (content, wordLimit) =>
   toPlainText(content).split(" ").slice(0, wordLimit).join(" ");
 
-export async function fetchPostsHelper(dataToProcess) {
-  const fetchedPosts = [];
-  const fetchedAttachment = [];
-  const fetchedNews = [];
-  const fetchedPodcast = [];
-  const fetchedGames = [];
-  const fetchedGondo = []; //ICI POUR MODIFIER
-  const fetchedIntroGondo = []; //ICI POUR MODIFIER
-  const fetchedAbout = [];
-  const fetchedTheTeam = [];
-  const fetchedDL = [];
-  const fetchedDLTitle = [];
-  const fetchedComingSoon = [];
+// Day of publication as shown on the site, e.g. "Fri Jan 24 2020". It is taken
+// in UTC like the URLs, so it does not depend on the machine building the site.
+const toDisplayDate = (date) =>
+  new Date(
+    Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 12)
+  ).toDateString();
 
-  const parseString = require("xml2js").parseString;
-  const data = dataToProcess;
+const isPublished = (post, now) =>
+  post["wp:status"][0] === "publish" ||
+  (post["wp:status"][0] === "future" && now > post.publishedAt);
 
-  parseString(data, (err, result) => {
-    for (let key in result["rss"]["channel"][0]["item"]) {
-      if (
-        result["rss"]["channel"][0]["item"][key]["wp:post_type"][0] ===
-        "attachment"
-      ) {
-        fetchedAttachment.push({
-          ...result["rss"]["channel"][0]["item"][key],
-          id: key,
-        });
-      } else {
-        fetchedPosts.push({
-          ...result["rss"]["channel"][0]["item"][key],
-          id: key,
+const byNewestFirst = (a, b) => b.publishedAt - a.publishedAt;
+
+// Categories listed on the public sections of the site
+const PUBLIC_SECTIONS = {
+  news: "news",
+  podcast: "podcast",
+  "our-games": "games",
+  "paris-gondo": "gondo",
+  "coming-soon": "comingSoon",
+};
+
+// Categories of the private posts used as page content
+const PRIVATE_SECTIONS = {
+  "paris-gondo-introduction": "introGondo",
+  about: "about",
+  "the-team": "theTeam",
+  downloads: "downloads",
+  "downloads-per-title": "downloadsPerTitle",
+};
+
+// Sections shown by date; the other ones keep the order of the export
+const SECTIONS_BY_DATE = [
+  "news",
+  "podcast",
+  "games",
+  "gondo",
+  "introGondo",
+  "comingSoon",
+];
+
+// Fields added by each section on top of the post itself
+const sectionFields = (section, post, attachments) => {
+  switch (section) {
+    case "news":
+    case "games":
+    case "gondo":
+      return {
+        cover: getAttachmentURL(attachments, post),
+        url: getURL(post, "news"),
+        excerpt: getExcerpt(post["content:encoded"][0], 40),
+      };
+    case "podcast":
+      return {
+        cover: getAttachmentURL(attachments, post),
+        url: getURL(post, "podcast"),
+      };
+    case "theTeam":
+      return { cover: getAttachmentURL(attachments, post) };
+    default:
+      return {};
+  }
+};
+
+export async function fetchPostsHelper(xml) {
+  const result = await parseStringPromise(xml);
+  const items = result.rss.channel[0].item;
+
+  const attachments = items.filter(
+    (item) => item["wp:post_type"][0] === "attachment"
+  );
+
+  // Copies of the parsed items, so the display date and the rewritten content
+  // never modify the parsed objects
+  const posts = items
+    .filter((item) => item["wp:post_type"][0] !== "attachment")
+    .map((item, index) => {
+      const publishDate = new Date(item.pubDate[0]);
+      return {
+        ...item,
+        pubDate: [toDisplayDate(publishDate)],
+        publishedAt: publishDate.getTime(),
+        id: String(index),
+      };
+    });
+
+  const now = Date.now();
+
+  // Address of each published post on this site, to fix the old links to it
+  const siteURLs = new Map();
+  for (const post of posts) {
+    if (!post.category || !isPublished(post, now)) continue;
+
+    const postSections = nicenamesOf(post).map((name) => PUBLIC_SECTIONS[name]);
+    if (postSections.includes("podcast")) {
+      siteURLs.set(post["wp:post_name"][0], getURL(post, "podcast"));
+    } else if (
+      postSections.some((s) => ["news", "games", "gondo"].includes(s))
+    ) {
+      siteURLs.set(post["wp:post_name"][0], getURL(post, "news"));
+    }
+  }
+
+  for (const post of posts) {
+    post["content:encoded"] = [
+      replaceOldURL(post["content:encoded"][0], siteURLs),
+    ];
+  }
+
+  const sections = Object.fromEntries(
+    [...Object.values(PUBLIC_SECTIONS), ...Object.values(PRIVATE_SECTIONS)].map(
+      (section) => [section, []]
+    )
+  );
+
+  for (const post of posts) {
+    if (!post.category) continue;
+
+    let sectionsOfPost = {};
+    if (isPublished(post, now)) sectionsOfPost = PUBLIC_SECTIONS;
+    else if (post["wp:status"][0] === "private")
+      sectionsOfPost = PRIVATE_SECTIONS;
+
+    for (const nicename of nicenamesOf(post)) {
+      const section = sectionsOfPost[nicename];
+      if (section) {
+        sections[section].push({
+          ...post,
+          ...sectionFields(section, post, attachments),
         });
       }
     }
+  }
 
-    for (let key in fetchedPosts) {
-      const currentDate = new Date();
-      const publishDate = new Date(fetchedPosts[key]["pubDate"][0]);
+  for (const section of SECTIONS_BY_DATE) {
+    sections[section].sort(byNewestFirst);
+  }
 
-      fetchedPosts[key]["pubDate"][0] = publishDate.toDateString();
-
-      const newStr = replaceOldURL(fetchedPosts[key]["content:encoded"][0]);
-      fetchedPosts[key]["content:encoded"][0] = newStr;
-
-      if (
-        fetchedPosts[key]["category"] &&
-        (fetchedPosts[key]["wp:status"][0] === "publish" ||
-          (fetchedPosts[key]["wp:status"][0] === "future" &&
-            currentDate.getTime() > publishDate.getTime()))
-      ) {
-        const attachmentURL = getAttachmentURL(
-          fetchedAttachment,
-          fetchedPosts[key]
-        );
-
-        for (let i = 0; i < fetchedPosts[key]["category"].length; i++) {
-          switch (fetchedPosts[key]["category"][i]["$"]["nicename"]) {
-            case "news":
-              const excerptNews = getExcerpt(
-                fetchedPosts[key]["content:encoded"][0],
-                40
-              );
-              const newsURL = getURL(fetchedPosts[key], "news");
-              fetchedNews.push({
-                ...fetchedPosts[key],
-                cover: attachmentURL,
-                url: newsURL,
-                excerpt: excerptNews,
-                id: key,
-              });
-              break;
-
-            case "podcast":
-              const podcastURL = getURL(fetchedPosts[key], "podcast");
-              fetchedPodcast.push({
-                ...fetchedPosts[key],
-                cover: attachmentURL,
-                url: podcastURL,
-                id: key,
-              });
-              break;
-
-            case "our-games": //ICI POUR MODIFIER
-              const excerptGames = getExcerpt(
-                fetchedPosts[key]["content:encoded"][0],
-                40
-              );
-              const gamesURL = getURL(fetchedPosts[key], "news");
-              fetchedGames.push({
-                ...fetchedPosts[key],
-                cover: attachmentURL,
-                url: gamesURL,
-                excerpt: excerptGames,
-                id: key,
-              });
-              break;
-
-            case "paris-gondo": //ICI POUR MODIFIER
-              const excerptGondo = getExcerpt(
-                fetchedPosts[key]["content:encoded"][0],
-                40
-              );
-              const gondoURL = getURL(fetchedPosts[key], "news");
-              fetchedGondo.push({
-                ...fetchedPosts[key],
-                cover: attachmentURL,
-                url: gondoURL,
-                excerpt: excerptGondo,
-                id: key,
-              });
-              break;
-
-            case "coming-soon":
-              fetchedComingSoon.push({
-                ...fetchedPosts[key],
-                id: key,
-              });
-              break;
-          }
-        }
-      } else if (
-        fetchedPosts[key]["category"] &&
-        fetchedPosts[key]["wp:status"][0] === "private"
-      ) {
-        for (let i = 0; i < fetchedPosts[key]["category"].length; i++) {
-          switch (fetchedPosts[key]["category"][i]["$"]["nicename"]) {
-            case "paris-gondo-introduction":
-              fetchedIntroGondo.push({
-                ...fetchedPosts[key],
-                id: key,
-              });
-              break;
-
-            case "about":
-              fetchedAbout.push({
-                ...fetchedPosts[key],
-                id: key,
-              });
-              break;
-
-            case "the-team":
-              const attachmentURL = getAttachmentURL(
-                fetchedAttachment,
-                fetchedPosts[key]
-              );
-
-              fetchedTheTeam.push({
-                ...fetchedPosts[key],
-                cover: attachmentURL,
-                id: key,
-              });
-              break;
-
-            case "downloads":
-              fetchedDL.push({
-                ...fetchedPosts[key],
-                id: key,
-              });
-              break;
-
-            case "downloads-per-title":
-              // const attachmentURL = getAttachmentURL(
-              //   fetchedAttachment,
-              //   fetchedPosts[key]
-              // );
-
-              fetchedDLTitle.push({
-                ...fetchedPosts[key],
-                // cover: attachmentURL,
-                id: key,
-              });
-              break;
-          }
-        }
-      }
-    }
-
-    fetchedPodcast.sort((a, b) => {
-      return new Date(b["pubDate"][0]) - new Date(a["pubDate"][0]);
-    });
-
-    fetchedNews.sort((a, b) => {
-      return new Date(b["pubDate"][0]) - new Date(a["pubDate"][0]);
-    });
-
-    fetchedGames.sort((a, b) => {
-      return new Date(b["pubDate"][0]) - new Date(a["pubDate"][0]);
-    });
-
-    fetchedGondo.sort((a, b) => {
-      return new Date(b["pubDate"][0]) - new Date(a["pubDate"][0]);
-    });
-
-    fetchedIntroGondo.sort((a, b) => {
-      return new Date(b["pubDate"][0]) - new Date(a["pubDate"][0]);
-    });
-
-    fetchedComingSoon.sort((a, b) => {
-      return new Date(b["pubDate"][0]) - new Date(a["pubDate"][0]);
-    });
-  });
-
-  return {
-    posts: fetchedPosts,
-    news: fetchedNews,
-    podcast: fetchedPodcast,
-    games: fetchedGames,
-    gondo: fetchedGondo, //ICI POUR MODIFIER
-    introGondo: fetchedIntroGondo,
-    about: fetchedAbout,
-    theTeam: fetchedTheTeam,
-    downloads: fetchedDL,
-    downloadsPerTitle: fetchedDLTitle,
-    comingSoon: fetchedComingSoon,
-  };
+  return sections;
 }
 
 export async function searchPost(posts, pageTitle) {
@@ -564,28 +486,14 @@ export async function searchPost(posts, pageTitle) {
   }
 }
 
+// Fewer posts than asked for is fine: only the existing ones are returned
 export async function searchLatest(posts, amountToReturn) {
-  const news = [];
-  for (let i = 0; i < amountToReturn; i++) {
-    news.push({
-      ...posts[i],
-      latest: i === 0,
-      id: i,
-    });
-  }
-
-  return news;
+  return posts.slice(0, amountToReturn).map((post, i) => ({
+    ...post,
+    latest: i === 0,
+    id: i,
+  }));
 }
-
-const searchPostBasedOnCategory = (posts, category) => {
-  for (let i = 1; i < posts.length; i++) {
-    for (let j = 0; j < posts[i]["category"].length; j++) {
-      if (posts[i]["category"][j]["$"]["nicename"] === category) {
-        return i;
-      }
-    }
-  }
-};
 
 export async function searchPostsBasedOnCategory(posts, category) {
   const postsFromCategory = [];
@@ -655,33 +563,20 @@ export async function searchRecommendedPosts(postToRead, posts) {
   }));
 }
 
-export async function searchLatestPodcast(posts, amountToReturn) {
-  const podcast = [];
+// The latest episode, then the latest episode of each series. The first
+// episode is skipped when searching the series, so it is never shown twice;
+// a series without any other episode is left out.
+export async function searchLatestPodcast(posts) {
+  if (posts.length === 0) return [];
 
-  podcast.push({
-    ...posts[0],
+  const [latest, ...others] = posts;
+  const latestOfEachSeries = PODCAST_SERIES.map((series) =>
+    others.find((post) => nicenamesOf(post).includes(series))
+  ).filter(Boolean);
+
+  return [latest, ...latestOfEachSeries].map((post, i) => ({
+    ...post,
     latest: true,
-    id: 0,
-  });
-
-  const categories = [
-    "the-rolistes-podcast",
-    "the-rolistes-present",
-    "cafe-rolistes",
-    "film-studies",
-  ];
-
-  let indexPost = 0;
-
-  for (let i = 0; i < categories.length; i++) {
-    indexPost = searchPostBasedOnCategory(posts, categories[i]);
-
-    podcast.push({
-      ...posts[indexPost],
-      latest: true,
-      id: i + 1,
-    });
-  }
-
-  return podcast;
+    id: i,
+  }));
 }

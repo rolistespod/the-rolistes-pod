@@ -13,12 +13,8 @@ function PodcastPage(props) {
 }
 
 const getDateParams = (podcast) => {
-  const tempDate = new Date(podcast["pubDate"][0]);
-  return {
-    year: String(tempDate.getFullYear()),
-    month: String(tempDate.getMonth() + 1),
-    day: String(tempDate.getDate()),
-  };
+  const [year, month, day] = podcast.url.split("/").filter(Boolean);
+  return { year, month, day };
 };
 
 export async function getStaticProps(context) {

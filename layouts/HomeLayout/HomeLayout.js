@@ -19,9 +19,11 @@ const HomeLayout = (props) => (
         <ComingSoon latestComingSoon={props.latestComingSoon} />
       )}
       <Banner />
-      <LatestPodcast podcast={props.latestPodcast} />
+      {props.latestPodcast.length > 0 && (
+        <LatestPodcast podcast={props.latestPodcast} />
+      )}
       <Ads />
-      <LatestNews news={props.latestNews} />
+      {props.latestNews.length > 0 && <LatestNews news={props.latestNews} />}
     </Container>
     <Footer />
   </Fragment>

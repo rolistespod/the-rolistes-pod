@@ -10,7 +10,7 @@ function HomePage(props) {
 export async function getStaticProps() {
   const fetchedPosts = await loadPosts();
   const latestNews = await searchLatest(fetchedPosts.news, 5);
-  const latestPodcast = await searchLatestPodcast(fetchedPosts.podcast, 5);
+  const latestPodcast = await searchLatestPodcast(fetchedPosts.podcast);
   const latestComingSoon = fetchedPosts.comingSoon[0];
 
   return {

@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import FullPost from "../../components/FullPost/FullPost";
 import PostList from "../../components/PostList/PostList";
 import PaginationList from "../../components/UI/PaginationList/PaginationList";
@@ -8,18 +8,15 @@ import Ads from "../../components/UI/Ads/Ads";
 import Support from "../../components/side/Support/Support";
 import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
+import usePagination from "../../hooks/usePagination";
+
+const postPerPage = 10;
 
 const GondoLayout = (props) => {
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const goToPage = (pageNumber) => {
-    setCurrentPage(pageNumber);
-    window.scrollTo(0, 0);
-  };
-
-  const postPerPage = 10;
-  const indexOfLastPost = currentPage * postPerPage;
-  const indexOfFirstPost = indexOfLastPost - postPerPage;
+  const { currentPage, goToPage, pageItems } = usePagination(
+    props.gondo,
+    postPerPage
+  );
 
   return (
     <Fragment>
@@ -48,9 +45,7 @@ const GondoLayout = (props) => {
 
             <div className={"item_box_left"}>
               <h2 className={"section_title"}>Latest Paris Gondo News</h2>
-              <PostList
-                posts={props.gondo.slice(indexOfFirstPost, indexOfLastPost)}
-              />
+              <PostList posts={pageItems} />
               <PaginationList
                 totalRecords={props.gondo.length}
                 pageLimit={postPerPage}

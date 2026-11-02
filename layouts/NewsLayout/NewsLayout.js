@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import PostList from "../../components/PostList/PostList";
 import Ads from "../../components/UI/Ads/Ads";
 import PaginationList from "../../components/UI/PaginationList/PaginationList";
@@ -7,18 +7,15 @@ import Follow from "../../components/side/Follow/Follow";
 import Support from "../../components/side/Support/Support";
 import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
+import usePagination from "../../hooks/usePagination";
+
+const postPerPage = 10;
 
 const NewsLayout = (props) => {
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const goToPage = (pageNumber) => {
-    setCurrentPage(pageNumber);
-    window.scrollTo(0, 0);
-  };
-
-  const postPerPage = 10;
-  const indexOfLastPost = currentPage * postPerPage;
-  const indexOfFirstPost = indexOfLastPost - postPerPage;
+  const { currentPage, goToPage, pageItems } = usePagination(
+    props.news,
+    postPerPage
+  );
 
   return (
     <Fragment>
@@ -36,9 +33,7 @@ const NewsLayout = (props) => {
           >
             <div className="item_box_left">
               <h1 className="section_title">News</h1>
-              <PostList
-                posts={props.news.slice(indexOfFirstPost, indexOfLastPost)}
-              />
+              <PostList posts={pageItems} />
               <PaginationList
                 totalRecords={props.news.length}
                 pageLimit={postPerPage}

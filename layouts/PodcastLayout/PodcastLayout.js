@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect } from "react";
 import Button from "../../components/UI/Button/Button";
 import classes from "./PodcastLayout.module.css";
 import { Container, Row } from "react-bootstrap";
@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 
 import { PODCAST_SERIES } from "../../helpers/normalize";
+import usePagination from "../../hooks/usePagination";
 
 const ALL = "podcast";
 
@@ -37,20 +38,14 @@ const PodcastLayout = (props) => {
           podcast.series.includes(activeCategory)
         );
 
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const indexOfLastPost = currentPage * postPerPage;
-  const indexOfFirstPost = indexOfLastPost - postPerPage;
+  const { currentPage, goToPage, pageItems } = usePagination(
+    activePagePodcast,
+    postPerPage
+  );
 
   useEffect(() => {
-    setCurrentPage(1);
-    window.scrollTo(0, 0);
-  }, [activeCategory]);
-
-  const paginate = (pageNumber) => {
-    setCurrentPage(pageNumber);
-    window.scrollTo(0, 0);
-  };
+    goToPage(1);
+  }, [activeCategory, goToPage]);
 
   const selectCategory = (category) =>
     router.push({ pathname: "/podcast", query: { cat: category } });
@@ -78,22 +73,20 @@ const PodcastLayout = (props) => {
             ))}
           </div>
           <Row>
-            {activePagePodcast
-              .slice(indexOfFirstPost, indexOfLastPost)
-              .map((podcast) => (
-                <PodcastTile
-                  key={podcast.id}
-                  cover={podcast.cover}
-                  date={podcast.date}
-                  title={podcast.title}
-                  url={podcast.url}
-                />
-              ))}
+            {pageItems.map((podcast) => (
+              <PodcastTile
+                key={podcast.id}
+                cover={podcast.cover}
+                date={podcast.date}
+                title={podcast.title}
+                url={podcast.url}
+              />
+            ))}
           </Row>
           <PaginationList
             totalRecords={activePagePodcast.length}
             pageLimit={postPerPage}
-            clicked={paginate}
+            clicked={goToPage}
             currentPage={currentPage}
           />
         </div>

@@ -3,3 +3,8 @@
   text-align: center;
   padding-left: 0;
 }
+
+/* Keeps the space of the list, without showing the wrong category */
+.waitingForCategory {
+  visibility: hidden;
+}

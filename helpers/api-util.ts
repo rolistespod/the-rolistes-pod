@@ -540,10 +540,11 @@ const getValueCategory = (category: string): number =>
 const nicenamesOf = (post: WithCategories): string[] =>
   (post.category ?? []).map((category) => category.$.nicename);
 
+// postToRead can be of another type than the posts, e.g. a news recommending episodes
 export async function searchRecommendedPosts<
   T extends WithCategories & { pubDate: string[] },
 >(
-  postToRead: T,
+  postToRead: WithCategories,
   posts: T[]
 ): Promise<(T & { amountMatchCategories: number; id: number })[]> {
   // A nicename can appear twice on a post (as a category and as a tag), and

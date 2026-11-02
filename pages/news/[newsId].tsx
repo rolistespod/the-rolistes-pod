@@ -1,3 +1,8 @@
+import type {
+  GetStaticPaths,
+  GetStaticProps,
+  InferGetStaticPropsType,
+} from "next";
 import PostLayout from "../../layouts/PostLayout/PostLayout";
 
 import {
@@ -6,19 +11,35 @@ import {
   searchRecommendedPosts,
 } from "../../helpers/api-util";
 import { loadPosts } from "../../helpers/load-posts";
-import { toFullPost, toSummary } from "../../helpers/normalize";
+import {
+  toFullPost,
+  toSummary,
+  type FullPost,
+  type Summary,
+} from "../../helpers/normalize";
 
-function NewsPage(props) {
+type Params = { newsId: string };
+
+type Props = {
+  recommendedPosts: Summary[];
+  recentPosts: Summary[];
+  fullPost: FullPost;
+  fullPostType: string;
+};
+
+function NewsPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
   return <PostLayout {...props} type="FULLPOST" />;
 }
 
-export async function getStaticProps(context) {
-  const pageTitle = context.params.newsId;
+export const getStaticProps: GetStaticProps<Props, Params> = async (
+  context
+) => {
+  const pageTitle = context.params!.newsId;
 
   const fetchedPosts = await loadPosts();
 
   const key = await searchPost(fetchedPosts.news, pageTitle);
-  const fullPost = fetchedPosts.news[key];
+  const fullPost = key === undefined ? undefined : fetchedPosts.news[key];
 
   if (!fullPost) {
     return { notFound: true };
@@ -39,9 +60,10 @@ export async function getStaticProps(context) {
       fullPostType: fullPostType,
     },
   };
-}
+};
 
-export async function getStaticPaths() {
+// Every news is generated at build time; any other address is a 404
+export const getStaticPaths: GetStaticPaths<Params> = async () => {
   const fetchedPosts = await loadPosts();
 
   const ids = fetchedPosts.news.map((news) => news["wp:post_name"][0]);
@@ -49,8 +71,8 @@ export async function getStaticPaths() {
 
   return {
     paths: pathsWithParams,
-    fallback: "blocking",
+    fallback: false,
   };
-}
+};
 
 export default NewsPage;

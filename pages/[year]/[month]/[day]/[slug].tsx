@@ -1,3 +1,8 @@
+import type {
+  GetStaticPaths,
+  GetStaticProps,
+  InferGetStaticPropsType,
+} from "next";
 import PostLayout from "../../../../layouts/PostLayout/PostLayout";
 
 import {
@@ -6,24 +11,42 @@ import {
   searchRecommendedPosts,
 } from "../../../../helpers/api-util";
 import { loadPosts } from "../../../../helpers/load-posts";
-import { toFullPost, toSummary } from "../../../../helpers/normalize";
+import {
+  toFullPost,
+  toSummary,
+  type FullPost,
+  type Summary,
+} from "../../../../helpers/normalize";
+import type { PodcastPost } from "../../../../helpers/types";
 
-function PodcastPage(props) {
+type Params = { year: string; month: string; day: string; slug: string };
+
+type Props = {
+  recommendedPosts: Summary[];
+  recentPosts: Summary[];
+  fullPost: FullPost;
+  fullPostType: string;
+};
+
+function PodcastPage(props: InferGetStaticPropsType<typeof getStaticProps>) {
   return <PostLayout {...props} type="FULLPOST" />;
 }
 
-const getDateParams = (podcast) => {
+// The episode URL ("/2020/1/24/slug") is the single source of its date
+const getDateParams = (podcast: PodcastPost) => {
   const [year, month, day] = podcast.url.split("/").filter(Boolean);
   return { year, month, day };
 };
 
-export async function getStaticProps(context) {
-  const { year, month, day, slug } = context.params;
+export const getStaticProps: GetStaticProps<Props, Params> = async (
+  context
+) => {
+  const { year, month, day, slug } = context.params!;
 
   const fetchedPosts = await loadPosts();
 
   const key = await searchPost(fetchedPosts.podcast, slug);
-  const fullPost = fetchedPosts.podcast[key];
+  const fullPost = key === undefined ? undefined : fetchedPosts.podcast[key];
 
   if (!fullPost) {
     return { notFound: true };
@@ -54,9 +77,10 @@ export async function getStaticProps(context) {
       fullPostType: fullPostType,
     },
   };
-}
+};
 
-export async function getStaticPaths() {
+// Every episode is generated at build time; any other address is a 404
+export const getStaticPaths: GetStaticPaths<Params> = async () => {
   const fetchedPosts = await loadPosts();
 
   const pathsWithParams = fetchedPosts.podcast.map((podcast) => ({
@@ -68,8 +92,8 @@ export async function getStaticPaths() {
 
   return {
     paths: pathsWithParams,
-    fallback: "blocking",
+    fallback: false,
   };
-}
+};
 
 export default PodcastPage;

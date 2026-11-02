@@ -56,3 +56,8 @@ export const toFullPost = (post: PostSource) => {
   const article = toArticle(post);
   return { ...article, content: embedYoutubeLinks(article.content) };
 };
+
+// Props built by the functions above, as received by the components
+export type Summary = ReturnType<typeof toSummary>;
+export type PodcastSummary = ReturnType<typeof toPodcastSummary>;
+export type FullPost = ReturnType<typeof toFullPost>;

@@ -1,5 +1,14 @@
 import { parseStringPromise } from "xml2js";
-import { PODCAST_SERIES } from "./normalize.js";
+import { PODCAST_SERIES } from "./normalize";
+import type {
+  NewsPost,
+  Post,
+  SectionName,
+  Sections,
+  WithCategories,
+  WpExport,
+  WpItem,
+} from "./types";
 
 const missingIMG = "/images/Logo_Nav_Missing.jpg";
 
@@ -213,29 +222,19 @@ const catValue5 = [
   "larp",
 ];
 
-const getAttachmentURL = (attachments, postMeta) => {
-  let attachmentId = null;
+const getAttachmentURL = (attachments: WpItem[], post: WpItem): string => {
+  const thumbnailId = post["wp:postmeta"]?.findLast(
+    (meta) => meta["wp:meta_key"][0] === "_thumbnail_id"
+  )?.["wp:meta_value"][0];
 
-  for (let metaKey in postMeta["wp:postmeta"]) {
-    if (
-      postMeta["wp:postmeta"][metaKey]["wp:meta_key"][0] === "_thumbnail_id"
-    ) {
-      attachmentId = postMeta["wp:postmeta"][metaKey]["wp:meta_value"][0];
-    }
-  }
+  const attachment = attachments.find(
+    (item) => item["wp:post_id"][0] === thumbnailId
+  );
 
-  for (let key in attachments) {
-    if (attachments[key]["wp:post_id"][0] === attachmentId) {
-      if (attachments[key]["guid"][0]["_"]) {
-        return attachments[key]["guid"][0]["_"];
-      }
-    }
-  }
-
-  return missingIMG;
+  return attachment?.guid?.[0]._ || missingIMG;
 };
 
-const getURL = (post, category) => {
+const getURL = (post: Post, category: "news" | "podcast"): string => {
   // In UTC, so the URL does not depend on the timezone of the machine building it
   const tempDate = new Date(post.publishedAt);
   const year = tempDate.getUTCFullYear();
@@ -250,10 +249,9 @@ const getURL = (post, category) => {
     case "podcast":
       return "/" + year + "/" + month + "/" + day + "/" + postName;
   }
-  return "";
 };
 
-const CATEGORY_PAGES = {
+const CATEGORY_PAGES: Record<string, string> = {
   podcast: "/podcast",
   news: "/news",
   "paris-gondo": "/paris_gondo",
@@ -266,7 +264,7 @@ const CATEGORY_PAGES = {
 
 const OLD_SITE_LINK = /href="https:\/\/rolistespod\.com(\/[^"]*)?"/g;
 
-const toSitePath = (path = "/", siteURLs) => {
+const toSitePath = (path = "/", siteURLs: Map<string, string>): string => {
   const [type, ...names] = path.split("/").filter(Boolean);
 
   if (type === "category") {
@@ -275,22 +273,24 @@ const toSitePath = (path = "/", siteURLs) => {
   }
   if (type === "tag") return "/podcast";
 
-  const slug = names[2];
-  if (/^\d{4}$/.test(type) && siteURLs.has(slug)) return siteURLs.get(slug);
+  const siteURL = /^\d{4}$/.test(type) ? siteURLs.get(names[2]) : undefined;
 
-  return path;
+  return siteURL ?? path;
 };
 
-export const replaceOldURL = (post, siteURLs = new Map()) =>
+export const replaceOldURL = (
+  post: string,
+  siteURLs = new Map<string, string>()
+): string =>
   post
     .replace(/\[audio/, "<audio controls")
     .replace(/mp3\"\]/, 'mp3"></audio><br>')
     .replace(
       OLD_SITE_LINK,
-      (match, path) => `href="${toSitePath(path, siteURLs)}"`
+      (match, path?: string) => `href="${toSitePath(path, siteURLs)}"`
     );
 
-const HTML_ENTITIES = {
+const HTML_ENTITIES: Record<string, string> = {
   amp: "&",
   lt: "<",
   gt: ">",
@@ -306,8 +306,8 @@ const HTML_ENTITIES = {
   mdash: "—",
 };
 
-const decodeEntities = (text) =>
-  text.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (match, code) => {
+const decodeEntities = (text: string): string =>
+  text.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (match, code: string) => {
     if (code[0] === "#") {
       const isHex = code[1].toLowerCase() === "x";
       return String.fromCodePoint(
@@ -323,7 +323,7 @@ const INLINE_TAGS =
   /<\/?(a|span|strong|b|em|i|u|del|sup|sub|small|mark|abbr|code)\b[^>]*>/gi;
 
 // The excerpt is rendered as text, so it must never contain markup
-const toPlainText = (html) =>
+const toPlainText = (html: string): string =>
   decodeEntities(
     html
       .replace(/<!--[\s\S]*?-->/g, " ")
@@ -334,24 +334,25 @@ const toPlainText = (html) =>
     .replace(/\s+/g, " ")
     .trim();
 
-export const getExcerpt = (content, wordLimit) =>
+export const getExcerpt = (content: string, wordLimit: number): string =>
   toPlainText(content).split(" ").slice(0, wordLimit).join(" ");
 
 // Day of publication as shown on the site, e.g. "Fri Jan 24 2020". It is taken
 // in UTC like the URLs, so it does not depend on the machine building the site.
-const toDisplayDate = (date) =>
+const toDisplayDate = (date: Date): string =>
   new Date(
     Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), 12)
   ).toDateString();
 
-const isPublished = (post, now) =>
+const isPublished = (post: Post, now: number): boolean =>
   post["wp:status"][0] === "publish" ||
   (post["wp:status"][0] === "future" && now > post.publishedAt);
 
-const byNewestFirst = (a, b) => b.publishedAt - a.publishedAt;
+const byNewestFirst = (a: Post, b: Post): number =>
+  b.publishedAt - a.publishedAt;
 
 // Categories listed on the public sections of the site
-const PUBLIC_SECTIONS = {
+const PUBLIC_SECTIONS: Record<string, SectionName> = {
   news: "news",
   podcast: "podcast",
   "our-games": "games",
@@ -360,7 +361,7 @@ const PUBLIC_SECTIONS = {
 };
 
 // Categories of the private posts used as page content
-const PRIVATE_SECTIONS = {
+const PRIVATE_SECTIONS: Record<string, SectionName> = {
   "paris-gondo-introduction": "introGondo",
   about: "about",
   "the-team": "theTeam",
@@ -369,7 +370,7 @@ const PRIVATE_SECTIONS = {
 };
 
 // Sections shown by date; the other ones keep the order of the export
-const SECTIONS_BY_DATE = [
+const SECTIONS_BY_DATE: SectionName[] = [
   "news",
   "podcast",
   "games",
@@ -379,7 +380,11 @@ const SECTIONS_BY_DATE = [
 ];
 
 // Fields added by each section on top of the post itself
-const sectionFields = (section, post, attachments) => {
+const sectionFields = (
+  section: SectionName,
+  post: Post,
+  attachments: WpItem[]
+): Partial<NewsPost> => {
   switch (section) {
     case "news":
     case "games":
@@ -401,8 +406,10 @@ const sectionFields = (section, post, attachments) => {
   }
 };
 
-export async function fetchPostsHelper(xml) {
-  const result = await parseStringPromise(xml);
+export async function fetchPostsHelper(
+  xml: string | Buffer
+): Promise<Sections> {
+  const result: WpExport = await parseStringPromise(xml);
   const items = result.rss.channel[0].item;
 
   const attachments = items.filter(
@@ -413,7 +420,7 @@ export async function fetchPostsHelper(xml) {
   // never modify the parsed objects
   const posts = items
     .filter((item) => item["wp:post_type"][0] !== "attachment")
-    .map((item, index) => {
+    .map((item, index): Post => {
       const publishDate = new Date(item.pubDate[0]);
       return {
         ...item,
@@ -426,7 +433,7 @@ export async function fetchPostsHelper(xml) {
   const now = Date.now();
 
   // Address of each published post on this site, to fix the old links to it
-  const siteURLs = new Map();
+  const siteURLs = new Map<string, string>();
   for (const post of posts) {
     if (!post.category || !isPublished(post, now)) continue;
 
@@ -446,16 +453,18 @@ export async function fetchPostsHelper(xml) {
     ];
   }
 
+  // Filled section by section below, with the fields each section needs, so
+  // the result matches Sections even though TypeScript cannot follow it
   const sections = Object.fromEntries(
     [...Object.values(PUBLIC_SECTIONS), ...Object.values(PRIVATE_SECTIONS)].map(
       (section) => [section, []]
     )
-  );
+  ) as unknown as Record<SectionName, Post[]>;
 
   for (const post of posts) {
     if (!post.category) continue;
 
-    let sectionsOfPost = {};
+    let sectionsOfPost: Record<string, SectionName> = {};
     if (isPublished(post, now)) sectionsOfPost = PUBLIC_SECTIONS;
     else if (post["wp:status"][0] === "private")
       sectionsOfPost = PRIVATE_SECTIONS;
@@ -475,19 +484,25 @@ export async function fetchPostsHelper(xml) {
     sections[section].sort(byNewestFirst);
   }
 
-  return sections;
+  return sections as Sections;
 }
 
-export async function searchPost(posts, pageTitle) {
-  for (let i = 0; i < posts.length; i++) {
-    if (posts[i]["wp:post_name"][0] === pageTitle) {
-      return i;
-    }
-  }
+// Index of the post with this slug, or undefined
+export async function searchPost(
+  posts: WpItem[],
+  pageTitle: string
+): Promise<number | undefined> {
+  const index = posts.findIndex(
+    (post) => post["wp:post_name"][0] === pageTitle
+  );
+  return index === -1 ? undefined : index;
 }
 
 // Fewer posts than asked for is fine: only the existing ones are returned
-export async function searchLatest(posts, amountToReturn) {
+export async function searchLatest<T extends object>(
+  posts: T[],
+  amountToReturn: number
+): Promise<(T & { latest: boolean; id: number })[]> {
   return posts.slice(0, amountToReturn).map((post, i) => ({
     ...post,
     latest: i === 0,
@@ -495,51 +510,50 @@ export async function searchLatest(posts, amountToReturn) {
   }));
 }
 
-export async function searchPostsBasedOnCategory(posts, category) {
-  const postsFromCategory = [];
-
-  for (let i = 0; i < posts.length; i++) {
-    for (let j = 0; j < posts[i]["category"].length; j++) {
-      if (posts[i]["category"][j]["$"]["nicename"] === category) {
-        postsFromCategory.push(posts[i]);
-      }
-    }
-  }
-
-  // sizePodcast = postsFromCategory.length;
-  return postsFromCategory;
+export async function searchPostsBasedOnCategory<T extends WithCategories>(
+  posts: T[],
+  category: string
+): Promise<T[]> {
+  return posts.filter((post) => nicenamesOf(post).includes(category));
 }
 
 // Weight of a shared category when scoring recommendations: generic tags count
 // for nothing, games, publishers, guests and places count more.
 const DEFAULT_CATEGORY_WEIGHT = 1;
-const CATEGORY_WEIGHTS = new Map(
-  [
-    [catValue0, 0],
-    [catValue2, 2],
-    [catValue3, 3],
-    [catValue4, 4],
-    [catValue5, 5],
-  ].flatMap(([categories, weight]) =>
-    categories.map((category) => [category, weight])
+const CATEGORY_WEIGHTS = new Map<string, number>(
+  (
+    [
+      [catValue0, 0],
+      [catValue2, 2],
+      [catValue3, 3],
+      [catValue4, 4],
+      [catValue5, 5],
+    ] as const
+  ).flatMap(([categories, weight]) =>
+    categories.map((category): [string, number] => [category, weight])
   )
 );
 
-const getValueCategory = (category) =>
+const getValueCategory = (category: string): number =>
   CATEGORY_WEIGHTS.get(category) ?? DEFAULT_CATEGORY_WEIGHT;
 
-const nicenamesOf = (post) =>
-  post["category"].map((category) => category["$"]["nicename"]);
+const nicenamesOf = (post: WithCategories): string[] =>
+  (post.category ?? []).map((category) => category.$.nicename);
 
-export async function searchRecommendedPosts(postToRead, posts) {
+export async function searchRecommendedPosts<
+  T extends WithCategories & { pubDate: string[] },
+>(
+  postToRead: T,
+  posts: T[]
+): Promise<(T & { amountMatchCategories: number; id: number })[]> {
   // A nicename can appear twice on a post (as a category and as a tag), and
   // each occurrence counts, so occurrences are counted rather than deduplicated.
-  const currentCategories = new Map();
+  const currentCategories = new Map<string, number>();
   for (const name of nicenamesOf(postToRead)) {
     currentCategories.set(name, (currentCategories.get(name) ?? 0) + 1);
   }
 
-  const scored = [];
+  const scored: { post: T; score: number; id: number }[] = [];
   posts.forEach((post, i) => {
     if (post === postToRead) return;
 
@@ -553,7 +567,7 @@ export async function searchRecommendedPosts(postToRead, posts) {
   scored.sort(
     (a, b) =>
       b.score - a.score ||
-      new Date(b.post["pubDate"][0]) - new Date(a.post["pubDate"][0])
+      Date.parse(b.post.pubDate[0]) - Date.parse(a.post.pubDate[0])
   );
 
   return scored.slice(0, 2).map(({ post, score, id }) => ({
@@ -566,13 +580,15 @@ export async function searchRecommendedPosts(postToRead, posts) {
 // The latest episode, then the latest episode of each series. The first
 // episode is skipped when searching the series, so it is never shown twice;
 // a series without any other episode is left out.
-export async function searchLatestPodcast(posts) {
+export async function searchLatestPodcast<T extends WithCategories>(
+  posts: T[]
+): Promise<(T & { latest: boolean; id: number })[]> {
   if (posts.length === 0) return [];
 
   const [latest, ...others] = posts;
   const latestOfEachSeries = PODCAST_SERIES.map((series) =>
     others.find((post) => nicenamesOf(post).includes(series))
-  ).filter(Boolean);
+  ).filter((post): post is T => post !== undefined);
 
   return [latest, ...latestOfEachSeries].map((post, i) => ({
     ...post,

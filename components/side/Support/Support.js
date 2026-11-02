@@ -7,7 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Row, Col } from "react-bootstrap";
 import classes from "./Support.module.css";
-import { SOCIAL_LINKS } from "../../../helpers/social-links.js";
+import { SOCIAL_LINKS } from "../../../helpers/social-links";
 
 const DriveThruRPGButton = "/images/Icon_Drivethru.png";
 

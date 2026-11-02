@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
-import { toFullPost, toPodcastSummary, toSummary } from "./normalize.js";
+import { toFullPost, toPodcastSummary, toSummary } from "./normalize";
 
-const category = (nicename) => ({ $: { nicename } });
+const category = (nicename: string) => ({ $: { nicename } });
 
 describe("toSummary", () => {
   it("unwraps the xml2js arrays and defaults missing fields to null", () => {

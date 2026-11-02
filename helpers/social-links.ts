@@ -18,4 +18,4 @@ export const SOCIAL_LINKS = {
   paypal: "https://www.paypal.com/paypalme/rolistespod/",
   driveThruRPG: "https://www.drivethrurpg.com/index.php?affiliate_id=1289000",
   itchIo: "https://itch.io/?ac=6hKcoR9Jch",
-};
+} as const;

@@ -1,6 +1,6 @@
 import GondoLayout from "../../layouts/GondoLayout/GondoLayout";
-import { loadPosts } from "../../helpers/load-posts.js";
-import { toFullPost, toNewsSummary } from "../../helpers/normalize.js";
+import { loadPosts } from "../../helpers/load-posts";
+import { toFullPost, toNewsSummary } from "../../helpers/normalize";
 
 function GondoPage(props) {
   return <GondoLayout {...props} />;

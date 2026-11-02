@@ -3,7 +3,7 @@ import NavigationItem from "./NavigationItem/NavigationItem";
 import Logo from "../../Logo/Logo";
 // import patreonButton from '../../../public/images/become_a_patron_button_BnW - Black.png';
 import Link from "next/link";
-import { SOCIAL_LINKS } from "../../../helpers/social-links.js";
+import { SOCIAL_LINKS } from "../../../helpers/social-links";
 
 const patreonButton = "/images/become_a_patron_button_BnW - Black.png";
 

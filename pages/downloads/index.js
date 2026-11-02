@@ -1,7 +1,7 @@
 import DownloadsLayout from "../../layouts/DownloadsLayout/DownloadsLayout";
 
-import { loadPosts } from "../../helpers/load-posts.js";
-import { toArticle } from "../../helpers/normalize.js";
+import { loadPosts } from "../../helpers/load-posts";
+import { toArticle } from "../../helpers/normalize";
 
 function DownloadsPage(props) {
   return <DownloadsLayout {...props} />;

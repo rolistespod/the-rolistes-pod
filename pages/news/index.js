@@ -1,7 +1,7 @@
 import NewsLayout from "../../layouts/NewsLayout/NewsLayout";
 
-import { loadPosts } from "../../helpers/load-posts.js";
-import { toNewsSummary } from "../../helpers/normalize.js";
+import { loadPosts } from "../../helpers/load-posts";
+import { toNewsSummary } from "../../helpers/normalize";
 
 function NewsListPage(props) {
   return <NewsLayout {...props} />;

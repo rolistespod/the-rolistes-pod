@@ -1,8 +1,8 @@
 import PodcastLayout from "../../layouts/PodcastLayout/PodcastLayout";
 
-import { searchPostsBasedOnCategory } from "../../helpers/api-util.js";
-import { loadPosts } from "../../helpers/load-posts.js";
-import { toPodcastSummary } from "../../helpers/normalize.js";
+import { searchPostsBasedOnCategory } from "../../helpers/api-util";
+import { loadPosts } from "../../helpers/load-posts";
+import { toPodcastSummary } from "../../helpers/normalize";
 
 function PodcastListPage(props) {
   return <PodcastLayout {...props} />;

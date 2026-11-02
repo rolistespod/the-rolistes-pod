@@ -1,7 +1,7 @@
 import AboutUsLayout from "../../layouts/AboutUsLayout/AboutUsLayout";
 
-import { loadPosts } from "../../helpers/load-posts.js";
-import { toArticle } from "../../helpers/normalize.js";
+import { loadPosts } from "../../helpers/load-posts";
+import { toArticle } from "../../helpers/normalize";
 
 function AboutPage(props) {
   return <AboutUsLayout {...props} />;

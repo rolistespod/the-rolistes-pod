@@ -86,6 +86,8 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} run lint
       - name: Check formatting
         run: ${{ steps.detect-package-manager.outputs.manager }} run format:check
+      - name: Type check
+        run: ${{ steps.detect-package-manager.outputs.manager }} run typecheck
       - name: Test
         run: ${{ steps.detect-package-manager.outputs.manager }} test
       # Runs after the checks above, because it rewrites next.config.js

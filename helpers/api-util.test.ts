@@ -6,7 +6,7 @@ import {
   searchLatest,
   searchLatestPodcast,
   searchRecommendedPosts,
-} from "./api-util.js";
+} from "./api-util";
 
 describe("getExcerpt", () => {
   it("keeps the first words of the plain text", () => {
@@ -54,7 +54,7 @@ describe("replaceOldURL", () => {
   });
 
   it("sends the section categories to their page", () => {
-    const page = (category) =>
+    const page = (category: string) =>
       replaceOldURL(
         `<a href="https://rolistespod.com/category/${category}/">x</a>`
       );
@@ -124,7 +124,7 @@ describe("searchLatest", () => {
 });
 
 describe("searchLatestPodcast", () => {
-  const episode = (name, ...series) => ({
+  const episode = (name: string, ...series: string[]) => ({
     name,
     category: [{ $: { nicename: "podcast" } }].concat(
       series.map((nicename) => ({ $: { nicename } }))
@@ -173,6 +173,15 @@ describe("fetchPostsHelper", () => {
     meta = "",
     guid = "",
     content = '<a href="https://rolistespod.com/category/news/">News</a>',
+  }: {
+    type?: string;
+    status?: string;
+    date: string;
+    name: string;
+    categories?: string[];
+    meta?: string;
+    guid?: string;
+    content?: string;
   }) => `
     <item>
       <title>${name}</title>
@@ -187,7 +196,7 @@ describe("fetchPostsHelper", () => {
       ${meta}
     </item>`;
 
-  const xml = (...items) => `<?xml version="1.0"?>
+  const xml = (...items: string[]) => `<?xml version="1.0"?>
     <rss xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wp="http://wordpress.org/export/1.2/">
       <channel>${items.join("")}</channel>
     </rss>`;
@@ -270,7 +279,7 @@ describe("fetchPostsHelper", () => {
 });
 
 describe("searchRecommendedPosts", () => {
-  const post = (date, ...nicenames) => ({
+  const post = (date: string, ...nicenames: string[]) => ({
     pubDate: [date],
     category: nicenames.map((nicename) => ({ $: { nicename } })),
   });

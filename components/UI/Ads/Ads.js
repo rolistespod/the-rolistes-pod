@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import classes from "./Ads.module.css";
 import { Row, Col } from "react-bootstrap";
-import { SOCIAL_LINKS } from "../../../helpers/social-links.js";
+import { SOCIAL_LINKS } from "../../../helpers/social-links";
 
 const adsIMG = "/images/Banner_DriveThruRPG_BnW.png";
 

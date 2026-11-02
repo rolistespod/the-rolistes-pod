@@ -4,9 +4,9 @@ import {
   searchPost,
   searchLatest,
   searchRecommendedPosts,
-} from "../../../../helpers/api-util.js";
-import { loadPosts } from "../../../../helpers/load-posts.js";
-import { toFullPost, toSummary } from "../../../../helpers/normalize.js";
+} from "../../../../helpers/api-util";
+import { loadPosts } from "../../../../helpers/load-posts";
+import { toFullPost, toSummary } from "../../../../helpers/normalize";
 
 function PodcastPage(props) {
   return <PostLayout {...props} type="FULLPOST" />;

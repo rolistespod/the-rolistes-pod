@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { embedYoutubeLinks } from "./youtube.js";
+import { embedYoutubeLinks } from "./youtube";
 
 describe("embedYoutubeLinks", () => {
   it("leaves empty content and content without video unchanged", () => {

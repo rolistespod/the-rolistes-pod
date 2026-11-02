@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import classes from "../Footer.module.css";
 import { Row, Col } from "react-bootstrap";
-import { SOCIAL_LINKS } from "../../../helpers/social-links.js";
+import { SOCIAL_LINKS } from "../../../helpers/social-links";
 
 const appleButton = "/images/Buttons_Apple_BnW.png";
 const spotifyButton = "/images/Buttons_Spotify_BnW.png";

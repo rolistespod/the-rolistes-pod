@@ -7,7 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classes from "../Footer.module.css";
 import { Row, Col } from "react-bootstrap";
-import { SOCIAL_LINKS } from "../../../helpers/social-links.js";
+import { SOCIAL_LINKS } from "../../../helpers/social-links";
 
 const Follow = (props) => {
   return (

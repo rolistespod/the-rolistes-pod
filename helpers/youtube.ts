@@ -4,14 +4,16 @@ const YOUTUBE_ID =
   /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([^& \n<]+)(?:[^ \n<]+)?/g;
 const LINK = /<a([^>]+)>(.+?)<\/a>/g;
 
-const createYoutubeEmbed = (videoId) =>
+const createYoutubeEmbed = (videoId: string): string =>
   '<iframe  src="https://www.youtube.com/embed/' +
   videoId +
   '" frameBorder="0" allowfullscreen></iframe><br/>';
 
 // Replaces bare YouTube URLs in the post HTML with an embedded player.
 // URLs inside <a> tags are set aside first so they stay regular links.
-export const embedYoutubeLinks = (html) => {
+export const embedYoutubeLinks = (
+  html: string | null | undefined
+): string | null | undefined => {
   if (!html) return html;
 
   const videoUrls = html.match(YOUTUBE_URL);

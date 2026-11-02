@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Row, Col } from "react-bootstrap";
 import classes from "../Footer.module.css";
-import { SOCIAL_LINKS } from "../../../helpers/social-links.js";
+import { SOCIAL_LINKS } from "../../../helpers/social-links";
 
 const paypalButton = "/images/Buttons_PayPal_BnW.png";
 const patreonButton = "/images/Buttons_Patreon_BnW.png";

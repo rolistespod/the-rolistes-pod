@@ -9,7 +9,7 @@ import PaginationList from "../../components/UI/PaginationList/PaginationList";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
-import { PODCAST_SERIES } from "../../helpers/normalize.js";
+import { PODCAST_SERIES } from "../../helpers/normalize";
 
 const ALL = "podcast";
 

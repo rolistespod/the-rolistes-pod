@@ -3,14 +3,15 @@ import AboutPost from "../../components/AboutPost/AboutPost";
 import TeamPost from "../../components/TeamPost/TeamPost";
 import { Col, Container, Row } from "react-bootstrap";
 import Footer from "../../components/Footer/Footer";
-import Head from "next/head";
+import Seo from "../../components/Seo/Seo";
 
 const AboutUsLayout = (props) => (
   <Fragment>
-    <Head>
-      <title>The Rolistes Podcast - About Us</title>
-      <meta name="description" content="" />
-    </Head>
+    <Seo
+      title="The Rolistes Podcast - About Us"
+      description="Meet The Rolistes, the London-based team behind The Rolistes Podcast, its tabletop RPG shows and games."
+      path="/about_us"
+    />
     <Container>
       <Row>
         <Col xs={12} className="no_padding_right no_padding_smallscreen">

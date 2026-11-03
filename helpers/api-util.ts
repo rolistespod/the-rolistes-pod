@@ -1,5 +1,6 @@
 import { parseStringPromise } from "xml2js";
 import { PODCAST_SERIES } from "./normalize";
+import { getExcerpt } from "./text";
 import type {
   NewsPost,
   Post,
@@ -290,53 +291,6 @@ export const replaceOldURL = (
       (match, path?: string) => `href="${toSitePath(path, siteURLs)}"`
     );
 
-const HTML_ENTITIES: Record<string, string> = {
-  amp: "&",
-  lt: "<",
-  gt: ">",
-  quot: '"',
-  apos: "'",
-  nbsp: " ",
-  hellip: "…",
-  lsquo: "‘",
-  rsquo: "’",
-  ldquo: "“",
-  rdquo: "”",
-  ndash: "–",
-  mdash: "—",
-};
-
-const decodeEntities = (text: string): string =>
-  text.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (match, code: string) => {
-    if (code[0] === "#") {
-      const isHex = code[1].toLowerCase() === "x";
-      return String.fromCodePoint(
-        parseInt(code.slice(isHex ? 2 : 1), isHex ? 16 : 10)
-      );
-    }
-    return HTML_ENTITIES[code.toLowerCase()] ?? match;
-  });
-
-// Inline tags can start or end mid-word (e.g. "P<a>andemonium</a>"), so they
-// are removed without a space; block tags separate words and become a space.
-const INLINE_TAGS =
-  /<\/?(a|span|strong|b|em|i|u|del|sup|sub|small|mark|abbr|code)\b[^>]*>/gi;
-
-// The excerpt is rendered as text, so it must never contain markup
-const toPlainText = (html: string): string =>
-  decodeEntities(
-    html
-      .replace(/<!--[\s\S]*?-->/g, " ")
-      .replace(INLINE_TAGS, "")
-      .replace(/<[^>]+>/g, " ")
-      .replace(/\[\/?[a-z_]+[^\]]*\]/gi, " ")
-  )
-    .replace(/\s+/g, " ")
-    .trim();
-
-export const getExcerpt = (content: string, wordLimit: number): string =>
-  toPlainText(content).split(" ").slice(0, wordLimit).join(" ");
-
 // Day of publication as shown on the site, e.g. "Fri Jan 24 2020". It is taken
 // in UTC like the URLs, so it does not depend on the machine building the site.
 const toDisplayDate = (date: Date): string =>
@@ -351,7 +305,6 @@ const isPublished = (post: Post, now: number): boolean =>
 const byNewestFirst = (a: Post, b: Post): number =>
   b.publishedAt - a.publishedAt;
 
-// Categories listed on the public sections of the site
 const PUBLIC_SECTIONS: Record<string, SectionName> = {
   news: "news",
   podcast: "podcast",
@@ -360,7 +313,6 @@ const PUBLIC_SECTIONS: Record<string, SectionName> = {
   "coming-soon": "comingSoon",
 };
 
-// Categories of the private posts used as page content
 const PRIVATE_SECTIONS: Record<string, SectionName> = {
   "paris-gondo-introduction": "introGondo",
   about: "about",
@@ -369,7 +321,6 @@ const PRIVATE_SECTIONS: Record<string, SectionName> = {
   "downloads-per-title": "downloadsPerTitle",
 };
 
-// Sections shown by date; the other ones keep the order of the export
 const SECTIONS_BY_DATE: SectionName[] = [
   "news",
   "podcast",
@@ -379,7 +330,6 @@ const SECTIONS_BY_DATE: SectionName[] = [
   "comingSoon",
 ];
 
-// Fields added by each section on top of the post itself
 const sectionFields = (
   section: SectionName,
   post: Post,
@@ -416,8 +366,6 @@ export async function fetchPostsHelper(
     (item) => item["wp:post_type"][0] === "attachment"
   );
 
-  // Copies of the parsed items, so the display date and the rewritten content
-  // never modify the parsed objects
   const posts = items
     .filter((item) => item["wp:post_type"][0] !== "attachment")
     .map((item, index): Post => {
@@ -432,7 +380,6 @@ export async function fetchPostsHelper(
 
   const now = Date.now();
 
-  // Address of each published post on this site, to fix the old links to it
   const siteURLs = new Map<string, string>();
   for (const post of posts) {
     if (!post.category || !isPublished(post, now)) continue;
@@ -453,8 +400,6 @@ export async function fetchPostsHelper(
     ];
   }
 
-  // Filled section by section below, with the fields each section needs, so
-  // the result matches Sections even though TypeScript cannot follow it
   const sections = Object.fromEntries(
     [...Object.values(PUBLIC_SECTIONS), ...Object.values(PRIVATE_SECTIONS)].map(
       (section) => [section, []]
@@ -487,7 +432,6 @@ export async function fetchPostsHelper(
   return sections as Sections;
 }
 
-// Index of the post with this slug, or undefined
 export async function searchPost(
   posts: WpItem[],
   pageTitle: string
@@ -498,7 +442,6 @@ export async function searchPost(
   return index === -1 ? undefined : index;
 }
 
-// Fewer posts than asked for is fine: only the existing ones are returned
 export async function searchLatest<T extends object>(
   posts: T[],
   amountToReturn: number
@@ -517,8 +460,6 @@ export async function searchPostsBasedOnCategory<T extends WithCategories>(
   return posts.filter((post) => nicenamesOf(post).includes(category));
 }
 
-// Weight of a shared category when scoring recommendations: generic tags count
-// for nothing, games, publishers, guests and places count more.
 const DEFAULT_CATEGORY_WEIGHT = 1;
 const CATEGORY_WEIGHTS = new Map<string, number>(
   (
@@ -540,15 +481,13 @@ const getValueCategory = (category: string): number =>
 const nicenamesOf = (post: WithCategories): string[] =>
   (post.category ?? []).map((category) => category.$.nicename);
 
-// postToRead can be of another type than the posts, e.g. a news recommending episodes
 export async function searchRecommendedPosts<
   T extends WithCategories & { pubDate: string[] },
 >(
   postToRead: WithCategories,
   posts: T[]
 ): Promise<(T & { amountMatchCategories: number; id: number })[]> {
-  // A nicename can appear twice on a post (as a category and as a tag), and
-  // each occurrence counts, so occurrences are counted rather than deduplicated.
+  
   const currentCategories = new Map<string, number>();
   for (const name of nicenamesOf(postToRead)) {
     currentCategories.set(name, (currentCategories.get(name) ?? 0) + 1);
@@ -578,9 +517,6 @@ export async function searchRecommendedPosts<
   }));
 }
 
-// The latest episode, then the latest episode of each series. The first
-// episode is skipped when searching the series, so it is never shown twice;
-// a series without any other episode is left out.
 export async function searchLatestPodcast<T extends WithCategories>(
   posts: T[]
 ): Promise<(T & { latest: boolean; id: number })[]> {

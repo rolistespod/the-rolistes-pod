@@ -7,7 +7,7 @@ import Ads from "../../components/UI/Ads/Ads";
 import Footer from "../../components/Footer/Footer";
 import PaginationList from "../../components/UI/PaginationList/PaginationList";
 import { useRouter } from "next/router";
-import Head from "next/head";
+import Seo from "../../components/Seo/Seo";
 
 import { PODCAST_SERIES, type PodcastSummary } from "../../helpers/normalize";
 import usePagination from "../../hooks/usePagination";
@@ -58,10 +58,11 @@ const PodcastLayout = ({ podcasts }: PodcastLayoutProps) => {
 
   return (
     <Fragment>
-      <Head>
-        <title>The Rolistes Podcast - Podcasts</title>
-        <meta name="description" content="" />
-      </Head>
+      <Seo
+        title="The Rolistes Podcast - Podcasts"
+        description="Every episode of The Rolistes Podcast, The Rolistes Present, Café Rolistes and Film Studies: tabletop RPG discussions, actual plays and interviews."
+        path="/podcast"
+      />
       <Container>
         <Ads />
         <div className="item_box no_padding_smallscreen">

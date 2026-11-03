@@ -1,3 +1,4 @@
+import { getDescription } from "./text";
 import { embedYoutubeLinks } from "./youtube";
 import type { WithCategories } from "./types";
 
@@ -8,8 +9,6 @@ export const PODCAST_SERIES = [
   "film-studies",
 ];
 
-// Any post of the helpers: the fields are optional, so the page props can be
-// built from a post of any section
 type PostSource = WithCategories & {
   id: string | number;
   title?: string | string[];
@@ -51,13 +50,19 @@ export const toArticle = (post: PostSource) => ({
   content: first(post["content:encoded"]),
 });
 
-// Article rendered by FullPost: YouTube links are turned into players at build time
+const DESCRIPTION_WORDS = 25;
+
 export const toFullPost = (post: PostSource) => {
   const article = toArticle(post);
-  return { ...article, content: embedYoutubeLinks(article.content) };
+  return {
+    ...article,
+    content: embedYoutubeLinks(article.content),
+    description: getDescription(article.content ?? "", DESCRIPTION_WORDS),
+    image: post.cover ?? null,
+    url: post.url ?? null,
+  };
 };
 
-// Props built by the functions above, as received by the components
 export type Summary = ReturnType<typeof toSummary>;
 export type PodcastSummary = ReturnType<typeof toPodcastSummary>;
 export type FullPost = ReturnType<typeof toFullPost>;

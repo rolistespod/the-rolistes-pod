@@ -49,4 +49,19 @@ describe("toFullPost", () => {
 
     expect(post.content).toContain("https://www.youtube.com/embed/abc123");
   });
+
+  it("describes the page with the start of its text, without markup", () => {
+    const words = Array.from({ length: 40 }, (_, i) => `word${i}`).join(" ");
+    const post = toFullPost({
+      id: "1",
+      "content:encoded": [`<p><strong>Hello</strong> ${words}</p>`],
+      cover: "https://host/cover.jpg",
+      url: "/2020/1/24/episode",
+    });
+
+    expect(post.description.split(" ")).toHaveLength(25);
+    expect(post.description.startsWith("Hello word0")).toBe(true);
+    expect(post.image).toBe("https://host/cover.jpg");
+    expect(post.url).toBe("/2020/1/24/episode");
+  });
 });

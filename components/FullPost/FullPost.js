@@ -2,7 +2,6 @@ import { Fragment } from "react";
 import classes from "./FullPost.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
-import Head from "next/head";
 
 const FullPost = (props) => {
   let classIMG = [classes.fullPost, classes.fullPostNotPodcast].join(" ");
@@ -13,10 +12,6 @@ const FullPost = (props) => {
 
   return (
     <Fragment>
-      <Head>
-        <title>{props.title}</title>
-        <meta name="description" content="" />
-      </Head>
       <div className="item_box_left">
         <h1 className="section_title section_title_article">{props.title}</h1>
 

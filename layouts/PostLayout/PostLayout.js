@@ -5,6 +5,7 @@ import Follow from "../../components/side/Follow/Follow";
 import Support from "../../components/side/Support/Support";
 import Footer from "../../components/Footer/Footer";
 import FullPost from "../../components/FullPost/FullPost";
+import Seo from "../../components/Seo/Seo";
 import RecommendedPosts from "../../components/side/Recommended/RecommendedPosts";
 import RecentPosts from "../../components/side/Recent/RecentPosts";
 
@@ -13,6 +14,13 @@ const PostLayout = (props) => {
 
   return (
     <Fragment>
+      <Seo
+        title={fullPost.title}
+        description={fullPost.description}
+        path={fullPost.url}
+        image={fullPost.image}
+        type="article"
+      />
       <Container>
         <Ads />
         <Row>

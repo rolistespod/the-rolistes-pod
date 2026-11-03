@@ -6,7 +6,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import Follow from "../../components/side/Follow/Follow";
 import Support from "../../components/side/Support/Support";
 import Footer from "../../components/Footer/Footer";
-import Head from "next/head";
+import Seo from "../../components/Seo/Seo";
 import usePagination from "../../hooks/usePagination";
 
 const postPerPage = 10;
@@ -19,10 +19,11 @@ const NewsLayout = (props) => {
 
   return (
     <Fragment>
-      <Head>
-        <title>The Rolistes Podcast - News</title>
-        <meta name="description" content="" />
-      </Head>
+      <Seo
+        title="The Rolistes Podcast - News"
+        description="News from The Rolistes: new episodes, conventions, live panels and our tabletop RPG games."
+        path="/news"
+      />
       <Container>
         <Ads />
         <Row>

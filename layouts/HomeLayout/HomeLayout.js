@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import Footer from "../../components/Footer/Footer";
 import { Container } from "react-bootstrap";
-import Head from "next/head";
+import Seo from "../../components/Seo/Seo";
 import ComingSoon from "../../components/ComingSoon/ComingSoon";
 import Banner from "../../components/UI/Banner/Banner";
 import LatestPodcast from "../../components/Latest/LatestPodcast/LatestPodcast";
@@ -10,10 +10,11 @@ import LatestNews from "../../components/Latest/LatestNews/LatestNews";
 
 const HomeLayout = (props) => (
   <Fragment>
-    <Head>
-      <title>The Rolistes Podcast - Home</title>
-      <meta name="description" content="" />
-    </Head>
+    <Seo
+      title="The Rolistes Podcast - Home"
+      description="London-based tabletop RPG podcasts showcasing fans across the Channel, the Pond and beyond: discussions, actual plays, interviews and convention reports."
+      path="/"
+    />
     <Container>
       {props.latestComingSoon && (
         <ComingSoon latestComingSoon={props.latestComingSoon} />

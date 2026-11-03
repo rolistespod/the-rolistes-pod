@@ -1,36 +1,11 @@
 import { describe, expect, it } from "vitest";
 import {
   fetchPostsHelper,
-  getExcerpt,
   replaceOldURL,
   searchLatest,
   searchLatestPodcast,
   searchRecommendedPosts,
 } from "./api-util";
-
-describe("getExcerpt", () => {
-  it("keeps the first words of the plain text", () => {
-    expect(getExcerpt("<p>one two three four</p>", 2)).toBe("one two");
-  });
-
-  it("joins words split by inline tags and separates blocks", () => {
-    expect(
-      getExcerpt("<p>P<strong>andemonium</strong> rules</p><p>Next</p>", 10)
-    ).toBe("Pandemonium rules Next");
-  });
-
-  it("decodes HTML entities", () => {
-    expect(getExcerpt("Rock &amp; Roll&#8217;s &hellip;", 10)).toBe(
-      "Rock & Roll’s …"
-    );
-  });
-
-  it("removes comments and WordPress shortcodes", () => {
-    expect(
-      getExcerpt('<!-- wp:audio -->[audio mp3="ep.mp3"][/audio] Listen now', 10)
-    ).toBe("Listen now");
-  });
-});
 
 describe("replaceOldURL", () => {
   it("turns WordPress links into links of this site", () => {

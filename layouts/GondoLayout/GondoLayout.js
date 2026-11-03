@@ -7,7 +7,7 @@ import Follow from "../../components/side/Follow/Follow";
 import Ads from "../../components/UI/Ads/Ads";
 import Support from "../../components/side/Support/Support";
 import Footer from "../../components/Footer/Footer";
-import Head from "next/head";
+import Seo from "../../components/Seo/Seo";
 import usePagination from "../../hooks/usePagination";
 
 const postPerPage = 10;
@@ -20,10 +20,11 @@ const GondoLayout = (props) => {
 
   return (
     <Fragment>
-      <Head>
-        <title>The Rolistes Podcast - Paris Gondo</title>
-        <meta name="description" content="" />
-      </Head>
+      <Seo
+        title="The Rolistes Podcast - Paris Gondo"
+        description="Paris Gondo – The Life-Saving Magic of Inventorying, the tabletop RPG by The Rolistes: news, conventions and where to find it."
+        path="/paris_gondo"
+      />
       <Container>
         <Ads />
         <Row>
